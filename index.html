@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microeconomics Interactive Learning</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="../视觉资产/avatar.jpg" alt="Logo">
+                <h1>Microeconomics Interactive Lab</h1>
+            </div>
+            <div class="language-switch">
+                <button id="lang-en" class="lang-btn active">EN</button>
+                <button id="lang-cn" class="lang-btn">中文</button>
+            </div>
+        </header>
+        
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="quiz"><i class="fas fa-question-circle"></i> <span data-key="tab_quiz">Knowledge Quiz</span></button>
+            <button class="tab-btn" data-tab="flashcards"><i class="fas fa-layer-group"></i> <span data-key="tab_flashcards">Concept Flashcards</span></button>
+        </nav>
+        
+        <main>
+            <div id="quiz-tab" class="tab-content active">
+                <div class="quiz-header">
+                    <h2 data-key="quiz_title">Supply & Demand Quiz</h2>
+                    <p data-key="quiz_desc">Test your understanding of basic microeconomics concepts. 10 multiple‑choice questions, bilingual support.</p>
+                    <div class="quiz-meta">
+                        <span><i class="fas fa-clock"></i> <span data-key="quiz_time">Time limit: 15 min</span></span>
+                        <span><i class="fas fa-star"></i> <span data-key="quiz_score">Score: 0/100</span></span>
+                    </div>
+                </div>
+                
+                <div class="quiz-container">
+                    <div id="question-container">
+                        <!-- Questions will be loaded here -->
+                    </div>
+                    
+                    <div class="quiz-controls">
+                        <button id="prev-btn" data-key="prev">Previous</button>
+                        <button id="next-btn" data-key="next">Next</button>
+                        <button id="submit-btn" data-key="submit">Submit Quiz</button>
+                    </div>
+                </div>
+                
+                <div id="result-container" class="hidden">
+                    <h3 data-key="result_title">Quiz Results</h3>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="score-value">0</span>%
+                        </div>
+                        <p id="score-message" data-key="score_default">Complete the quiz to see your score.</p>
+                    </div>
+                    <div id="answer-review">
+                        <!-- Review of answers will appear here -->
+                    </div>
+                    <button id="retry-btn" data-key="retry">Try Again</button>
+                </div>
+            </div>
+            
+            <div id="flashcards-tab" class="tab-content">
+                <div class="flashcards-header">
+                    <h2 data-key="flashcards_title">Core Concepts Flashcards</h2>
+                    <p data-key="flashcards_desc">Flip cards to learn 20 key microeconomics terms. Bilingual definitions and real‑life examples.</p>
+                    <div class="flashcards-meta">
+                        <span><i class="fas fa-layer-group"></i> <span data-key="flashcards_count">20 cards total</span></span>
+                        <span><i class="fas fa-check-circle"></i> <span data-key="flashcards_mastered">0 mastered</span></span>
+                    </div>
+                </div>
+                
+                <div class="flashcards-container">
+                    <div class="card-nav">
+                        <button id="prev-card" data-key="prev_card">← Previous</button>
+                        <span id="card-counter">Card <span id="current-card">1</span> of 20</span>
+                        <button id="next-card" data-key="next_card">Next →</button>
+                    </div>
+                    
+                    <div class="card-area">
+                        <div class="card" id="flashcard">
+                            <div class="card-front">
+                                <div class="card-term">
+                                    <h3 id="term-en">Demand</h3>
+                                    <p class="hint" data-key="card_flip">Click to flip</p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-definition">
+                                    <h4 data-key="definition">Definition</h4>
+                                    <p id="definition-cn">需求 - 消费者愿意且能够购买的商品数量</p>
+                                    <p id="definition-en">Quantity consumers are willing/able to buy at various prices</p>
+                                </div>
+                                <div class="card-example">
+                                    <h4 data-key="example">Example</h4>
+                                    <p id="example-text">When it's hot, you want more iced tea at every price / 天气热时，你在每个价格下都想喝更多冰茶</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-controls">
+                        <button id="flip-btn" data-key="flip"><i class="fas fa-sync-alt"></i> <span>Flip Card</span></button>
+                        <button id="master-btn" class="master-btn" data-key="mark_mastered"><i class="fas fa-check-circle"></i> Mark as Mastered</button>
+                        <button id="review-btn" class="review-btn" data-key="mark_review"><i class="fas fa-redo"></i> Needs Review</button>
+                    </div>
+                    
+                    <div class="progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 5%;"></div>
+                        </div>
+                        <div class="progress-labels">
+                            <span data-key="progress">Progress: <span id="progress-percent">5</span>%</span>
+                            <span data-key="mastered_cards">Mastered: <span id="mastered-count">0</span>/20</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p data-key="footer">Microeconomics Teaching Agent - Interactive Components Prototype. © 2026</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
