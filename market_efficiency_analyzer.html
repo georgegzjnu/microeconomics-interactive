@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Efficiency Analyzer | Microeconomics Interactive Lab</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 30px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .logo img {
+            height: 60px;
+            border-radius: 12px;
+        }
+        .logo h1 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        .chart-panel {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .chart-title {
+            font-size: 1.5rem;
+            color: #2980b9;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .chart-title i {
+            font-size: 1.3rem;
+        }
+        #main-chart {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            background: white;
+        }
+        .control-panel {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .scenario-selector {
+            margin-bottom: 30px;
+        }
+        .scenario-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .scenario-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px 20px;
+            background: #ecf0f1;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #34495e;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .scenario-btn:hover {
+            background: #d5dbdb;
+        }
+        .scenario-btn.active {
+            background: #3498db;
+            color: white;
+        }
+        .param-slider {
+            margin-bottom: 25px;
+        }
+        .param-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .param-value {
+            color: #3498db;
+            font-weight: 700;
+        }
+        .slider-container {
+            position: relative;
+            height: 30px;
+            background: #dfe6e9;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .slider-fill {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 15px;
+            transition: width 0.3s;
+        }
+        input[type="range"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .metrics-panel {
+            grid-column: 1 / -1;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .metric-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.03);
+            border-left: 5px solid #3498db;
+        }
+        .metric-card:nth-child(2) {
+            border-left-color: #2ecc71;
+        }
+        .metric-card:nth-child(3) {
+            border-left-color: #e74c3c;
+        }
+        .metric-card:nth-child(4) {
+            border-left-color: #f39c12;
+        }
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+        .metric-label {
+            font-size: 1rem;
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+        .unit {
+            font-size: 1rem;
+            color: #95a5a6;
+        }
+        .data-collection-notice {
+            background: #e8f4fc;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: #2c3e50;
+        }
+        .instructions {
+            background: #fff8e1;
+            border-left: 5px solid #f39c12;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            color: #2c3e50;
+        }
+        .instructions h3 {
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+        .instructions ul {
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        .bilingual {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .bilingual .en {
+            color: #2c3e50;
+        }
+        .bilingual .cn {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .reset-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .reset-btn:hover {
+            background: #c0392b;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eaeaea;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        .metric-change {
+            font-size: 0.9rem;
+            color: #27ae60;
+            font-weight: 600;
+        }
+        .metric-change.negative {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="../视觉资产/avatar.jpg" alt="Microeconomics Lab Logo">
+                <h1>Market Efficiency Analyzer</h1>
+            </div>
+            <p class="subtitle bilingual">
+                <span class="en">Interactive tool to explore consumer surplus, producer surplus, deadweight loss, and market efficiency under different policy scenarios.</span>
+                <span class="cn">交互式工具，探索不同政策场景下的消费者剩余、生产者剩余、无谓损失和市场效率。</span>
+            </p>
+        </header>
+
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> How to Use</h3>
+            <ul>
+                <li><strong>Select a scenario</strong> to load preset policy parameters (carbon tax, minimum wage, etc.)</li>
+                <li><strong>Adjust sliders</strong> to change tax rates, subsidy amounts, or price control levels</li>
+                <li><strong>Observe real‑time changes</strong> in the supply‑demand chart and efficiency metrics</li>
+                <li><strong>Data is recorded anonymously</strong> to help improve learning materials (no personal information collected)</li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="chart-panel">
+                <h2 class="chart-title"><i class="fas fa-chart-line"></i> Supply‑Demand Analysis</h2>
+                <div id="main-chart"></div>
+            </div>
+
+            <div class="control-panel">
+                <h2 class="chart-title"><i class="fas fa-sliders-h"></i> Policy Controls</h2>
+                
+                <div class="scenario-selector">
+                    <h3>Preset Scenarios</h3>
+                    <div class="scenario-buttons">
+                        <button class="scenario-btn active" data-scenario="carbon_tax">
+                            <i class="fas fa-industry"></i> Carbon Tax
+                        </button>
+                        <button class="scenario-btn" data-scenario="minimum_wage">
+                            <i class="fas fa-money-bill-wave"></i> Minimum Wage
+                        </button>
+                        <button class="scenario-btn" data-scenario="price_ceiling">
+                            <i class="fas fa-prescription-bottle"></i> Medicine Price Ceiling
+                        </button>
+                        <button class="scenario-btn" data-scenario="ev_subsidy">
+                            <i class="fas fa-car"></i> EV Subsidy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="param-slider">
+                    <div class="param-label">
+                        <span>Tax Rate</span>
+                        <span class="param-value" id="tax-value">0%</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-fill" id="tax-fill" style="width: 0%;"></div>
+                        <input type="range" id="tax-slider" min="0" max="50" value="0" step="1">
+                    </div>
+                </div>
+
+                <div class="param-slider">
+                    <div class="param-label">
+                        <span>Subsidy Amount</span>
+                        <span class="param-value" id="subsidy-value">0</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-fill" id="subsidy-fill" style="width: 0%;"></div>
+                        <input type="range" id="subsidy-slider" min="0" max="100" value="0" step="5">
+                    </div>
+                </div>
+
+                <div class="param-slider">
+                    <div class="param-label">
+                        <span>Price Control Level</span>
+                        <span class="param-value" id="pricecontrol-value">0</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-fill" id="pricecontrol-fill" style="width: 50%;"></div>
+                        <input type="range" id="pricecontrol-slider" min="30" max="150" value="100" step="5">
+                    </div>
+                </div>
+
+                <button class="reset-btn" id="reset-btn">
+                    <i class="fas fa-redo"></i> Reset to Competitive Equilibrium
+                </button>
+            </div>
+
+            <div class="metrics-panel">
+                <h2 class="chart-title"><i class="fas fa-calculator"></i> Efficiency Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label bilingual">
+                            <span class="en">Consumer Surplus</span>
+                            <span class="cn">消费者剩余</span>
+                        </div>
+                        <div class="metric-value" id="cs-value">500</div>
+                        <div class="metric-change" id="cs-change">+0%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label bilingual">
+                            <span class="en">Producer Surplus</span>
+                            <span class="cn">生产者剩余</span>
+                        </div>
+                        <div class="metric-value" id="ps-value">500</div>
+                        <div class="metric-change" id="ps-change">+0%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label bilingual">
+                            <span class="en">Deadweight Loss</span>
+                            <span class="cn">无谓损失</span>
+                        </div>
+                        <div class="metric-value" id="dwl-value">0</div>
+                        <div class="metric-change" id="dwl-change">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label bilingual">
+                            <span class="en">Total Surplus</span>
+                            <span class="cn">总剩余</span>
+                        </div>
+                        <div class="metric-value" id="ts-value">1000</div>
+                        <div class="metric-change" id="ts-change">+0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-collection-notice">
+            <p><i class="fas fa-database"></i> <strong>Data Collection Notice</strong></p>
+            <p class="bilingual">
+                <span class="en">This tool anonymously records your interactions (scenario selections, parameter adjustments, time spent) to help us improve learning materials. No personal information is collected.</span>
+                <span class="cn">本工具匿名记录您的交互（场景选择、参数调整、花费时间），以帮助我们改进学习材料。不收集个人信息。</span>
+            </p>
+        </div>
+
+        <footer>
+            <p>Microeconomics Teaching Agent - Interactive Components Prototype | © 2026</p>
+            <p>Data recorded: <span id="record-count">0</span> sessions</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize ECharts instance
+        const chartDom = document.getElementById('main-chart');
+        const myChart = echarts.init(chartDom);
+
+        // Base parameters for competitive equilibrium
+        const baseParams = {
+            equilibriumPrice: 50,
+            equilibriumQuantity: 100,
+            demandIntercept: 150,
+            demandSlope: -1,
+            supplyIntercept: 10,
+            supplySlope: 0.4
+        };
+
+        // Current state
+        let currentState = {
+            scenario: 'carbon_tax',
+            taxRate: 0, // percentage
+            subsidy: 0, // monetary amount
+            priceControl: 100 // percentage of equilibrium price
+        };
+
+        // Data collection
+        const STORAGE_KEY = 'market_efficiency_sessions';
+        let sessionStartTime = Date.now();
+        let interactionCount = 0;
+
+        // Initialize data recording
+        function initDataCollection() {
+            const sessionId = 'session_' + (localStorage.getItem('last_session_id') || '0');
+            const newSession = {
+                sessionId,
+                startTime: sessionStartTime,
+                scenario: currentState.scenario,
+                interactions: []
+            };
+            let sessions = getStoredData(STORAGE_KEY);
+            sessions.push(newSession);
+            saveData(STORAGE_KEY, sessions);
+            updateRecordCount();
+        }
+
+        function recordInteraction(type, details) {
+            let sessions = getStoredData(STORAGE_KEY);
+            if (sessions.length === 0) return;
+            const currentSession = sessions[sessions.length - 1];
+            currentSession.interactions.push({
+                type,
+                details,
+                timestamp: Date.now()
+            });
+            saveData(STORAGE_KEY, sessions);
+            interactionCount++;
+        }
+
+        function getStoredData(key) {
+            try {
+                const data = localStorage.getItem(key);
+                return data ? JSON.parse(data) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveData(key, data) {
+            try {
+                localStorage.setItem(key, JSON.stringify(data));
+            } catch (e) {}
+        }
+
+        function updateRecordCount() {
+            const sessions = getStoredData(STORAGE_KEY);
+            document.getElementById('record-count').textContent = sessions.length;
+        }
+
+        // Calculate supply and demand based on parameters
+        function calculateMarket(taxRate, subsidy, priceControlPercent) {
+            const eq = baseParams.equilibriumPrice;
+            const eqQ = baseParams.equilibriumQuantity;
+            const priceControl = eq * (priceControlPercent / 100);
+            
+            // Tax shifts supply curve upward
+            const supplyShift = taxRate / 100 * eq;
+            // Subsidy shifts demand curve upward
+            const demandShift = subsidy;
+            
+            // Determine effective price and quantity
+            let marketPrice, marketQuantity;
+            if (priceControlPercent !== 100) {
+                // Price control is binding
+                marketPrice = priceControl;
+                // Quantity is minimum of supply and demand at controlled price
+                const supplyQ = (marketPrice - baseParams.supplyIntercept - supplyShift) / baseParams.supplySlope;
+                const demandQ = (baseParams.demandIntercept + demandShift - marketPrice) / (-baseParams.demandSlope);
+                marketQuantity = Math.min(supplyQ, demandQ);
+            } else {
+                // No binding price control, find intersection
+                const adjustedSupplyIntercept = baseParams.supplyIntercept + supplyShift;
+                const adjustedDemandIntercept = baseParams.demandIntercept + demandShift;
+                // Solve: supplyIntercept + supplySlope * Q = demandIntercept + demandSlope * Q
+                marketQuantity = (adjustedDemandIntercept - adjustedSupplyIntercept) / (baseParams.supplySlope - baseParams.demandSlope);
+                marketPrice = adjustedSupplyIntercept + baseParams.supplySlope * marketQuantity;
+            }
+            
+            // Calculate surpluses
+            const cs = 0.5 * (baseParams.demandIntercept + demandShift - marketPrice) * marketQuantity;
+            const ps = 0.5 * (marketPrice - (baseParams.supplyIntercept + supplyShift)) * marketQuantity;
+            const ts = cs + ps;
+            
+            // Deadweight loss: difference from competitive equilibrium total surplus
+            const eqCS = 0.5 * (baseParams.demandIntercept - eq) * eqQ;
+            const eqPS = 0.5 * (eq - baseParams.supplyIntercept) * eqQ;
+            const eqTS = eqCS + eqPS;
+            const dwl = Math.max(0, eqTS - ts);
+            
+            // Generate data points for chart
+            const dataPoints = 20;
+            const priceMax = baseParams.demandIntercept + demandShift + 10;
+            const priceStep = priceMax / dataPoints;
+            let supplyPoints = [];
+            let demandPoints = [];
+            
+            for (let i = 0; i <= dataPoints; i++) {
+                const price = i * priceStep;
+                const supplyQ = Math.max(0, (price - (baseParams.supplyIntercept + supplyShift)) / baseParams.supplySlope);
+                const demandQ = Math.max(0, (baseParams.demandIntercept + demandShift - price) / (-baseParams.demandSlope));
+                supplyPoints.push([supplyQ, price]);
+                demandPoints.push([demandQ, price]);
+            }
+            
+            return {
+                marketPrice,
+                marketQuantity,
+                consumerSurplus: cs,
+                producerSurplus: ps,
+                totalSurplus: ts,
+                deadweightLoss: dwl,
+                equilibriumCS: eqCS,
+                equilibriumPS: eqPS,
+                equilibriumTS: eqTS,
+                supplyPoints,
+                demandPoints,
+                priceControl
+            };
+        }
+
+        // Update chart with current state
+        function updateChart() {
+            const result = calculateMarket(
+                currentState.taxRate,
+                currentState.subsidy,
+                currentState.priceControl
+            );
+            
+            // Prepare series data
+            const supplyLine = result.supplyPoints.map(p => [p[0], p[1]]);
+            const demandLine = result.demandPoints.map(p => [p[0], p[1]]);
+            
+            // Equilibrium point
+            const eqPoint = [
+                [baseParams.equilibriumQuantity, baseParams.equilibriumPrice]
+            ];
+            
+            // Market point
+            const marketPoint = [
+                [result.marketQuantity, result.marketPrice]
+            ];
+            
+            // Shaded areas for surpluses
+            const csArea = [];
+            const psArea = [];
+            const dwlArea = [];
+            
+            // Consumer surplus area (triangle under demand, above price, left of quantity)
+            csArea.push([0, result.marketPrice]);
+            for (let q = 0; q <= result.marketQuantity; q += result.marketQuantity / 10) {
+                const price = baseParams.demandIntercept - (-baseParams.demandSlope) * q;
+                if (price >= result.marketPrice) {
+                    csArea.push([q, price]);
+                }
+            }
+            csArea.push([result.marketQuantity, result.marketPrice]);
+            
+            // Producer surplus area (triangle above supply, below price, left of quantity)
+            psArea.push([0, result.marketPrice]);
+            for (let q = 0; q <= result.marketQuantity; q += result.marketQuantity / 10) {
+                const price = baseParams.supplyIntercept + baseParams.supplySlope * q;
+                if (price <= result.marketPrice) {
+                    psArea.push([q, price]);
+                }
+            }
+            psArea.push([result.marketQuantity, result.marketPrice]);
+            
+            // Deadweight loss area (triangle between supply and demand from market quantity to equilibrium)
+            if (result.deadweightLoss > 0) {
+                const startQ = Math.min(result.marketQuantity, baseParams.equilibriumQuantity);
+                const endQ = Math.max(result.marketQuantity, baseParams.equilibriumQuantity);
+                const step = (endQ - startQ) / 10;
+                for (let q = startQ; q <= endQ; q += step) {
+                    const supplyPrice = baseParams.supplyIntercept + baseParams.supplySlope * q;
+                    const demandPrice = baseParams.demandIntercept - (-baseParams.demandSlope) * q;
+                    dwlArea.push([q, supplyPrice]);
+                }
+                // Reverse for polygon
+                for (let q = endQ; q >= startQ; q -= step) {
+                    const supplyPrice = baseParams.supplyIntercept + baseParams.supplySlope * q;
+                    const demandPrice = baseParams.demandIntercept - (-baseParams.demandSlope) * q;
+                    dwlArea.push([q, demandPrice]);
+                }
+            }
+            
+            const option = {
+                backgroundColor: '#ffffff',
+                title: {
+                    text: 'Supply and Demand Analysis',
+                    left: 'center',
+                    top: 10,
+                    textStyle: { color: '#2c3e50', fontSize: 20 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function(params) {
+                        let tip = '';
+                        params.forEach(p => {
+                            if (p.seriesName === 'Supply') {
+                                tip += `Supply: Q=${p.data[0].toFixed(1)}, P=${p.data[1].toFixed(1)}<br>`;
+                            } else if (p.seriesName === 'Demand') {
+                                tip += `Demand: Q=${p.data[0].toFixed(1)}, P=${p.data[1].toFixed(1)}<br>`;
+                            } else if (p.seriesName === 'Equilibrium') {
+                                tip += `Equilibrium: Q=${p.data[0].toFixed(1)}, P=${p.data[1].toFixed(1)}<br>`;
+                            } else if (p.seriesName === 'Market') {
+                                tip += `Market: Q=${p.data[0].toFixed(1)}, P=${p.data[1].toFixed(1)}<br>`;
+                            }
+                        });
+                        return tip;
+                    }
+                },
+                grid: {
+                    left: '10%',
+                    right: '10%',
+                    bottom: '15%',
+                    top: '20%'
+                },
+                xAxis: {
+                    name: 'Quantity',
+                    nameLocation: 'middle',
+                    nameGap: 30,
+                    axisLine: { show: true, lineStyle: { color: '#555' } },
+                    splitLine: { show: false }
+                },
+                yAxis: {
+                    name: 'Price',
+                    nameLocation: 'middle',
+                    nameGap: 50,
+                    axisLine: { show: true, lineStyle: { color: '#555' } },
+                    splitLine: { show: true, lineStyle: { color: '#eee', type: 'dashed' } }
+                },
+                series: [
+                    {
+                        name: 'Supply',
+                        type: 'line',
+                        data: supplyLine,
+                        lineStyle: { color: '#e74c3c', width: 3 },
+                        symbol: 'none',
+                        smooth: true
+                    },
+                    {
+                        name: 'Demand',
+                        type: 'line',
+                        data: demandLine,
+                        lineStyle: { color: '#3498db', width: 3 },
+                        symbol: 'none',
+                        smooth: true
+                    },
+                    {
+                        name: 'Equilibrium',
+                        type: 'scatter',
+                        data: eqPoint,
+                        symbolSize: 12,
+                        itemStyle: { color: '#f39c12' },
+                        label: {
+                            show: true,
+                            formatter: 'Competitive Equilibrium',
+                            position: 'right',
+                            color: '#f39c12',
+                            fontSize: 14
+                        }
+                    },
+                    {
+                        name: 'Market',
+                        type: 'scatter',
+                        data: marketPoint,
+                        symbolSize: 12,
+                        itemStyle: { color: '#2ecc71' },
+                        label: {
+                            show: true,
+                            formatter: function(params) {
+                                return `Market: Q=${params.data[0].toFixed(1)}, P=${params.data[1].toFixed(1)}`;
+                            },
+                            position: 'left',
+                            color: '#2ecc71',
+                            fontSize: 14
+                        }
+                    },
+                    {
+                        name: 'Consumer Surplus',
+                        type: 'polygon',
+                        data: csArea,
+                        itemStyle: {
+                            color: 'rgba(52, 152, 219, 0.3)',
+                            borderWidth: 0
+                        },
+                        tooltip: {
+                            formatter: function(params) {
+                                return `Consumer Surplus: ${result.consumerSurplus.toFixed(1)}`;
+                            }
+                        }
+                    },
+                    {
+                        name: 'Producer Surplus',
+                        type: 'polygon',
+                        data: psArea,
+                        itemStyle: {
+                            color: 'rgba(46, 204, 113, 0.3)',
+                            borderWidth: 0
+                        },
+                        tooltip: {
+                            formatter: function(params) {
+                                return `Producer Surplus: ${result.producerSurplus.toFixed(1)}`;
+                            }
+                        }
+                    },
+                    {
+                        name: 'Deadweight Loss',
+                        type: 'polygon',
+                        data: dwlArea,
+                        itemtip: {
+                            formatter: function(params) {
+                                return `Deadweight Loss: ${result.deadweightLoss.toFixed(1)}`;
+                            }
+                        },
+                        itemStyle: {
+                            color: 'rgba(231, 76, 60, 0.3)',
+                            borderWidth: 0
+                        }
+                    }
+                ],
+                legend: {
+                    data: ['Supply', 'Demand', 'Equilibrium', 'Market'],
+                    bottom: 0,
+                    textStyle: { color: '#555' }
+                }
+            };
+            
+            myChart.setOption(option);
+            
+            // Update metrics display
+            document.getElementById('cs-value').textContent = result.consumerSurplus.toFixed(0);
+            document.getElementById('ps-value').textContent = result.producerSurplus.toFixed(0);
+            document.getElementById('dwl-value').textContent = result.deadweightLoss.toFixed(0);
+            document.getElementById('ts-value').textContent = result.totalSurplus.toFixed(0);
+            
+            // Calculate percentage changes from equilibrium
+            const csChange = ((result.consumerSurplus - result.equilibriumCS) / result.equilibriumCS * 100).toFixed(1);
+            const psChange = ((result.producerSurplus - result.equilibriumPS) / result.equilibriumPS * 100).toFixed(1);
+            const tsChange = ((result.totalSurplus - result.equilibriumTS) / result.equilibriumTS * 100).toFixed(1);
+            
+            document.getElementById('cs-change').textContent = (csChange >= 0 ? '+' : '') + csChange + '%';
+            document.getElementById('ps-change').textContent = (psChange >= 0 ? '+' : '') + psChange + '%';
+            document.getElementById('ts-change').textContent = (tsChange >= 0 ? '+' : '') + tsChange + '%';
+            
+            // Style negative changes
+            document.getElementById('cs-change').className = 'metric-change' + (csChange < 0 ? ' negative' : '');
+            document.getElementById('ps-change').className = 'metric-change' + (psChange < 0 ? ' negative' : '');
+            document.getElementById('ts-change').className = 'metric-change' + (tsChange < 0 ? ' negative' : '');
+        }
+
+        // Update slider displays
+        function updateSliders() {
+            document.getElementById('tax-value').textContent = currentState.taxRate + '%';
+            document.getElementById('tax-fill').style.width = (currentState.taxRate / 50 * 100) + '%';
+            document.getElementById('tax-slider').value = currentState.taxRate;
+            
+            document.getElementById('subsidy-value').textContent = currentState.subsidy;
+            document.getElementById('subsidy-fill').style.width = (currentState.subsidy / 100 * 100) + '%';
+            document.getElementById('subsidy-slider').value = currentState.subsidy;
+            
+            document.getElementById('pricecontrol-value').textContent = currentState.priceControl + '%';
+            const pcFill = (currentState.priceControl - 30) / (150 - 30) * 100;
+            document.getElementById('pricecontrol-fill').style.width = pcFill + '%';
+            document.getElementById('pricecontrol-slider').value = currentState.priceControl;
+        }
+
+        // Load a preset scenario
+        function loadScenario(scenario) {
+            currentState.scenario = scenario;
+            
+            // Reset all controls first
+            currentState.taxRate = 0;
+            currentState.subsidy = 0;
+            currentState.priceControl = 100;
+            
+            // Apply scenario-specific parameters
+            switch(scenario) {
+                case 'carbon_tax':
+                    currentState.taxRate = 20;
+                    break;
+                case 'minimum_wage':
+                    currentState.priceControl = 120; // price floor
+                    break;
+                case 'price_ceiling':
+                    currentState.priceControl = 80; // price ceiling
+                    break;
+                case 'ev_subsidy':
+                    currentState.subsidy = 40;
+                    break;
+            }
+            
+            // Update UI
+            updateSliders();
+            updateChart();
+            
+            // Record scenario selection
+            recordInteraction('scenario_change', { scenario });
+        }
+
+        // Event listeners
+        function setupEventListeners() {
+            // Scenario buttons
+            document.querySelectorAll('.scenario-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const scenario = this.getAttribute('data-scenario');
+                    loadScenario(scenario);
+                });
+            });
+            
+            // Tax slider
+            document.getElementById('tax-slider').addEventListener('input', function() {
+                currentState.taxRate = parseInt(this.value);
+                updateSliders();
+                updateChart();
+                recordInteraction('tax_adjust', { taxRate: currentState.taxRate });
+            });
+            
+            // Subsidy slider
+            document.getElementById('subsidy-slider').addEventListener('input', function() {
+                currentState.subsidy = parseInt(this.value);
+                updateSliders();
+                updateChart();
+                recordInteraction('subsidy_adjust', { subsidy: currentState.subsidy });
+            });
+            
+            // Price control slider
+            document.getElementById('pricecontrol-slider').addEventListener('input', function() {
+                currentState.priceControl = parseInt(this.value);
+                updateSliders();
+                updateChart();
+                recordInteraction('pricecontrol_adjust', { priceControl: currentState.priceControl });
+            });
+            
+            // Reset button
+            document.getElementById('reset-btn').addEventListener('click', function() {
+                currentState.taxRate = 0;
+                currentState.subsidy = 0;
+                currentState.priceControl = 100;
+                updateSliders();
+                updateChart();
+                recordInteraction('reset', {});
+            });
+            
+            // Window resize
+            window.addEventListener('resize', function() {
+                myChart.resize();
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initDataCollection();
+            updateChart();
+            setupEventListeners();
+            updateRecordCount();
+            
+            // Record tool open
+            recordInteraction('tool_open', {});
+            
+            // Record session end on page unload
+            window.addEventListener('beforeunload', function() {
+                const sessions = getStoredData(STORAGE_KEY);
+                if (sessions.length > 0) {
+                    const currentSession = sessions[sessions.length - 1];
+                    currentSession.endTime = Date.now();
+                    currentSession.duration = currentSession.endTime - currentSession.startTime;
+                    currentSession.interactionCount = interactionCount;
+                    saveData(STORAGE_KEY, sessions);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

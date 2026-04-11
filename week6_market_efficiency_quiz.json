@@ -1,0 +1,186 @@
+[
+    {
+        "id": 201,
+        "type": "multiple_choice",
+        "category": "market_efficiency",
+        "question_en": "Which of the following best defines consumer surplus?",
+        "question_cn": "以下哪项最好地定义了消费者剩余？",
+        "options_en": [
+            "A. The difference between the price consumers pay and the price producers charge",
+            "B. The difference between the maximum price consumers are willing to pay and the actual market price",
+            "C. The total revenue received by producers from selling a good",
+            "D. The cost saved by consumers when buying in bulk"
+        ],
+        "options_cn": [
+            "A. 消费者支付的价格与生产者要价之间的差额",
+            "B. 消费者愿意支付的最高价格与实际市场价格之间的差额",
+            "C. 生产者销售商品获得的总收入",
+            "D. 消费者批量购买时节省的成本"
+        ],
+        "answer": 1,
+        "explanation_en": "Consumer surplus is defined as the difference between the maximum price a consumer is willing to pay for a good and the actual market price they pay. It measures the net benefit consumers receive from participating in the market.",
+        "explanation_cn": "消费者剩余定义为消费者愿意为商品支付的最高价格与实际支付的市场价格之间的差额。它衡量消费者参与市场所获得的净收益。"
+    },
+    {
+        "id": 202,
+        "type": "multiple_choice",
+        "category": "market_efficiency",
+        "question_en": "When a market is Pareto efficient, which of the following is true?",
+        "question_cn": "当市场达到帕累托最优时，以下哪项是正确的？",
+        "options_en": [
+            "A. Income is distributed equally among all participants",
+            "B. No one can be made better off without making someone else worse off",
+            "C. Government intervention is minimized",
+            "D. Consumer surplus equals producer surplus"
+        ],
+        "options_cn": [
+            "A. 收入在所有参与者之间平均分配",
+            "B. 在不使任何人境况变差的前提下，不可能再使某些人境况变得更好",
+            "C. 政府干预最小化",
+            "D. 消费者剩余等于生产者剩余"
+        ],
+        "answer": 1,
+        "explanation_en": "Pareto efficiency (or Pareto optimality) is achieved when resources are allocated such that no individual can be made better off without making at least one individual worse off. It does not imply equality or absence of government intervention.",
+        "explanation_cn": "帕累托效率（或帕累托最优）是指资源分配达到这样一种状态：在不使至少一个人境况变差的前提下，不可能再使任何人的境况变得更好。它并不意味着平等或没有政府干预。"
+    },
+    {
+        "id": 203,
+        "type": "true_false",
+        "category": "market_efficiency",
+        "question_en": "A tax imposed on a good always creates deadweight loss.",
+        "question_cn": "对商品征税总会造成无谓损失。",
+        "options_en": ["True / 正确", "False / 错误"],
+        "options_cn": ["正确", "错误"],
+        "answer": 0,
+        "explanation_en": "Generally true. When a tax is imposed, it reduces the quantity traded below the efficient equilibrium, creating deadweight loss. However, in rare cases where the tax corrects a pre-existing market distortion (like a negative externality), it could potentially reduce deadweight loss rather than create it.",
+        "explanation_cn": "通常正确。当对商品征税时，它会使交易数量低于有效均衡，从而造成无谓损失。然而，在极少数情况下，如果税收纠正了先前存在的市场扭曲（如负外部性），它可能会减少无谓损失而不是增加。"
+    },
+    {
+        "id": 204,
+        "type": "multiple_choice",
+        "category": "market_efficiency",
+        "question_en": "Producer surplus is represented by the area:",
+        "question_cn": "生产者剩余由以下区域表示：",
+        "options_en": [
+            "A. Above the demand curve and below the price",
+            "B. Below the supply curve and above the price",
+            "C. Between the demand and supply curves",
+            "D. Below both the demand and supply curves"
+        ],
+        "options_cn": [
+            "A. 需求曲线上方和价格下方之间",
+            "B. 供给曲线下方和价格上方之间",
+            "C. 需求曲线和供给曲线之间",
+            "D. 需求曲线和供给曲线下方"
+        ],
+        "answer": 1,
+        "explanation_en": "Producer surplus is the area above the supply curve but below the market price. It represents the difference between what producers are willing to accept (their marginal cost) and what they actually receive.",
+        "explanation_cn": "生产者剩余是供给曲线上方但低于市场价格之间的区域。它代表生产者愿意接受的最低价格（边际成本）与实际获得的价格之间的差额。"
+    },
+    {
+        "id": 205,
+        "type": "matching",
+        "category": "market_efficiency",
+        "question_en": "Match each concept with its definition:",
+        "question_cn": "将每个概念与其定义相匹配：",
+        "matching_pairs": {
+            "items_left_en": ["Consumer Surplus", "Producer Surplus", "Deadweight Loss", "Pareto Efficiency"],
+            "items_left_cn": ["消费者剩余", "生产者剩余", "无谓损失", "帕累托效率"],
+            "items_right_en": [
+                "Area between price and supply curve",
+                "Area between demand curve and price",
+                "Loss from foregone mutually beneficial trades",
+                "No one can be better off without making others worse"
+            ],
+            "items_right_cn": [
+                "价格与供给曲线之间的区域",
+                "需求曲线与价格之间的区域",
+                "失去的互利交易收益",
+                "不使他人变差就无法使任何人变好"
+            ]
+        },
+        "correct_matches": [1, 0, 2, 3],
+        "explanation_en": "Consumer surplus = area above supply curve, below price. Producer surplus = area above supply curve, below price. Deadweight loss = triangle between supply and demand when quantity deviates from equilibrium. Pareto efficiency = no Pareto improvements possible.",
+        "explanation_cn": "消费者剩余 = 供给曲线上方、价格下方区域。生产者剩余 = 供给曲线上方、价格下方区域。无谓损失 = 供给和需求之间在数量偏离均衡时的三角区域。帕累托效率 = 不可能进行帕累托改进。"
+    },
+    {
+        "id": 206,
+        "type": "true_false",
+        "category": "market_efficiency",
+        "question_en": "In a competitive market with no externalities, the equilibrium price maximizes total surplus (consumer surplus + producer surplus).",
+        "question_cn": "在没有外部性的竞争市场中，均衡价格使总剩余（消费者剩余+生产者剩余）最大化。",
+        "options_en": ["True / 正确", "False / 错误"],
+        "options_cn": ["正确", "错误"],
+        "answer": 0,
+        "explanation_en": "True. At the competitive equilibrium, the market maximizes total surplus because all mutually beneficial trades have occurred. Any price above or below equilibrium reduces total surplus, creating deadweight loss.",
+        "explanation_cn": "正确。在竞争均衡下，市场使总剩余最大化，因为所有互利交易都已发生。任何高于或低于均衡的价格都会减少总剩余，造成无谓损失。"
+    },
+    {
+        "id": 207,
+        "type": "sorting",
+        "category": "market_efficiency",
+        "question_en": "Arrange the following events in order of increasing deadweight loss (from smallest to largest):\n1. A 5% sales tax\n2. A 20% luxury goods tax\n3. A price ceiling 30% below equilibrium\n4. A price floor 10% above equilibrium",
+        "question_cn": "按无谓损失从小到大排列以下事件：\n1. 5%的销售税\n2. 20%的奢侈品税\n3. 低于均衡价格30%的价格上限\n4. 高于均衡价格10%的价格下限",
+        "sorting_items_en": ["A 5% sales tax", "A 20% luxury goods tax", "A price ceiling 30% below equilibrium", "A price floor 10% above equilibrium"],
+        "sorting_items_cn": ["5%的销售税", "20%的奢侈品税", "低于均衡价格30%的价格上限", "高于均衡价格10%的价格下限"],
+        "correct_order": [0, 3, 1, 2],
+        "explanation_en": "Generally, the deadweight loss increases with the magnitude of the market distortion. A small 5% tax causes less distortion than a 10% price floor, which in turn causes less than a 20% luxury tax. A large price ceiling (30% below equilibrium) typically causes the largest deadweight loss.",
+        "explanation_cn": "一般来说，无谓损失随市场扭曲程度的增加而增加。5%的小额税收比10%的价格下限造成的扭曲小，而价格下限又比20%的奢侈品税造成的扭曲小。低于均衡价格30%的大幅价格上限通常造成最大的无谓损失。"
+    },
+    {
+        "id": 208,
+        "type": "multiple_choice",
+        "category": "market_efficiency",
+        "question_en": "According to the First Fundamental Theorem of Welfare Economics:",
+        "question_cn": "根据福利经济学第一基本定理：",
+        "options_en": [
+            "A. Government intervention is necessary for market efficiency",
+            "B. Competitive markets lead to Pareto efficient outcomes",
+            "C. Income redistribution improves social welfare",
+            "D. Monopolies are more efficient than competitive markets"
+        ],
+        "options_cn": [
+            "A. 市场效率需要政府干预",
+            "B. 竞争性市场导致帕累托有效结果",
+            "C. 收入再分配改善社会福利",
+            "D. 垄断比竞争性市场更有效率"
+        ],
+        "answer": 1,
+        "explanation_en": "The First Fundamental Theorem of Welfare Economics states that any competitive equilibrium (Walrasian equilibrium) is Pareto efficient, assuming complete markets and perfect information.",
+        "explanation_cn": "福利经济学第一基本定理指出，在完全市场和完美信息的假设下，任何竞争均衡（瓦尔拉斯均衡）都是帕累托有效的。"
+    },
+    {
+        "id": 209,
+        "type": "true_false",
+        "category": "market_efficiency",
+        "question_en": "Total surplus equals consumer surplus plus producer surplus plus government revenue from taxes.",
+        "question_cn": "总剩余等于消费者剩余加上生产者剩余加上税收带来的政府收入。",
+        "options_en": ["True / 正确", "False / 错误"],
+        "options_cn": ["正确", "错误"],
+        "answer": 1,
+        "explanation_en": "False. Total surplus in a market without taxes equals consumer surplus plus producer surplus. When a tax is imposed, government revenue is transferred from consumers and producers to the government, so it doesn't add to total surplus. The tax creates deadweight loss, reducing total surplus below the maximum possible.",
+        "explanation_cn": "错误。在没有税收的市场中，总剩余等于消费者剩余加上生产者剩余。当征收税收时，政府收入是从消费者和生产者转移给政府的，因此不会增加总剩余。税收造成无谓损失，使总剩余低于最大可能值。"
+    },
+    {
+        "id": 210,
+        "type": "multiple_choice",
+        "category": "market_efficiency",
+        "question_en": "A minimum wage creates a deadweight loss because it:",
+        "question_cn": "最低工资造成无谓损失，因为它：",
+        "options_en": [
+            "A. Increases wages for all workers",
+            "B. Reduces employment below the efficient level",
+            "C. Increases consumer surplus for employers",
+            "D. Reduces the supply of labor"
+        ],
+        "options_cn": [
+            "A. 提高所有工人的工资",
+            "B. 将就业率降低到有效水平以下",
+            "C. 增加雇主的消费者剩余",
+            "D. 减少劳动力供给"
+        ],
+        "answer": 1,
+        "explanation_en": "A minimum wage set above the equilibrium wage creates unemployment by raising the quantity of labor supplied above the quantity demanded. This gap represents foregone mutually beneficial trades, creating deadweight loss.",
+        "explanation_cn": "最低工资设定在高于均衡工资的水平时，通过将劳动力供给数量提高到高于需求数量的水平来造成失业。这个差距代表失去的互利交易，造成无谓损失。"
+    }
+]

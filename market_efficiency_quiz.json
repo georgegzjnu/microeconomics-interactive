@@ -1,0 +1,270 @@
+[
+    {
+        "id": 101,
+        "type": "multiple_choice",
+        "question_en": "Which of the following best defines consumer surplus?",
+        "question_cn": "以下哪项最好地定义了消费者剩余？",
+        "options_en": [
+            "A. The difference between the price consumers pay and the price producers charge",
+            "B. The difference between the maximum price consumers are willing to pay and the actual market price",
+            "C. The total revenue received by producers from selling a good",
+            "D. The cost saved by consumers when buying in bulk"
+        ],
+        "options_cn": [
+            "A. 消费者支付的价格与生产者要价之间的差额",
+            "B. 消费者愿意支付的最高价格与实际市场价格之间的差额",
+            "C. 生产者销售商品获得的总收入",
+            "D. 消费者批量购买时节省的成本"
+        ],
+        "answer": 1,
+        "explanation_en": "Consumer surplus is defined as the difference between the maximum price a consumer is willing to pay for a good and the actual market price they pay. It measures the net benefit consumers receive from participating in the market.",
+        "explanation_cn": "消费者剩余定义为消费者愿意为商品支付的最高价格与实际支付的市场价格之间的差额。它衡量消费者参与市场所获得的净收益。"
+    },
+    {
+        "id": 102,
+        "type": "multiple_choice",
+        "question_en": "When a market is Pareto efficient, which of the following is true?",
+        "question_cn": "当市场达到帕累托最优时，以下哪项是正确的？",
+        "options_en": [
+            "A. Income is distributed equally among all participants",
+            "B. No one can be made better off without making someone else worse off",
+            "C. Government intervention is minimized",
+            "D. Consumer surplus equals producer surplus"
+        ],
+        "options_cn": [
+            "A. 收入在所有参与者之间平均分配",
+            "B. 在不使任何人境况变差的前提下，不可能再使某些人境况变得更好",
+            "C. 政府干预最小化",
+            "D. 消费者剩余等于生产者剩余"
+        ],
+        "answer": 1,
+        "explanation_en": "Pareto efficiency (or Pareto optimality) is achieved when resources are allocated such that no individual can be made better off without making at least one individual worse off. It does not imply equality or absence of government intervention.",
+        "explanation_cn": "帕累托效率（或帕累托最优）是指资源分配达到这样一种状态：在不使至少一个人境况变差的前提下，不可能再使任何人的境况变得更好。它并不意味着平等或没有政府干预。"
+    },
+    {
+        "id": 103,
+        "type": "multiple_choice",
+        "question_en": "A tax imposed on a good creates deadweight loss because:",
+        "question_cn": "对商品征税会造成无谓损失，因为：",
+        "options_en": [
+            "A. It increases government revenue at the expense of consumers",
+            "B. It reduces the quantity traded below the efficient level",
+            "C. It causes producers to raise prices excessively",
+            "D. It discourages consumers from buying any of the good"
+        ],
+        "options_cn": [
+            "A. 它以牺牲消费者为代价增加政府收入",
+            "B. 它使交易数量低于有效水平",
+            "C. 它导致生产者过度提高价格",
+            "D. 它阻止消费者购买任何该商品"
+        ],
+        "answer": 1,
+        "explanation_en": "Deadweight loss occurs when a tax reduces the quantity traded below the efficient equilibrium. This prevents mutually beneficial transactions that would have occurred in the absence of the tax, leading to a loss of total surplus.",
+        "explanation_cn": "当税收使交易数量低于有效均衡时，就会产生无谓损失。这阻止了在没有税收时本会发生互利交易，导致总剩余损失。"
+    },
+    {
+        "id": 104,
+        "type": "multiple_choice",
+        "question_en": "According to the First Fundamental Theorem of Welfare Economics:",
+        "question_cn": "根据福利经济学第一基本定理：",
+        "options_en": [
+            "A. Government intervention is necessary for market efficiency",
+            "B. Competitive markets lead to Pareto efficient outcomes",
+            "C. Income redistribution improves social welfare",
+            "D. Monopolies are more efficient than competitive markets"
+        ],
+        "options_cn": [
+            "A. 市场效率需要政府干预",
+            "B. 竞争性市场导致帕累托有效结果",
+            "C. 收入再分配改善社会福利",
+            "D. 垄断比竞争性市场更有效率"
+        ],
+        "answer": 1,
+        "explanation_en": "The First Fundamental Theorem states that under perfect competition (no externalities, perfect information, etc.), market equilibrium is Pareto efficient. This provides theoretical support for free markets.",
+        "explanation_cn": "第一基本定理指出，在完全竞争（无外部性、信息完全等）条件下，市场均衡是帕累托有效的。这为自由市场提供了理论支持。"
+    },
+    {
+        "id": 105,
+        "type": "true_false",
+        "question_en": "A price ceiling set above the equilibrium price creates a shortage.",
+        "question_cn": "判断题：设定在均衡价格之上的价格上限会造成短缺。",
+        "options_en": [
+            "True",
+            "False"
+        ],
+        "options_cn": [
+            "正确",
+            "错误"
+        ],
+        "answer": 1,
+        "explanation_en": "A price ceiling set above the equilibrium price is not binding—it does not affect the market outcome. Only a price ceiling set below the equilibrium price creates a shortage by preventing the market from reaching equilibrium.",
+        "explanation_cn": "设定在均衡价格之上的价格上限没有约束力——它不影响市场结果。只有设定在均衡价格之下的价格上限才会阻止市场达到均衡，从而造成短缺。"
+    },
+    {
+        "id": 106,
+        "type": "true_false",
+        "question_en": "Kaldor-Hicks efficiency requires that winners compensate losers for any policy change.",
+        "question_cn": "判断题：卡尔多-希克斯效率要求赢家补偿输家的任何政策变化。",
+        "options_en": [
+            "True",
+            "False"
+        ],
+        "options_cn": [
+            "正确",
+            "错误"
+        ],
+        "answer": 0,
+        "explanation_en": "Kaldor-Hicks efficiency (potential Pareto improvement) requires only that winners could potentially compensate losers, not that actual compensation occurs. This makes it a more practical criterion for policy evaluation.",
+        "explanation_cn": "卡尔多-希克斯效率（潜在的帕累托改进）只要求赢家有可能补偿输家，而不是实际发生补偿。这使其成为政策评估的更实用标准。"
+    },
+    {
+        "id": 107,
+        "type": "sorting",
+        "question_en": "Rank the following policy tools from most efficient to least efficient in reducing carbon emissions (assuming well-designed implementation):",
+        "question_cn": "将以下政策工具按减少碳排放的效率从高到低排序（假设实施得当）：",
+        "options_en": [
+            "Carbon tax",
+            "Cap-and-trade system",
+            "Subsidy for green technology",
+            "Command-and-control regulation"
+        ],
+        "options_cn": [
+            "碳税",
+            "限额与交易体系",
+            "绿色技术补贴",
+            "命令与控制管制"
+        ],
+        "answer": [0, 1, 2, 3],
+        "explanation_en": "Economic theory suggests that market-based instruments (carbon tax, cap-and-trade) are generally more efficient than subsidies, which are more efficient than command-and-control regulations. Carbon tax is often considered most efficient because it directly prices emissions and provides price certainty.",
+        "explanation_cn": "经济理论表明，基于市场的工具（碳税、限额与交易）通常比补贴更有效率，而补贴又比命令与控制管制更有效率。碳税通常被认为是最有效的，因为它直接为排放定价并提供价格确定性。"
+    },
+    {
+        "id": 108,
+        "type": "sorting",
+        "question_en": "Arrange the following concepts in order of increasing market efficiency (from least efficient to most efficient):",
+        "question_cn": "将以下概念按市场效率递增顺序排列（从效率最低到效率最高）：",
+        "options_en": [
+            "Monopoly",
+            "Oligopoly",
+            "Monopolistic competition",
+            "Perfect competition"
+        ],
+        "options_cn": [
+            "垄断",
+            "寡头垄断",
+            "垄断竞争",
+            "完全竞争"
+        ],
+        "answer": [0, 1, 2, 3],
+        "explanation_en": "Perfect competition achieves the highest market efficiency (Pareto optimal). Monopolistic competition is less efficient due to product differentiation. Oligopoly is even less efficient due to strategic behavior. Monopoly is the least efficient due to market power and deadweight loss.",
+        "explanation_cn": "完全竞争实现最高的市场效率（帕累托最优）。垄断竞争由于产品差异化效率较低。寡头垄断由于战略行为效率更低。垄断由于市场权力和无谓损失效率最低。"
+    },
+    {
+        "id": 109,
+        "type": "matching",
+        "question_en": "Match each welfare economics concept with its correct description:",
+        "question_cn": "将每个福利经济学概念与其正确描述匹配：",
+        "options_en": [
+            "Pareto Improvement",
+            "Social Welfare Function",
+            "Second Fundamental Theorem",
+            "Utility Possibility Frontier"
+        ],
+        "options_cn": [
+            "帕累托改进",
+            "社会福利函数",
+            "第二基本定理",
+            "效用可能性边界"
+        ],
+        "match_pairs_en": [
+            "A change that makes at least one person better off without making anyone worse off",
+            "A mathematical representation of how individual utilities are aggregated into social welfare",
+            "Any Pareto efficient allocation can be achieved through competitive markets with appropriate redistribution",
+            "The set of maximum achievable utility combinations given resources and technology"
+        ],
+        "match_pairs_cn": [
+            "使至少一个人变得更好而不使任何人变得更差的变化",
+            "将个人效用加总为社会福利的数学表示",
+            "任何帕累托有效配置都可以通过具有适当再分配的竞争性市场实现",
+            "给定资源和技术条件下可达到的最大效用组合集合"
+        ],
+        "answer": [0, 1, 2, 3],
+        "explanation_en": "These are standard definitions in welfare economics: Pareto improvement (no one worse off), social welfare function (aggregation), second fundamental theorem (redistribution + markets), utility possibility frontier (technological constraints).",
+        "explanation_cn": "这些是福利经济学中的标准定义：帕累托改进（无人变差）、社会福利函数（加总）、第二基本定理（再分配+市场）、效用可能性边界（技术约束）。"
+    },
+    {
+        "id": 110,
+        "type": "matching",
+        "question_en": "Match each policy scenario with its most likely impact on market efficiency:",
+        "question_cn": "将每个政策场景与其对市场效率最可能的影响匹配：",
+        "options_en": [
+            "Carbon tax on fossil fuels",
+            "Minimum wage above equilibrium",
+            "Price ceiling on essential medicines",
+            "Subsidy for electric vehicles"
+        ],
+        "options_cn": [
+            "对化石燃料征收碳税",
+            "最低工资高于均衡水平",
+            "对基本药物设定价格上限",
+            "对电动汽车提供补贴"
+        ],
+        "match_pairs_en": [
+            "Reduces negative externality, improves efficiency",
+            "Creates deadweight loss in labor market",
+            "Creates shortage, reduces efficiency",
+            "Creates deadweight loss but may have positive externalities"
+        ],
+        "match_pairs_cn": [
+            "减少负外部性，提高效率",
+            "在劳动力市场造成无谓损失",
+            "造成短缺，降低效率",
+            "造成无谓损失但可能产生正外部性"
+        ],
+        "answer": [0, 1, 2, 3],
+        "explanation_en": "Carbon tax corrects negative externality (efficiency gain). Minimum wage above equilibrium reduces employment (deadweight loss). Price ceiling creates shortage. EV subsidy may be justified by positive externalities but still creates deadweight loss.",
+        "explanation_cn": "碳税纠正负外部性（效率增益）。最低工资高于均衡水平减少就业（无谓损失）。价格上限造成短缺。电动汽车补贴可能因正外部性而合理，但仍会造成无谓损失。"
+    },
+    {
+        "id": 111,
+        "type": "multiple_choice",
+        "question_en": "Which of the following would NOT be considered a market failure?",
+        "question_cn": "以下哪项不被视为市场失灵？",
+        "options_en": [
+            "A. Monopoly power allowing a firm to set prices above marginal cost",
+            "B. Perfectly competitive market achieving Pareto efficiency",
+            "C. Negative externality from pollution",
+            "D. Information asymmetry in used car markets"
+        ],
+        "options_cn": [
+            "A. 垄断权力使企业能将价格设定在边际成本之上",
+            "B. 完全竞争市场实现帕累托效率",
+            "C. 污染造成的负外部性",
+            "D. 二手车市场中的信息不对称"
+        ],
+        "answer": 1,
+        "explanation_en": "Market failure refers to situations where markets fail to allocate resources efficiently. Perfect competition achieving Pareto efficiency is the ideal outcome, not a failure. Monopoly, externalities, and information asymmetry are classic market failures.",
+        "explanation_cn": "市场失灵是指市场无法有效配置资源的情况。完全竞争实现帕累托效率是理想结果，而非失灵。垄断、外部性和信息不对称是经典的市场失灵。"
+    },
+    {
+        "id": 112,
+        "type": "multiple_choice",
+        "question_en": "The deadweight loss from a subsidy is represented graphically as:",
+        "question_cn": "补贴造成的无谓损失在图形上表示为：",
+        "options_en": [
+            "A. The area between the supply and demand curves above the equilibrium quantity",
+            "B. The area between the supply and demand curves below the equilibrium quantity",
+            "C. The area between the supply and demand curves to the left of the subsidized quantity",
+            "D. The area between the supply and demand curves to the right of the subsidized quantity"
+        ],
+        "options_cn": [
+            "A. 均衡数量之上供给曲线和需求曲线之间的区域",
+            "B. 均衡数量之下供给曲线和需求曲线之间的区域",
+            "C. 补贴数量左侧供给曲线和需求曲线之间的区域",
+            "D. 补贴数量右侧供给曲线和需求曲线之间的区域"
+        ],
+        "answer": 3,
+        "explanation_en": "A subsidy increases quantity traded beyond the efficient equilibrium. The deadweight loss is the triangle between supply and demand curves to the right of the efficient quantity, representing the cost of overproduction.",
+        "explanation_cn": "补贴使交易数量超过有效均衡。无谓损失是有效数量右侧供给曲线和需求曲线之间的三角形区域，代表过度生产的成本。"
+    }
+]

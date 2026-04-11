@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer & Producer Surplus Calculator | Market Efficiency Lab</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .bilingual-title {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .bilingual-title p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 0;
+        }
+        @media (max-width: 1000px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        .controls-panel {
+            background: #f8f9fa;
+            padding: 25px;
+            border-right: 2px solid #e9ecef;
+        }
+        .control-section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .control-section:last-child {
+            border-bottom: none;
+        }
+        .control-section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .control-section h3 .cn {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: normal;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #495057;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        .bilingual-input {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .bilingual-input .input-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        .bilingual-input .input-wrapper label {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+        .btn-success:hover {
+            background: #219a52;
+        }
+        .scenario-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .scenario-btns .btn {
+            background: #ecf0f1;
+            color: #2c3e50;
+            justify-content: flex-start;
+        }
+        .scenario-btns .btn:hover {
+            background: #3498db;
+            color: white;
+        }
+        .chart-panel {
+            padding: 25px;
+        }
+        #chart {
+            width: 100%;
+            height: 500px;
+            min-height: 400px;
+        }
+        .results-panel {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-top: 2px solid #dee2e6;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .result-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+        .result-card.cs {
+            border-left: 4px solid #27ae60;
+        }
+        .result-card.ps {
+            border-left: 4px solid #e74c3c;
+        }
+        .result-card.ts {
+            border-left: 4px solid #3498db;
+        }
+        .result-card.dwl {
+            border-left: 4px solid #f39c12;
+        }
+        .result-card h4 {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        .result-card .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .result-card .label {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            margin-top: 5px;
+        }
+        .formula-display {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin-top: 15px;
+        }
+        .formula-display .label {
+            color: #bdc3c7;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+        .formula-display .formula {
+            font-size: 1.1rem;
+        }
+        .interpretation {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .interpretation h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        .interpretation p {
+            color: #856404;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        .tax-controls {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+        }
+        .tax-controls.active {
+            display: block;
+        }
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .lang-btn.active {
+            background: white;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="cn">中文</button>
+            </div>
+            <h1><i class="fas fa-calculator"></i> Surplus Calculator</h1>
+            <div class="bilingual-title">
+                <p class="en">Consumer & Producer Surplus Interactive Tool</p>
+                <p class="cn">消费者剩余与生产者剩余交互工具</p>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="controls-panel">
+                <div class="control-section">
+                    <h3><i class="fas fa-chart-line"></i> Market Parameters <span class="cn">市场参数</span></h3>
+                    <div class="input-group">
+                        <label>Equilibrium Price (P*) <span class="cn">均衡价格(P*)</span></label>
+                        <input type="number" id="eq-price" value="50" min="1" step="1">
+                    </div>
+                    <div class="input-group">
+                        <label>Equilibrium Quantity (Q*) <span class="cn">均衡数量(Q*)</span></label>
+                        <input type="number" id="eq-quantity" value="100" min="1" step="1">
+                    </div>
+                    <div class="bilingual-input">
+                        <div class="input-wrapper">
+                            <label>Max Willingness to Pay</label>
+                            <input type="number" id="max-wtp" value="100" min="1" step="1">
+                        </div>
+                        <div class="input-wrapper">
+                            <label>最高支付意愿</label>
+                            <input type="number" id="max-wtp-cn" value="100" min="1" step="1">
+                        </div>
+                    </div>
+                    <div class="bilingual-input">
+                        <div class="input-wrapper">
+                            <label>Min Willingness to Accept</label>
+                            <input type="number" id="min-wta" value="10" min="0" step="1">
+                        </div>
+                        <div class="input-wrapper">
+                            <label>最低接受意愿</label>
+                            <input type="number" id="min-wta-cn" value="10" min="0" step="1">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="control-section">
+                    <h3><i class="fas fa-sliders-h"></i> Policy Scenarios <span class="cn">政策情景</span></h3>
+                    <div class="scenario-btns">
+                        <button class="btn" onclick="applyScenario('none')">
+                            <i class="fas fa-check-circle"></i> No Intervention / 无干预
+                        </button>
+                        <button class="btn" onclick="applyScenario('tax')">
+                            <i class="fas fa-percent"></i> Sales Tax / 销售税
+                        </button>
+                        <button class="btn" onclick="applyScenario('subsidy')">
+                            <i class="fas fa-gift"></i> Subsidy / 补贴
+                        </button>
+                        <button class="btn" onclick="applyScenario('floor')">
+                            <i class="fas fa-arrow-up"></i> Price Floor / 价格下限
+                        </button>
+                        <button class="btn" onclick="applyScenario('ceiling')">
+                            <i class="fas fa-arrow-down"></i> Price Ceiling / 价格上限
+                        </button>
+                    </div>
+                    <div id="tax-controls" class="tax-controls">
+                        <div class="input-group">
+                            <label>Tax Rate (%) <span class="cn">税率(%)</span></label>
+                            <input type="number" id="tax-rate" value="20" min="1" max="100" step="1">
+                        </div>
+                    </div>
+                    <div id="floor-controls" class="tax-controls">
+                        <div class="input-group">
+                            <label>Floor Price <span class="cn">价格下限</span></label>
+                            <input type="number" id="floor-price" value="60" min="1" step="1">
+                        </div>
+                    </div>
+                    <div id="ceiling-controls" class="tax-controls">
+                        <div class="input-group">
+                            <label>Ceiling Price <span class="cn">价格上限</span></label>
+                            <input type="number" id="ceiling-price" value="35" min="1" step="1">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="calculate()">
+                        <i class="fas fa-calculator"></i> Calculate / 计算
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetDefaults()">
+                        <i class="fas fa-redo"></i> Reset / 重置
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chart-panel">
+                <div id="chart"></div>
+                
+                <div class="results-panel">
+                    <h3 style="margin-bottom: 20px; color: #2c3e50;">
+                        <i class="fas fa-poll"></i> Results / 结果
+                    </h3>
+                    <div class="results-grid">
+                        <div class="result-card cs">
+                            <h4 class="en">Consumer Surplus</h4>
+                            <h4 class="cn">消费者剩余</h4>
+                            <div class="value" id="cs-value">2,500</div>
+                            <div class="label">yuan / 元</div>
+                        </div>
+                        <div class="result-card ps">
+                            <h4 class="en">Producer Surplus</h4>
+                            <h4 class="cn">生产者剩余</h4>
+                            <div class="value" id="ps-value">4,000</div>
+                            <div class="label">yuan / 元</div>
+                        </div>
+                        <div class="result-card ts">
+                            <h4 class="en">Total Surplus</h4>
+                            <h4 class="cn">总剩余</h4>
+                            <div class="value" id="ts-value">6,500</div>
+                            <div class="label">yuan / 元</div>
+                        </div>
+                        <div class="result-card dwl">
+                            <h4 class="en">Deadweight Loss</h4>
+                            <h4 class="cn">无谓损失</h4>
+                            <div class="value" id="dwl-value">0</div>
+                            <div class="label">yuan / 元</div>
+                        </div>
+                    </div>
+                    
+                    <div class="formula-display">
+                        <div class="label en">Formula / 公式</div>
+                        <div class="formula" id="formula-text">
+                            CS = ½ × (100-50) × 100 = 2,500
+                        </div>
+                    </div>
+                    
+                    <div class="interpretation" id="interpretation">
+                        <h4><i class="fas fa-lightbulb"></i> <span class="en">Interpretation</span><span class="cn">解读</span></h4>
+                        <p class="en">At equilibrium, total surplus is maximized at 6,500 yuan. No deadweight loss exists - the market is Pareto efficient.</p>
+                        <p class="cn">在均衡状态下，总剩余在6,500元时最大化。没有无谓损失——市场是帕累托有效的。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Market Efficiency Interactive Lab | 市场效率交互实验室 | Week 6 Microeconomics</p>
+        </footer>
+    </div>
+
+    <script>
+        let chart = echarts.init(document.getElementById('chart'));
+        let currentLang = 'en';
+        let currentScenario = 'none';
+        
+        // Default values
+        let params = {
+            eqPrice: 50,
+            eqQuantity: 100,
+            maxWTP: 100,
+            minWTA: 10,
+            taxRate: 0,
+            floorPrice: null,
+            ceilingPrice: null
+        };
+        
+        // Sync bilingual inputs
+        document.getElementById('max-wtp').addEventListener('input', function() {
+            document.getElementById('max-wtp-cn').value = this.value;
+        });
+        document.getElementById('max-wtp-cn').addEventListener('input', function() {
+            document.getElementById('max-wtp').value = this.value;
+        });
+        document.getElementById('min-wta').addEventListener('input', function() {
+            document.getElementById('min-wta-cn').value = this.value;
+        });
+        document.getElementById('min-wta-cn').addEventListener('input', function() {
+            document.getElementById('min-wta').value = this.value;
+        });
+        
+        // Language toggle
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentLang = this.dataset.lang;
+                updateLanguageDisplay();
+                calculate();
+            });
+        });
+        
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.en, .cn').forEach(el => {
+                if (el.classList.contains('en') && currentLang === 'cn') {
+                    el.style.display = 'none';
+                } else if (el.classList.contains('cn') && currentLang === 'en') {
+                    el.style.display = 'none';
+                } else {
+                    el.style.display = '';
+                }
+            });
+        }
+        
+        function applyScenario(scenario) {
+            currentScenario = scenario;
+            
+            // Hide all scenario controls
+            document.querySelectorAll('.tax-controls').forEach(el => el.classList.remove('active'));
+            
+            const eqPrice = parseFloat(document.getElementById('eq-price').value);
+            
+            switch(scenario) {
+                case 'tax':
+                    document.getElementById('tax-controls').classList.add('active');
+                    break;
+                case 'floor':
+                    document.getElementById('floor-controls').classList.add('active');
+                    document.getElementById('floor-price').value = Math.round(eqPrice * 1.2);
+                    break;
+                case 'ceiling':
+                    document.getElementById('ceiling-controls').classList.add('active');
+                    document.getElementById('ceiling-price').value = Math.round(eqPrice * 0.7);
+                    break;
+                case 'subsidy':
+                    // Subsidy is similar to tax but in reverse
+                    document.getElementById('tax-controls').classList.add('active');
+                    document.getElementById('tax-rate').value = -20;
+                    break;
+            }
+            calculate();
+        }
+        
+        function resetDefaults() {
+            document.getElementById('eq-price').value = 50;
+            document.getElementById('eq-quantity').value = 100;
+            document.getElementById('max-wtp').value = 100;
+            document.getElementById('max-wtp-cn').value = 100;
+            document.getElementById('min-wta').value = 10;
+            document.getElementById('min-wta-cn').value = 10;
+            document.getElementById('tax-rate').value = 20;
+            document.getElementById('floor-price').value = 60;
+            document.getElementById('ceiling-price').value = 35;
+            currentScenario = 'none';
+            document.querySelectorAll('.tax-controls').forEach(el => el.classList.remove('active'));
+            calculate();
+        }
+        
+        function calculate() {
+            // Get input values
+            params.eqPrice = parseFloat(document.getElementById('eq-price').value) || 50;
+            params.eqQuantity = parseFloat(document.getElementById('eq-quantity').value) || 100;
+            params.maxWTP = parseFloat(document.getElementById('max-wtp').value) || 100;
+            params.minWTA = parseFloat(document.getElementById('min-wta').value) || 10;
+            params.taxRate = parseFloat(document.getElementById('tax-rate').value) || 0;
+            params.floorPrice = parseFloat(document.getElementById('floor-price').value) || null;
+            params.ceilingPrice = parseFloat(document.getElementById('ceiling-price').value) || null;
+            
+            let results = calculateSurplus(params);
+            
+            // Update display
+            document.getElementById('cs-value').textContent = formatNumber(results.cs);
+            document.getElementById('ps-value').textContent = formatNumber(results.ps);
+            document.getElementById('ts-value').textContent = formatNumber(results.ts);
+            document.getElementById('dwl-value').textContent = formatNumber(results.dwl);
+            document.getElementById('formula-text').textContent = results.formula;
+            document.getElementById('interpretation').querySelectorAll('p').forEach(p => {
+                p.textContent = currentLang === 'en' ? results.interpretation_en : results.interpretation_cn;
+            });
+            
+            // Update chart
+            updateChart(results);
+        }
+        
+        function calculateSurplus(p) {
+            let cs = 0, ps = 0, ts = 0, dwl = 0;
+            let actualPrice = p.eqPrice;
+            let actualQuantity = p.eqQuantity;
+            let newEquilibrium = p.eqPrice;
+            let taxPerUnit = 0;
+            
+            // Adjust for scenario
+            if (currentScenario === 'tax' && p.taxRate > 0) {
+                taxPerUnit = p.eqPrice * (p.taxRate / 100);
+                newEquilibrium = p.eqPrice;
+                // With tax, quantity decreases
+                actualQuantity = Math.max(1, Math.round(p.eqQuantity * (1 - p.taxRate / 100)));
+                actualPrice = newEquilibrium; // Consumer pays this
+                
+                // Deadweight loss from tax
+                dwl = 0.5 * taxPerUnit * (p.eqQuantity - actualQuantity);
+            } else if (currentScenario === 'subsidy' && p.taxRate < 0) {
+                // Negative tax rate = subsidy
+                let subsidyPerUnit = p.eqPrice * (Math.abs(p.taxRate) / 100);
+                newEquilibrium = p.eqPrice;
+                actualQuantity = Math.min(200, Math.round(p.eqQuantity * (1 + Math.abs(p.taxRate) / 100)));
+                
+                // Subsidy creates its own deadweight loss
+                dwl = 0.5 * subsidyPerUnit * (actualQuantity - p.eqQuantity);
+            } else if (currentScenario === 'floor' && p.floorPrice) {
+                actualPrice = Math.min(p.floorPrice, p.eqPrice * 2);
+                actualQuantity = Math.max(1, Math.round(p.eqQuantity - (p.floorPrice - p.eqPrice) * 2));
+                if (p.floorPrice > p.eqPrice) {
+                    actualPrice = p.floorPrice;
+                    actualQuantity = Math.max(1, p.eqQuantity - Math.round((p.floorPrice - p.eqPrice) * p.eqQuantity / p.eqPrice));
+                    dwl = 0.5 * (p.floorPrice - p.eqPrice) * (p.eqQuantity - actualQuantity);
+                }
+            } else if (currentScenario === 'ceiling' && p.ceilingPrice) {
+                if (p.ceilingPrice < p.eqPrice) {
+                    actualPrice = p.ceilingPrice;
+                    actualQuantity = Math.min(p.eqQuantity * 2, Math.round(p.eqQuantity + (p.eqPrice - p.ceilingPrice) * p.eqQuantity / p.eqPrice));
+                    actualQuantity = Math.max(1, p.eqQuantity - Math.round((p.eqPrice - p.ceilingPrice) * p.eqQuantity / p.eqPrice));
+                    dwl = 0.5 * (p.eqPrice - p.ceilingPrice) * (p.eqQuantity - actualQuantity);
+                }
+            }
+            
+            // Calculate CS and PS
+            let demandSlope = (p.maxWTP - actualPrice) / actualQuantity;
+            let supplySlope = (actualPrice - p.minWTA) / actualQuantity;
+            
+            // Consumer Surplus = triangle above price, below demand curve
+            cs = 0.5 * (p.maxWTP - actualPrice) * actualQuantity;
+            
+            // Producer Surplus = triangle below price, above supply curve
+            ps = 0.5 * (actualPrice - p.minWTA) * actualQuantity;
+            
+            ts = cs + ps;
+            
+            let formula = `CS = ½ × (${p.maxWTP}-${actualPrice}) × ${actualQuantity} = ${formatNumber(cs)}`;
+            
+            let interpretation_en = `At this ${currentScenario === 'none' ? 'equilibrium' : currentScenario + ' scenario'}, ` +
+                `total surplus is ${formatNumber(ts)} yuan.`;
+            if (dwl > 0) {
+                interpretation_en += ` Deadweight loss of ${formatNumber(dwl)} yuan indicates ` +
+                    `inefficiency from foregone mutually beneficial trades.`;
+            } else {
+                interpretation_en += ` No deadweight loss exists - the market is Pareto efficient.`;
+            }
+            
+            let interpretation_cn = `在这个${getScenarioName()}下，` +
+                `总剩余为${formatNumber(ts)}元。`;
+            if (dwl > 0) {
+                interpretation_cn += ` 无谓损失${formatNumber(dwl)}元表明存在失去互利交易的无效率。`;
+            } else {
+                interpretation_cn += ` 没有无谓损失——市场是帕累托有效的。`;
+            }
+            
+            return {
+                cs, ps, ts, dwl,
+                actualPrice,
+                actualQuantity,
+                formula,
+                interpretation_en,
+                interpretation_cn
+            };
+        }
+        
+        function getScenarioName() {
+            const names = {
+                'none': '均衡',
+                'tax': '税收情景',
+                'subsidy': '补贴情景',
+                'floor': '价格下限情景',
+                'ceiling': '价格上限情景'
+            };
+            return names[currentScenario] || '均衡';
+        }
+        
+        function formatNumber(num) {
+            return Math.round(num).toLocaleString();
+        }
+        
+        function updateChart(results) {
+            let supplyData = generateSupplyCurve();
+            let demandData = generateDemandCurve();
+            let csArea = generateCSArea();
+            let psArea = generatePSArea();
+            let dwlArea = generateDWLArea();
+            
+            let priceFloorLine = currentScenario === 'floor' ? params.floorPrice : null;
+            let priceCeilingLine = currentScenario === 'ceiling' ? params.ceilingPrice : null;
+            
+            let option = {
+                title: {
+                    text: currentLang === 'en' ? 'Market Efficiency Analysis' : '市场效率分析',
+                    left: 'center',
+                    textStyle: { fontSize: 18, fontWeight: 'bold' }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function(params) {
+                        for (let p of params) {
+                            if (p.seriesType === 'scatter' && p.seriesName === 'Equilibrium') {
+                                return `P* = ${p.value[0]}, Q* = ${p.value[1]}`;
+                            }
+                        }
+                        return '';
+                    }
+                },
+                legend: {
+                    data: [
+                        { name: currentLang === 'en' ? 'Supply' : '供给', icon: 'line' },
+                        { name: currentLang === 'en' ? 'Demand' : '需求', icon: 'line' },
+                        { name: currentLang === 'en' ? 'Consumer Surplus' : '消费者剩余', icon: 'rect' },
+                        { name: currentLang === 'en' ? 'Producer Surplus' : '生产者剩余', icon: 'rect' },
+                        { name: currentLang === 'en' ? 'Deadweight Loss' : '无谓损失', icon: 'rect' }
+                    ],
+                    bottom: 10
+                },
+                grid: {
+                    left: '10%',
+                    right: '10%',
+                    top: '15%',
+                    bottom: '25%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    name: currentLang === 'en' ? 'Quantity (Q)' : '数量 (Q)',
+                    min: 0,
+                    max: Math.max(200, params.eqQuantity * 1.5)
+                },
+                yAxis: {
+                    type: 'value',
+                    name: currentLang === 'en' ? 'Price (P)' : '价格 (P)',
+                    min: 0,
+                    max: Math.max(150, params.maxWTP * 1.2)
+                },
+                series: [
+                    {
+                        name: currentLang === 'en' ? 'Supply' : '供给',
+                        type: 'line',
+                        data: supplyData,
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: { color: '#e74c3c', width: 3 }
+                    },
+                    {
+                        name: currentLang === 'en' ? 'Demand' : '需求',
+                        type: 'line',
+                        data: demandData,
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: { color: '#27ae60', width: 3 }
+                    },
+                    {
+                        name: currentLang === 'en' ? 'Consumer Surplus' : '消费者剩余',
+                        type: 'custom',
+                        renderItem: function(params, api) {
+                            return {
+                                type: 'polygon',
+                                shape: { points: csArea },
+                                style: { fill: 'rgba(39, 174, 96, 0.3)', stroke: '#27ae60', lineWidth: 2 }
+                            };
+                        },
+                        data: [0]
+                    },
+                    {
+                        name: currentLang === 'en' ? 'Producer Surplus' : '生产者剩余',
+                        type: 'custom',
+                        renderItem: function(params, api) {
+                            return {
+                                type: 'polygon',
+                                shape: { points: psArea },
+                                style: { fill: 'rgba(231, 76, 60, 0.3)', stroke: '#e74c3c', lineWidth: 2 }
+                            };
+                        },
+                        data: [0]
+                    },
+                    {
+                        name: currentLang === 'en' ? 'Deadweight Loss' : '无谓损失',
+                        type: 'custom',
+                        renderItem: function(params, api) {
+                            if (results.dwl <= 0) return null;
+                            return {
+                                type: 'polygon',
+                                shape: { points: dwlArea },
+                                style: { fill: 'rgba(243, 156, 18, 0.5)', stroke: '#f39c12', lineWidth: 2 }
+                            };
+                        },
+                        data: [0]
+                    },
+                    {
+                        name: 'Equilibrium',
+                        type: 'scatter',
+                        symbolSize: 20,
+                        data: [[results.actualQuantity, results.actualPrice]],
+                        itemStyle: { color: '#3498db', borderColor: '#fff', borderWidth: 3 },
+                        label: {
+                            show: true,
+                            formatter: 'P*=Q*',
+                            position: 'top',
+                            color: '#3498db',
+                            fontWeight: 'bold'
+                        }
+                    }
+                ],
+                graphic: priceFloorLine ? [{
+                    type: 'line',
+                    shape: { x1: 0, y1: priceFloorLine, x2: 1000, y2: priceFloorLine },
+                    style: { stroke: '#9b59b6', lineWidth: 2, lineDash: [5, 5] },
+                    z: 100
+                }] : [],
+                graphic: priceCeilingLine ? [{
+                    type: 'line',
+                    shape: { x1: 0, y1: priceCeilingLine, x2: 1000, y2: priceCeilingLine },
+                    style: { stroke: '#9b59b6', lineWidth: 2, lineDash: [5, 5] },
+                    z: 100
+                }] : []
+            };
+            
+            chart.setOption(option);
+        }
+        
+        function generateSupplyCurve() {
+            let data = [];
+            let maxQ = Math.max(200, params.eqQuantity * 1.5);
+            let supplySlope = (params.eqPrice - params.minWTA) / params.eqQuantity;
+            
+            for (let q = 0; q <= maxQ; q += 5) {
+                let p = params.minWTA + supplySlope * q;
+                data.push([q, Math.max(0, p)]);
+            }
+            return data;
+        }
+        
+        function generateDemandCurve() {
+            let data = [];
+            let maxQ = Math.max(200, params.eqQuantity * 1.5);
+            let demandSlope = (params.maxWTP - params.eqPrice) / params.eqQuantity;
+            
+            for (let q = 0; q <= maxQ; q += 5) {
+                let p = params.maxWTP - demandSlope * q;
+                data.push([q, Math.max(0, p)]);
+            }
+            return data;
+        }
+        
+        function generateCSArea() {
+            return [
+                [0, params.eqPrice],
+                [0, params.maxWTP],
+                [params.eqQuantity, params.eqPrice]
+            ];
+        }
+        
+        function generatePSArea() {
+            return [
+                [0, params.minWTA],
+                [0, params.eqPrice],
+                [params.eqQuantity, params.eqPrice]
+            ];
+        }
+        
+        function generateDWLArea() {
+            if (currentScenario === 'none' || results.dwl <= 0) return [];
+            // Simplified DWL visualization
+            return [
+                [params.eqQuantity * 0.7, params.eqPrice],
+                [params.eqQuantity, params.eqPrice],
+                [params.eqQuantity * 0.7, params.eqPrice * 1.3]
+            ];
+        }
+        
+        // Initialize
+        window.addEventListener('resize', function() {
+            chart.resize();
+        });
+        
+        updateLanguageDisplay();
+        calculate();
+    </script>
+</body>
+</html>

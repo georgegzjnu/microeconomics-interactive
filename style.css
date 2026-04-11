@@ -597,32 +597,127 @@ footer {
         padding: 8px 15px;
         font-size: 0.9rem;
     }
-}
-/* Download button styles */
-.download-btn {
-    margin-left: auto;
-    padding: 8px 16px;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    border-radius: 24px;
-    box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
-    transition: all 0.3s ease;
+}/* Quiz Category Selector */
+.quiz-category {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
-.download-btn a {
-    color: white;
-    text-decoration: none;
+
+.category-btn {
+    padding: 10px 20px;
+    border: none;
+    background: var(--bg-yellow-light);
+    color: var(--text-medium);
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.category-btn:hover {
+    background: var(--bg-yellow-medium);
+    color: var(--text-dark);
+}
+
+.category-btn.active {
+    background: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue-dark);
+}
+
+/* Flashcards Category Selector */
+.flashcards-category {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.flashcards-category .category-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+/* Feedback Section */
+.feedback-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6;
+}
+
+.feedback-section h3 {
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.feedback-section p {
+    color: var(--text-medium);
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.feedback-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.feedback-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
     display: flex;
     align-items: center;
-    font-weight: 600;
-    font-size: 14px;
+    gap: 8px;
+    font-size: 1rem;
 }
-.download-btn a i {
-    margin-right: 8px;
-    font-size: 16px;
+
+.feedback-btn.too-easy {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
 }
-.download-btn:hover {
+
+.feedback-btn.just-right {
+    background: linear-gradient(135deg, #007bff 0%, #17a2b8 100%);
+    color: white;
+}
+
+.feedback-btn.too-hard {
+    background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+    color: white;
+}
+
+.feedback-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(106, 17, 203, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#feedback-thankyou {
+    text-align: center;
+    padding: 15px;
+    background-color: #d4edda;
+    border-radius: var(--border-radius);
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    margin-top: 15px;
+}
+
+.feedback-stats {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-top: 10px;
 }

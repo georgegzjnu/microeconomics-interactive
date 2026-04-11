@@ -18,22 +18,12 @@
                 <button id="lang-en" class="lang-btn active">EN</button>
                 <button id="lang-cn" class="lang-btn">中文</button>
             </div>
-            <div class="download-btn">
-                <a href="./downloads/Week1_Exercises.pdf" target="_blank" data-key="download_exercises">
-                    <i class="fas fa-download"></i> <span data-key="download_text">Week 1 (PDF)</span>
-                </a>
-                <a href="./downloads/week2/Week2_Exercises.pdf" target="_blank" data-key="download_exercises_week2_pdf">
-                    <i class="fas fa-download"></i> <span>Week 2 (PDF)</span>
-                </a>
-                <a href="./downloads/week2/Week2_Exercises.docx" target="_blank" data-key="download_exercises_week2_word">
-                    <i class="fas fa-download"></i> <span>Week 2 (Word)</span>
-                </a>
-            </div>
         </header>
         
         <nav class="tabs">
             <button class="tab-btn active" data-tab="quiz"><i class="fas fa-question-circle"></i> <span data-key="tab_quiz">Knowledge Quiz</span></button>
             <button class="tab-btn" data-tab="flashcards"><i class="fas fa-layer-group"></i> <span data-key="tab_flashcards">Concept Flashcards</span></button>
+            <button class="tab-btn" data-tab="analyzer"><i class="fas fa-chart-line"></i> <span data-key="tab_analyzer">Market Efficiency Analyzer</span></button>
         </nav>
         
         <main>
@@ -44,6 +34,13 @@
                     <div class="quiz-meta">
                         <span><i class="fas fa-clock"></i> <span data-key="quiz_time">Time limit: 15 min</span></span>
                         <span><i class="fas fa-star"></i> <span data-key="quiz_score">Score: 0/100</span></span>
+                    </div>
+                    <div class="quiz-category">
+                        <button class="category-btn active" data-category="all"><span data-key="category_all">All</span></button>
+                        <button class="category-btn" data-category="supply"><span data-key="category_supply">Supply & Demand</span></button>
+                        <button class="category-btn" data-category="elasticity"><span data-key="category_elasticity">Elasticity</span></button>
+                        <button class="category-btn" data-category="market_failure"><span data-key="category_market_failure">Market Failure</span></button>
+                        <button class="category-btn" data-category="imperfect_competition"><span data-key="category_imperfect_competition">Imperfect Competition</span></button>
                     </div>
                 </div>
                 
@@ -81,6 +78,13 @@
                     <div class="flashcards-meta">
                         <span><i class="fas fa-layer-group"></i> <span data-key="flashcards_count">20 cards total</span></span>
                         <span><i class="fas fa-check-circle"></i> <span data-key="flashcards_mastered">0 mastered</span></span>
+                    </div>
+                    <div class="flashcards-category">
+                        <button class="category-btn active" data-category="all"><span data-key="category_all">All</span></button>
+                        <button class="category-btn" data-category="supply"><span data-key="category_supply">Supply & Demand</span></button>
+                        <button class="category-btn" data-category="elasticity"><span data-key="category_elasticity">Elasticity</span></button>
+                        <button class="category-btn" data-category="market_failure"><span data-key="category_market_failure">Market Failure</span></button>
+                        <button class="category-btn" data-category="imperfect_competition"><span data-key="category_imperfect_competition">Imperfect Competition</span></button>
                     </div>
                 </div>
                 
@@ -130,7 +134,54 @@
                     </div>
                 </div>
             </div>
+            
+            <div id="analyzer-tab" class="tab-content">
+                <div class="analyzer-header">
+                    <h2 data-key="analyzer_title">Market Efficiency Analyzer</h2>
+                    <p data-key="analyzer_desc">Interactive tool to explore consumer surplus, producer surplus, deadweight loss, and market efficiency under different policy scenarios.</p>
+                </div>
+                <div class="analyzer-container">
+                    <div class="bilingual notice">
+                        <p class="en">The Market Efficiency Analyzer is available as a standalone interactive tool.</p>
+                        <p class="cn">市场效率分析仪可作为独立的交互工具使用。</p>
+                    </div>
+                    <div class="analyzer-embed">
+                        <iframe src="market_efficiency_analyzer.html" width="100%" height="600px" frameborder="0" style="border-radius: 10px; border: 2px solid #3498db;"></iframe>
+                        <p class="bilingual hint">
+                            <span class="en">If the analyzer doesn't load, <a href="market_efficiency_analyzer.html" target="_blank">click here to open it in a new tab</a>.</span>
+                            <span class="cn">如果分析仪未加载，<a href="market_efficiency_analyzer.html" target="_blank">请点击此处在新标签页中打开</a>。</span>
+                        </p>
+                    </div>
+                    <div class="bilingual notice" style="margin-top: 20px; background: #e8f5e9;">
+                        <p class="en"><strong>Week 6 - Consumer & Producer Surplus Calculator:</strong> <a href="week6_consumer_producer_surplus_calculator.html" target="_blank">Open Calculator ↗</a></p>
+                        <p class="cn"><strong>第6周 - 消费者与生产者剩余计算器：</strong> <a href="week6_consumer_producer_surplus_calculator.html" target="_blank">打开计算器 ↗</a></p>
+                    </div>
+                </div>
+            </div>
         </main>
+        
+        <!-- Anonymous Feedback Section -->
+        <div class="feedback-section">
+            <h3 data-key="feedback_title">How was this material for you?</h3>
+            <p data-key="feedback_desc">Your anonymous feedback helps us improve the learning experience.</p>
+            <div class="feedback-buttons">
+                <button class="feedback-btn too-easy" data-difficulty="too_easy" data-key="feedback_too_easy">
+                    <i class="fas fa-smile"></i> Too Easy
+                </button>
+                <button class="feedback-btn just-right" data-difficulty="just_right" data-key="feedback_just_right">
+                    <i class="fas fa-meh"></i> Just Right
+                </button>
+                <button class="feedback-btn too-hard" data-difficulty="too_hard" data-key="feedback_too_hard">
+                    <i class="fas fa-frown"></i> Too Hard
+                </button>
+            </div>
+            <div id="feedback-thankyou" class="hidden">
+                <p data-key="feedback_thankyou">Thank you for your feedback! Your input has been recorded anonymously.</p>
+            </div>
+            <div class="feedback-stats">
+                <small data-key="feedback_stats">Feedback recorded: <span id="feedback-count">0</span></small>
+            </div>
+        </div>
         
         <footer>
             <p data-key="footer">Microeconomics Teaching Agent - Interactive Components Prototype. © 2026</p>
@@ -138,5 +189,6 @@
     </div>
     
     <script src="script.js"></script>
+    <script src="src/data_collection/imperfect_competition_tracking.js"></script>
 </body>
 </html>

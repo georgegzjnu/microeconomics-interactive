@@ -1,0 +1,141 @@
+[
+    {
+        "id": 41,
+        "type": "multiple_choice",
+        "question_en": "Which market structure has the largest number of firms?",
+        "question_cn": "以下哪种市场结构的企业数量最多？",
+        "options_en": ["Perfect competition", "Monopolistic competition", "Oligopoly", "Monopoly"],
+        "options_cn": ["完全竞争", "垄断竞争", "寡头垄断", "垄断"],
+        "answer": 0,
+        "explanation_en": "Perfect competition assumes many small firms, each with no market power.",
+        "explanation_cn": "完全竞争假设有许多小企业，每个企业都没有市场权力。"
+    },
+    {
+        "id": 42,
+        "type": "true_false",
+        "question_en": "Monopoly firms always earn economic profit.",
+        "question_cn": "垄断企业总是能获得经济利润。",
+        "options_en": ["True", "False"],
+        "options_cn": ["正确", "错误"],
+        "answer": 1,
+        "explanation_en": "While monopolies can earn economic profit in the short run, they may face regulation, competition, or fixed costs that eliminate profits in the long run.",
+        "explanation_cn": "虽然垄断企业短期内可以获得经济利润，但长期可能面临监管、竞争或固定成本，从而消除利润。"
+    },
+    {
+        "id": 43,
+        "type": "multiple_choice",
+        "question_en": "Which condition is NOT required for price discrimination to be effective?",
+        "question_cn": "价格歧视要有效实施，不需要以下哪个条件？",
+        "options_en": ["Market segmentation", "Prevention of arbitrage", "Different demand elasticities", "Government approval"],
+        "options_cn": ["市场分割", "防止套利", "不同需求弹性", "政府批准"],
+        "answer": 3,
+        "explanation_en": "Price discrimination requires: 1) market power, 2) ability to segment markets, 3) prevention of resale/arbitrage, and 4) different demand elasticities. Government approval is not inherently required.",
+        "explanation_cn": "价格歧视需要：1) 市场权力，2) 分割市场的能力，3) 防止转售/套利，4) 不同需求弹性。政府批准并非固有要求。"
+    },
+    {
+        "id": 44,
+        "type": "multiple_choice",
+        "question_en": "What does the Herfindahl-Hirschman Index (HHI) measure?",
+        "question_cn": "赫芬达尔-赫希曼指数（HHI）衡量什么？",
+        "options_en": ["Market concentration", "Price elasticity", "Consumer surplus", "Production efficiency"],
+        "options_cn": ["市场集中度", "价格弹性", "消费者剩余", "生产效率"],
+        "answer": 0,
+        "explanation_en": "HHI is calculated as the sum of squares of market shares of all firms in the market. Higher HHI indicates more concentration (less competition).",
+        "explanation_cn": "HHI计算为市场中所有企业市场份额的平方和。HHI越高表明集中度越高（竞争越少）。"
+    },
+    {
+        "id": 45,
+        "type": "true_false",
+        "question_en": "In oligopoly markets, firms make decisions independently.",
+        "question_cn": "寡头市场中企业决策相互独立。",
+        "options_en": ["True", "False"],
+        "options_cn": ["正确", "错误"],
+        "answer": 1,
+        "explanation_en": "Oligopoly is characterized by strategic interdependence: each firm's decisions affect others and must consider competitors' likely responses.",
+        "explanation_cn": "寡头垄断的特征是战略相互依赖：每家企业的决策都会影响其他企业，并且必须考虑竞争对手的可能反应。"
+    },
+    {
+        "id": 46,
+        "type": "ordering",
+        "question_en": "Rank the following antitrust policy tools from weakest to strongest intervention intensity:",
+        "question_cn": "将以下反垄断政策工具按干预强度从弱到强排序：",
+        "options_en": ["Information disclosure", "Behavioral regulation", "Structural breakup", "Nationalization"],
+        "options_cn": ["信息公开", "行为监管", "结构拆分", "国有化"],
+        "answer": [0, 1, 2, 3],
+        "explanation_en": "Information disclosure is the lightest intervention, followed by behavioral regulation (rules on conduct), structural breakup (forcing divestiture), and nationalization (state ownership) as the strongest.",
+        "explanation_cn": "信息公开是最轻的干预，其次是行为监管（行为规则），结构拆分（强制剥离），国有化（国家所有权）是最强的。"
+    },
+    {
+        "id": 47,
+        "type": "matching",
+        "question_en": "Match each real-world case with the most relevant market structure:",
+        "question_cn": "将每个现实案例与最相关的市场结构类型匹配：",
+        "options_en": ["Concrete association price fixing", "Memory chip price surge", "Food delivery platform investigation", "Big data price discrimination"],
+        "options_cn": ["混凝土协会价格垄断", "内存条价格暴涨", "外卖平台竞争调查", "大数据价格歧视"],
+        "matching_pairs": [
+            {"case": 0, "market_structure": 1},
+            {"case": 1, "market_structure": 1},
+            {"case": 2, "market_structure": 1},
+            {"case": 3, "market_structure": 2}
+        ],
+        "market_structure_options_en": ["Perfect competition", "Oligopoly", "Monopolistic competition", "Monopoly"],
+        "market_structure_options_cn": ["完全竞争", "寡头垄断", "垄断竞争", "垄断"],
+        "explanation_en": "Concrete association price fixing, memory chip markets, and food delivery platforms are classic oligopolies (few dominant firms). Big data price discrimination is often practiced by firms with market power, typically in monopolistic competition or monopoly settings.",
+        "explanation_cn": "混凝土协会价格垄断、内存条市场和外卖平台是典型的寡头垄断（少数主导企业）。大数据价格歧视通常由具有市场权力的企业实施，多见于垄断竞争或垄断环境。"
+    },
+    {
+        "id": 48,
+        "type": "multiple_choice",
+        "question_en": "In the Cournot model of oligopoly, total industry output compared to perfect competition is:",
+        "question_cn": "在寡头垄断的古诺模型中，行业总产出与完全竞争相比：",
+        "options_en": ["Higher than perfect competition", "Lower than perfect competition but higher than monopoly", "Equal to monopoly output", "Unpredictable"],
+        "options_cn": ["高于完全竞争", "低于完全竞争但高于垄断", "等于垄断产出", "不可预测"],
+        "answer": 1,
+        "explanation_en": "Cournot oligopoly produces more than a monopoly (due to competition between firms) but less than perfect competition (due to market power).",
+        "explanation_cn": "古诺寡头垄断产出高于垄断（由于企业间竞争），但低于完全竞争（由于市场权力）。"
+    },
+    {
+        "id": 49,
+        "type": "multiple_choice",
+        "question_en": "Which of the following is a characteristic of monopolistic competition?",
+        "question_cn": "以下哪项是垄断竞争市场的特征？",
+        "options_en": ["Many firms with identical products", "Significant barriers to entry", "Product differentiation", "Single firm dominates market"],
+        "options_cn": ["许多企业生产相同产品", "显著的进入壁垒", "产品差异化", "单一企业主导市场"],
+        "answer": 2,
+        "explanation_en": "Monopolistic competition features many firms, free entry/exit, and product differentiation (each firm's product is slightly different).",
+        "explanation_cn": "垄断竞争的特征是许多企业、自由进出和产品差异化（每家企业的产品略有不同）。"
+    },
+    {
+        "id": 50,
+        "type": "multiple_choice",
+        "question_en": "What is the primary goal of antitrust policy?",
+        "question_cn": "反垄断政策的主要目标是什么？",
+        "options_en": ["To protect small businesses from competition", "To maximize government revenue", "To promote competition and prevent market power abuse", "To ensure equal prices for all consumers"],
+        "options_cn": ["保护小企业免受竞争", "最大化政府收入", "促进竞争和防止市场权力滥用", "确保所有消费者价格平等"],
+        "answer": 2,
+        "explanation_en": "Antitrust policy aims to maintain competitive markets, prevent monopolization, and protect consumer welfare from anti-competitive practices.",
+        "explanation_cn": "反垄断政策旨在维持竞争性市场，防止垄断化，保护消费者福利免受反竞争行为侵害。"
+    },
+    {
+        "id": 51,
+        "type": "multiple_choice",
+        "question_en": "In the Broadcom-VMware case, the primary market failure was:",
+        "question_cn": "在博通-VMware案例中，主要的市场失灵是：",
+        "options_en": ["Monopoly power abuse through price discrimination", "Cartel formation through price fixing", "Negative externality from pollution", "Public good underprovision"],
+        "options_cn": ["通过价格歧视滥用垄断权力", "通过价格垄断形成卡特尔", "污染造成的负外部性", "公共物品供应不足"],
+        "answer": 0,
+        "explanation_en": "Broadcom's 1000% price increase for VMware subscriptions after acquisition is a classic example of monopoly power abuse through price discrimination and bundling.",
+        "explanation_cn": "博通在收购后将VMware订阅价格提高1000%，是通过价格歧视和捆绑销售滥用垄断权力的典型案例。"
+    },
+    {
+        "id": 52,
+        "type": "multiple_choice",
+        "question_en": "Which model of oligopoly assumes firms compete by setting quantities rather than prices?",
+        "question_cn": "哪种寡头垄断模型假设企业通过设定产量而非价格来竞争？",
+        "options_en": ["Bertrand model", "Cournot model", "Stackelberg model", "Hotelling model"],
+        "options_cn": ["伯川德模型", "古诺模型", "斯塔克尔伯格模型", "霍特林模型"],
+        "answer": 1,
+        "explanation_en": "The Cournot model assumes firms choose quantities simultaneously; market price then adjusts to clear the market.",
+        "explanation_cn": "古诺模型假设企业同时选择产量；然后市场价格调整以出清市场。"
+    }
+]

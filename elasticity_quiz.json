@@ -1,0 +1,102 @@
+[
+    {
+        "id": 21,
+        "question_en": "When the price of gasoline rises from $3.00/gallon to $3.60/gallon (20% increase), the quantity demanded decreases by 4%. What is the price elasticity of demand?",
+        "question_cn": "当汽油价格从3.00美元/加仑上涨到3.60美元/加仑（上涨20%），需求量下降4%。需求价格弹性是多少？",
+        "options_en": ["0.2", "0.5", "1.0", "2.0"],
+        "options_cn": ["0.2", "0.5", "1.0", "2.0"],
+        "answer": 0,
+        "explanation_en": "Price elasticity = (% change in quantity demanded) / (% change in price) = -4% / 20% = -0.2. Absolute value 0.2 indicates highly inelastic demand (essential good, few short‑term substitutes).",
+        "explanation_cn": "价格弹性 = (需求量变化百分比) / (价格变化百分比) = -4% / 20% = -0.2。绝对值0.2表明极度缺乏弹性（必需品，短期替代品少）。"
+    },
+    {
+        "id": 22,
+        "question_en": "A product has a price elasticity of demand of 1.5. How would you classify its demand?",
+        "question_cn": "某商品的需求价格弹性为1.5。你如何分类其需求？",
+        "options_en": ["Perfectly inelastic", "Inelastic", "Unit elastic", "Elastic"],
+        "options_cn": ["完全无弹性", "缺乏弹性", "单位弹性", "富有弹性"],
+        "answer": 3,
+        "explanation_en": "When the absolute value of price elasticity is greater than 1, demand is elastic (consumers are relatively sensitive to price changes).",
+        "explanation_cn": "当价格弹性的绝对值大于1时，需求是富有弹性的（消费者对价格变化相对敏感）。"
+    },
+    {
+        "id": 23,
+        "question_en": "When household income increases by 15%, demand for organic vegetables rises by 30%. What is the income elasticity of demand?",
+        "question_cn": "当家庭收入增加15%时，有机蔬菜的需求增加30%。需求的收入弹性是多少？",
+        "options_en": ["0.5", "1.0", "2.0", "3.0"],
+        "options_cn": ["0.5", "1.0", "2.0", "3.0"],
+        "answer": 2,
+        "explanation_en": "Income elasticity = (% change in quantity demanded) / (% change in income) = 30% / 15% = 2.0. Positive and greater than 1 indicates a luxury good.",
+        "explanation_cn": "收入弹性 = (需求量变化百分比) / (收入变化百分比) = 30% / 15% = 2.0。正值且大于1表明是奢侈品。"
+    },
+    {
+        "id": 24,
+        "question_en": "If the price of coffee increases by 10% and the demand for tea increases by 5%, what is the relationship between coffee and tea?",
+        "question_cn": "如果咖啡价格上涨10%，茶的需求增加5%，咖啡和茶之间的关系是什么？",
+        "options_en": ["Complements (cross‑elasticity negative)", "Substitutes (cross‑elasticity positive)", "Independent goods (cross‑elasticity zero)", "Inferior goods"],
+        "options_cn": ["互补品（交叉弹性为负）", "替代品（交叉弹性为正）", "独立商品（交叉弹性为零）", "低档品"],
+        "answer": 1,
+        "explanation_en": "Positive cross‑price elasticity means the two goods are substitutes: when the price of one rises, demand for the other increases.",
+        "explanation_cn": "正的交叉价格弹性意味着两种商品是替代品：一种商品价格上涨时，另一种商品的需求增加。"
+    },
+    {
+        "id": 25,
+        "question_en": "In the storage chip case, why is AI server demand considered inelastic compared to consumer electronics demand?",
+        "question_cn": "在存储芯片案例中，为什么AI服务器需求相比消费电子需求被认为是缺乏弹性的？",
+        "options_en": ["AI servers have more substitute products", "Consumer electronics buyers are less price‑sensitive", "AI servers are essential for technology infrastructure with few short‑term alternatives", "Storage chips are cheaper for AI servers"],
+        "options_cn": ["AI服务器有更多替代产品", "消费电子购买者对价格不敏感", "AI服务器是技术基础设施的必需品，短期替代品少", "存储芯片对AI服务器更便宜"],
+        "answer": 2,
+        "explanation_en": "AI server demand is relatively inelastic because it's a critical input for technology infrastructure; companies cannot easily postpone or replace these purchases when prices rise.",
+        "explanation_cn": "AI服务器需求相对缺乏弹性，因为它是技术基础设施的关键投入；当价格上涨时，企业不容易推迟或替换这些购买。"
+    },
+    {
+        "id": 26,
+        "question_en": "If demand for a product is elastic, a price decrease will lead to:",
+        "question_cn": "如果某商品的需求富有弹性，价格下降将导致：",
+        "options_en": ["Decrease in total revenue", "Increase in total revenue", "No change in total revenue", "Uncertain effect"],
+        "options_cn": ["总收入减少", "总收入增加", "总收入不变", "效果不确定"],
+        "answer": 1,
+        "explanation_en": "When demand is elastic, the percentage increase in quantity demanded outweighs the percentage decrease in price, raising total revenue.",
+        "explanation_cn": "当需求富有弹性时，需求量增加的百分比超过价格下降的百分比，从而提高总收入。"
+    },
+    {
+        "id": 27,
+        "question_en": "Why is the demand for gasoline more elastic in the long run than in the short run?",
+        "question_cn": "为什么汽油的长期需求弹性比短期需求弹性更大？",
+        "options_en": ["Consumers can find more substitutes over time (e.g., electric vehicles)", "Gasoline becomes more essential over time", "Short‑run demand is always more elastic", "Income effects are stronger in the long run"],
+        "options_cn": ["消费者随时间可以找到更多替代品（如电动汽车）", "汽油随时间变得更加必需", "短期需求总是更有弹性", "长期收入效应更强"],
+        "answer": 0,
+        "explanation_en": "Elasticity tends to be higher in the long run because consumers have more time to adjust their consumption patterns, find substitutes, or change technologies.",
+        "explanation_cn": "长期弹性往往更高，因为消费者有更多时间调整消费模式、寻找替代品或改变技术。"
+    },
+    {
+        "id": 28,
+        "question_en": "Which factor makes demand for a product more elastic?",
+        "question_cn": "哪个因素使商品的需求更有弹性？",
+        "options_en": ["The product is a necessity", "There are many close substitutes", "The product represents a small portion of consumer budget", "The time horizon is very short"],
+        "options_cn": ["该商品是必需品", "有许多相近的替代品", "该商品占消费者预算的一小部分", "时间跨度很短"],
+        "answer": 1,
+        "explanation_en": "The more substitutes available, the easier it is for consumers to switch when prices change, making demand more elastic.",
+        "explanation_cn": "可获得的替代品越多，消费者在价格变化时越容易转换，使得需求更有弹性。"
+    },
+    {
+        "id": 29,
+        "question_en": "If producers can quickly increase output when price rises, supply is:",
+        "question_cn": "如果生产者在价格上涨时能迅速增加产出，供给是：",
+        "options_en": ["Inelastic", "Elastic", "Unit elastic", "Perfectly inelastic"],
+        "options_cn": ["缺乏弹性", "富有弹性", "单位弹性", "完全无弹性"],
+        "answer": 1,
+        "explanation_en": "Elastic supply means producers can adjust quantity supplied significantly in response to price changes, often due to flexible production capacity or available inputs.",
+        "explanation_cn": "富有弹性的供给意味着生产者可以根据价格变化大幅调整供给量，通常由于灵活的生产能力或可获得的投入。"
+    },
+    {
+        "id": 30,
+        "question_en": "When demand is inelastic and supply is elastic, who bears most of the burden of a tax?",
+        "question_cn": "当需求缺乏弹性而供给富有弹性时，谁承担大部分税收负担？",
+        "options_en": ["Consumers", "Producers", "Shared equally", "Government"],
+        "options_cn": ["消费者", "生产者", "平均分担", "政府"],
+        "answer": 0,
+        "explanation_en": "Tax incidence depends on relative elasticities: the less elastic side (here demand) bears more of the tax burden.",
+        "explanation_cn": "税收归宿取决于相对弹性：弹性较小的一方（这里是需求）承担更多的税收负担。"
+    }
+]
