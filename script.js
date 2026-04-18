@@ -34,6 +34,7 @@ const translations = {
         category_elasticity: "Elasticity",
         category_market_failure: "Market Failure",
         category_imperfect_competition: "Imperfect Competition",
+        category_information: "Information Economics",
         category_market_efficiency: "Market Efficiency",
         correct: "Correct",
         incorrect: "Incorrect",
@@ -83,6 +84,7 @@ const translations = {
         category_elasticity: "弹性",
         category_market_failure: "市场失灵",
         category_imperfect_competition: "不完全竞争市场",
+        category_information: "信息经济学",
         correct: "正确",
         incorrect: "错误",
         your_answer: "你的答案",
@@ -406,6 +408,116 @@ const quizData = [
         answer: 2,
         explanation_en: "Consumer tastes affect demand, not supply. Supply determinants include technology, input prices, expectations, and number of sellers.",
         explanation_cn: "消费者品味影响需求，而非供给。供给的决定因素包括技术、投入品价格、预期和卖家数量。"
+    },
+    {
+        id: 101,
+        category: "information_economics",
+        question_en: "What is information asymmetry?",
+        question_cn: "什么是信息不对称？",
+        options_en: ["When the government controls all market information", "When one party in a transaction has more or better information than the other", "When all market participants have equal information", "When information is completely unavailable to buyers"],
+        options_cn: ["当政府控制所有市场信息时", "当交易中的一方比另一方拥有更多或更好的信息时", "当所有市场参与者拥有相同信息时", "当买家完全无法获得信息时"],
+        answer: 1,
+        explanation_en: "Information asymmetry occurs when one party in a transaction has more or better information than the other party, creating an imbalance that can lead to market failures.",
+        explanation_cn: "信息不对称发生在交易中的一方比另一方拥有更多或更好的信息时，这种不平衡可能导致市场失灵。"
+    },
+    {
+        id: 102,
+        category: "information_economics",
+        question_en: "The 'Lemons Problem' in the used car market is a classic example of:",
+        question_cn: "二手车市场中的"柠檬问题"是以下哪个概念的经典例子？",
+        options_en: ["Moral hazard", "Adverse selection", "Principal-agent problem", "Signal screening"],
+        options_cn: ["道德风险", "逆向选择", "委托代理问题", "信息筛选"],
+        answer: 1,
+        explanation_en: "George Akerlof's 'Lemons Problem' demonstrates adverse selection: buyers can't distinguish good cars from bad ones, so they're unwilling to pay fair price, causing good cars to exit the market.",
+        explanation_cn: "乔治·阿克洛夫的"柠檬问题"展示了逆向选择：买家无法区分好车和坏车，因此不愿支付公平价格，导致好车退出市场。"
+    },
+    {
+        id: 103,
+        category: "information_economics",
+        question_en: "What distinguishes adverse selection from moral hazard?",
+        question_cn: "逆向选择和道德风险的区别是什么？",
+        options_en: ["Adverse selection occurs before the transaction; moral hazard occurs after", "They are the same concept with different names", "Moral hazard occurs before insurance is purchased", "Adverse selection only applies to insurance markets"],
+        options_cn: ["逆向选择发生在交易之前；道德风险发生在交易之后", "它们是同一概念的不同名称", "道德风险发生在购买保险之前", "逆向选择仅适用于保险市场"],
+        answer: 0,
+        explanation_en: "Adverse selection is a pre-contractual problem where hidden characteristics lead to unfavorable matches. Moral hazard is a post-contractual problem where one party takes more risks because another bears the cost.",
+        explanation_cn: "逆向选择是合同前问题，隐藏特征导致不利匹配。道德风险是合同后问题，一方因成本由他人承担而承担更大风险。"
+    },
+    {
+        id: 104,
+        category: "information_economics",
+        question_en: "Why do high-risk individuals more likely to buy health insurance?",
+        question_cn: "为什么高风险个体更可能购买健康保险？",
+        options_en: ["Because they have higher income", "Due to adverse selection in insurance markets", "Because insurance companies prefer high-risk customers", "Due to government mandates"],
+        options_cn: ["因为他们收入更高", "由于保险市场中的逆向选择", "因为保险公司更喜欢高风险客户", "由于政府强制规定"],
+        answer: 1,
+        explanation_en: "This is adverse selection: those with higher health risks have stronger incentive to purchase insurance, knowing they're more likely to need it, which can lead to higher premiums for everyone.",
+        explanation_cn: "这是逆向选择：高健康风险人群知道他们更可能需要保险，因此有更强的购买动机，这可能导致所有人的保费上涨。"
+    },
+    {
+        id: 105,
+        category: "information_economics",
+        question_en: "After buying car insurance, a driver becomes less careful. This is an example of:",
+        question_cn: "购买汽车保险后，司机变得不那么小心了。这是以下哪个例子？",
+        options_en: ["Adverse selection", "Principal-agent problem", "Moral hazard", "Information cascade"],
+        options_cn: ["逆向选择", "委托代理问题", "道德风险", "信息瀑布"],
+        answer: 2,
+        explanation_en: "Moral hazard occurs when a person changes their behavior after entering an agreement because they don't bear the full consequences. The insured driver takes more risks knowing the insurer will cover losses.",
+        explanation_cn: "道德风险发生在一个人签订协议后改变行为，因为他们不承担全部后果。投保司机知道保险公司会赔偿损失，因此承担更大风险。"
+    },
+    {
+        id: 106,
+        category: "information_economics",
+        question_en: "Which mechanism helps reduce information asymmetry in labor markets?",
+        question_cn: "哪种机制有助于减少劳动力市场的信息不对称？",
+        options_en: ["Government price controls", "Signaling through education (diplomas, certifications)", "Eliminating all employment contracts", "Banning job interviews"],
+        options_cn: ["政府价格控制", "通过教育进行信号传递（文凭、证书）", "取消所有雇佣合同", "禁止工作面试"],
+        answer: 1,
+        explanation_en: "Michael Spence's signaling theory shows that education serves as a credible signal of ability in labor markets. Workers invest in education to demonstrate their productivity to employers.",
+        explanation_cn: "迈克尔·斯宾塞的信号理论表明，教育在劳动力市场中作为能力的可信信号。工人投资教育以向雇主展示他们的生产力。"
+    },
+    {
+        id: 107,
+        category: "information_economics",
+        question_en: "What is a 'screening' mechanism in markets with information asymmetry?",
+        question_cn: "信息不对称市场中什么是"筛选"机制？",
+        options_en: ["The government sets quality standards", "The less-informed party designs incentives to reveal hidden information", "All products must have quality labels", "Only large companies can sell products"],
+        options_cn: ["政府设定质量标准", "信息较少的一方设计激励措施来揭示隐藏信息", "所有产品必须有质量标签", "只有大公司可以销售产品"],
+        answer: 1,
+        explanation_en: "Screening occurs when the less-informed party (e.g., insurer) creates mechanisms to induce the more-informed party (e.g., customers) to reveal their private information through self-selection.",
+        explanation_cn: "筛选发生在信息较少的一方（如保险公司）创造机制，诱导信息较多的一方（如客户）通过自我选择揭示其私人信息。"
+    },
+    {
+        id: 108,
+        category: "information_economics",
+        question_en: "Why might employers offer efficiency wages above market equilibrium?",
+        question_cn: "为什么雇主可能提供高于市场均衡的效率工资？",
+        options_en: ["To reduce worker morale", "To motivate workers and reduce shirking", "To increase government taxes", "To attract only low-quality workers"],
+        options_cn: ["为了降低工人士气", "为了激励工人并减少偷懒", "为了增加政府税收", "为了吸引低质量工人"],
+        answer: 1,
+        explanation_en: "Efficiency wages help solve the principal-agent problem by incentivizing workers not to shirk. If workers can be easily replaced, they work harder to keep their high-paying job.",
+        explanation_cn: "效率工资通过激励工人不偷懒来帮助解决委托代理问题。如果工人可以被轻易替换，他们会更加努力工作以保住高薪工作。"
+    },
+    {
+        id: 109,
+        category: "information_economics",
+        question_en: "What role do warranties play in reducing information asymmetry?",
+        question_cn: "保修在减少信息不对称中起什么作用？",
+        options_en: ["They increase information asymmetry", "They serve as a credible quality signal from sellers", "They have no effect on buyer decisions", "They only apply to luxury goods"],
+        options_cn: ["它们增加了信息不对称", "它们作为卖家可信的质量信号", "它们对买家决策没有影响", "它们只适用于奢侈品"],
+        answer: 1,
+        explanation_en: "Warranties act as quality signaling because only sellers with confident product quality will offer strong warranties. This helps buyers infer hidden product information.",
+        explanation_cn: "保修作为质量信号，因为只有对产品质量有信心的卖家才会提供强力保修。这帮助买家推断隐藏的产品信息。"
+    },
+    {
+        id: 110,
+        category: "information_economics",
+        question_en: "What is the Nobel Prize contribution of Akerlof, Spence, and Stigliz in 2001?",
+        question_cn: "2001年阿克洛夫、斯宾塞和斯蒂格利茨的诺贝尔奖贡献是什么？",
+        options_en: ["Game theory applications in economics", "Analysis of markets with asymmetric information", "Development of monetary policy tools", "Consumer preference theory"],
+        options_cn: ["经济学中博弈论的应用", "信息不对称市场分析", "货币政策工具的发展", "消费者偏好理论"],
+        answer: 1,
+        explanation_en: "They won the Nobel Prize for their analyses of markets with asymmetric information. Akerlof showed the lemons problem, Spence demonstrated signaling, and Stigliz explained screening.",
+        explanation_cn: "他们因对信息不对称市场的分析而获得诺贝尔奖。阿克洛夫展示了柠檬问题，斯宾塞证明了信号传递，斯蒂格利茨解释了筛选机制。"
     }
 ];
 
@@ -570,6 +682,166 @@ const flashcardsData = [
         definition_en: "Satisfaction or happiness derived from consuming goods/services",
         example_en: "Eating ice cream on a hot day gives high utility",
         example_cn: "热天吃冰淇淋带来高效用"
+    },
+    {
+        id: 61,
+        term_en: "Loss Aversion",
+        definition_cn: "损失厌恶 - 人们对损失的痛苦感大于对等量收益的愉悦感",
+        definition_en: "People feel the pain of losses more acutely than the pleasure of equivalent gains",
+        example_en: "Investors refuse to sell losing stocks to avoid realizing losses",
+        example_cn: "投资者拒绝卖出亏损股票以避免确认损失"
+    },
+    {
+        id: 62,
+        term_en: "Anchoring Effect",
+        definition_cn: "锚定效应 - 过度依赖最先获得的信息做决策",
+        definition_en: "The tendency to rely too heavily on the first piece of information encountered",
+        example_en: "Restaurant menu prices: a $50 dish makes the $25 main course seem reasonably priced",
+        example_cn: "餐厅菜单定价：一道50美元的菜使25美元的主菜显得价格合理"
+    },
+    {
+        id: 63,
+        term_en: "Status Quo Bias",
+        definition_cn: "现状偏见 - 偏好当前状态，回避变化的心理倾向",
+        definition_en: "The preference for current state of affairs; the tendency to do nothing",
+        example_en: "Employees never changing their 401(k) investment allocations",
+        example_cn: "员工从不改变他们的401(k)投资配置"
+    },
+    {
+        id: 64,
+        term_en: "Mental Accounting",
+        definition_cn: "心理账户 - 人们以非理性方式将钱分配到不同心理账户",
+        definition_en: "The tendency to categorize money differently based on its origin",
+        example_en: "Spending a tax refund freely while being frugal with regular income",
+        example_cn: "随意花掉退税而对固定收入精打细算"
+    },
+    {
+        id: 65,
+        term_en: "Nudge Theory",
+        definition_cn: "助推理论 - 通过设计选择架构引导人们做出更好决策",
+        definition_en: "Designing choice architecture to influence behavior while preserving freedom",
+        example_en: "Placing healthy foods at eye level in cafeterias increases their selection",
+        example_cn: "将健康食品放在自助餐厅的视线高度会增加选择"
+    },
+    {
+        id: 66,
+        term_en: "Default Effect",
+        definition_cn: "默认选项效应 - 人们倾向于接受预设的默认选项",
+        definition_en: "The tendency to accept pre-set options rather than make active choices",
+        example_en: "Most employees stay in default 401(k) contribution rates",
+        example_cn: "大多数员工保持默认的401(k)缴款比例"
+    },
+    {
+        id: 67,
+        term_en: "Present Bias",
+        definition_cn: "现时偏见 - 过度看重即时奖励而低估未来收益",
+        definition_en: "The tendency to overvalue immediate rewards relative to future rewards",
+        example_en: "Choosing a smaller payment now over a larger payment next month",
+        example_cn: "选择现在获得较少付款而不是下个月获得较多付款"
+    },
+    {
+        id: 68,
+        term_en: "Overconfidence Bias",
+        definition_cn: "过度自信偏差 - 高估自己的知识、能力和判断准确性",
+        definition_en: "The tendency to overestimate one's own abilities or chances of success",
+        example_en: "90% of drivers consider themselves above-average drivers",
+        example_cn: "90%的司机认为自己驾驶水平高于平均水平"
+    },
+    {
+        id: 69,
+        term_en: "Sunk Cost Fallacy",
+        definition_cn: "沉没成本谬误 - 因为已投入资源而继续不合理的决策",
+        definition_en: "Continuing a behavior because of previously invested resources",
+        example_en: "Finishing a boring movie just because you already paid for the ticket",
+        example_cn: "仅仅因为已经买了票而看完一部无聊的电影"
+    },
+    {
+        id: 70,
+        term_en: "Framing Effect",
+        definition_cn: "框架效应 - 决策受信息表述方式的影响",
+        definition_en: "How information is presented significantly affects people's choices",
+        example_en: "'90% fat-free' sounds healthier than 'contains 10% fat'",
+        example_cn: ""90%无脂肪"听起来比"含有10%脂肪"更健康"
+    },
+    {
+        id: 71,
+        term_en: "Availability Heuristic",
+        definition_cn: "可得性启发法 - 根据容易想到的例子判断事件可能性",
+        definition_en: "Judging the likelihood of events based on how easily examples come to mind",
+        example_en: "Overestimating shark attack risk after seeing news coverage",
+        example_cn: "在看到新闻报道后高估鲨鱼袭击风险"
+    },
+    {
+        id: 72,
+        term_en: "Endowment Effect",
+        definition_cn: "禀赋效应 - 对自己拥有的物品估值高于未拥有时",
+        definition_en: "Valuing items more highly when you own them than when you don't",
+        example_en: "Refusing to sell your concert ticket for twice its face value",
+        example_cn: "拒绝以两倍面值出售演唱会票"
+    },
+    {
+        id: 73,
+        term_en: "Herd Behavior",
+        definition_cn: "从众行为 - 模仿他人决策而不独立分析",
+        definition_en: "Following the actions of a large group rather than making independent choices",
+        example_en: "Investors buying stocks because 'everyone else is doing it'",
+        example_cn: "投资者在牛市时仅仅因为"每个人都在买"而购买股票"
+    },
+    {
+        id: 74,
+        term_en: "Choice Overload",
+        definition_cn: "选择过载 - 选项过多反而导致无法决策或满意度下降",
+        definition_en: "Having too many options leads to decision paralysis",
+        example_en: "Jam study: fewer flavors led to higher sales than 24 varieties",
+        example_cn: "果酱研究：6种口味比24种口味带来更高销售"
+    },
+    {
+        id: 75,
+        term_en: "Optimism Bias",
+        definition_cn: "乐观偏差 - 高估好事发生在自己身上的概率",
+        definition_en: "The tendency to believe that positive events are more likely to happen to us",
+        example_en: "Most entrepreneurs believe their startup will succeed despite high failure rates",
+        example_cn: "大多数企业家相信他们的创业会成功"
+    },
+    {
+        id: 76,
+        term_en: "Hyperbolic Discounting",
+        definition_cn: "双曲贴现 - 短期奖励的权重远高于长期奖励",
+        definition_en: "The tendency to prefer smaller immediate rewards over larger later rewards",
+        example_en: "Choosing $50 now over $100 in one year",
+        example_cn: "现在选择50美元而不是一年后获得100美元"
+    },
+    {
+        id: 77,
+        term_en: "Confirmation Bias",
+        definition_cn: "确认偏差 - 寻找证实已有信念的信息",
+        definition_en: "The tendency to search for and favor information that confirms beliefs",
+        example_en: "Only reading news sources that support your political views",
+        example_cn: "只阅读支持你政治观点的新闻来源"
+    },
+    {
+        id: 78,
+        term_en: "Gambler's Fallacy",
+        definition_cn: "赌徒谬误 - 认为随机序列会自我修正",
+        definition_en: "Believing that if something happens more frequently, it will happen less in future",
+        example_en: "After flipping 5 heads, thinking tails is 'due' on the next flip",
+        example_cn: "连续5次正面后，认为下一次应该是反面"
+    },
+    {
+        id: 79,
+        term_en: "Commitment Device",
+        definition_cn: "承诺装置 - 帮助克服短期诱惑的机制",
+        definition_en: "A tool that helps individuals stick to their long-term goals",
+        example_en: "Going to a café without Wi-Fi to finish writing",
+        example_cn: "去没有Wi-Fi的咖啡馆写作"
+    },
+    {
+        id: 80,
+        term_en: "Libertarian Paternalism",
+        definition_cn: "自由意志家长制 - 政府助推但不强制公众做出选择",
+        definition_en: "Using nudges to help people while preserving their freedom to choose",
+        example_en: "Opt-out organ donation systems increase donation rates",
+        example_cn: "选择退出器官捐献系统提高捐献率"
     }
 ];
 // ================ Elasticity Quiz Data ================
@@ -1677,13 +1949,15 @@ let masteredCards = new Set(); // stores ids of mastered cards
 // ================ Quiz Category Functions ================
 function getCurrentQuizData() {
     if (quizCategory === 'all') {
-        return quizData.concat(elasticityQuizData).concat(marketFailureQuizData).concat(imperfectCompetitionQuizData).concat(factorMarketsQuizData).concat(marketEfficiencyQuizData);
+        return quizData.concat(elasticityQuizData).concat(marketFailureQuizData).concat(imperfectCompetitionQuizData).concat(factorMarketsQuizData).concat(marketEfficiencyQuizData).concat(informationEconomicsQuizData);
     } else if (quizCategory === 'supply') {
         return quizData;
     } else if (quizCategory === 'elasticity') {
         return elasticityQuizData;
     } else if (quizCategory === 'market_failure') {
         return marketFailureQuizData;
+    } else if (quizCategory === 'information_economics') {
+        return informationEconomicsQuizData;
     } else if (quizCategory === 'imperfect_competition') {
         return imperfectCompetitionQuizData;
     } else if (quizCategory === 'factor_markets') {
@@ -1712,7 +1986,9 @@ function setQuizCategory(category) {
 // ================ Flashcards Category Functions ================
 function getCurrentFlashcardsData() {
     if (flashcardsCategory === 'all') {
-        return elasticityFlashcardsData.concat(marketFailureFlashcardsData).concat(imperfectCompetitionFlashcardsData).concat(factorMarketsFlashcardsData);
+        return flashcardsData.concat(elasticityFlashcardsData).concat(marketFailureFlashcardsData).concat(imperfectCompetitionFlashcardsData).concat(factorMarketsFlashcardsData).concat(behavioralEconomicsFlashcardsData);
+    } else if (flashcardsCategory === 'supply') {
+        return flashcardsData;
     } else if (flashcardsCategory === 'elasticity') {
         return elasticityFlashcardsData;
     } else if (flashcardsCategory === 'market_failure') {
@@ -1721,8 +1997,10 @@ function getCurrentFlashcardsData() {
         return imperfectCompetitionFlashcardsData;
     } else if (flashcardsCategory === 'factor_markets') {
         return factorMarketsFlashcardsData;
+    } else if (flashcardsCategory === 'behavioral_economics') {
+        return behavioralEconomicsFlashcardsData;
     }
-    return elasticityFlashcardsData;
+    return flashcardsData;
 }
 
 function setFlashcardsCategory(category) {
@@ -2174,20 +2452,26 @@ if (feedbackButtons) {
 // ================ Week 6: Market Efficiency Data (loaded from external JSON) ================
 let marketEfficiencyQuizData = [];
 let marketEfficiencyFlashcardsData = [];
+let informationEconomicsQuizData = [];
+let behavioralEconomicsFlashcardsData = [];
 
 // ================ Initialization ================
 async function init() {
     // Load external JSON data for Week 6
     try {
-        const [quizResponse, flashcardsResponse] = await Promise.all([
+        const [quizResponse, flashcardsResponse, ieQuizResponse, beFlashcardsResponse] = await Promise.all([
             fetch('week6_market_efficiency_quiz.json'),
-            fetch('week6_market_efficiency_flashcards.json')
+            fetch('week6_market_efficiency_flashcards.json'),
+            fetch('information_economics_quiz.json'),
+            fetch('behavioral_economics_flashcards.json')
         ]);
         marketEfficiencyQuizData = await quizResponse.json();
         marketEfficiencyFlashcardsData = await flashcardsResponse.json();
-        console.log('Week 6 Market Efficiency data loaded successfully');
+        informationEconomicsQuizData = await ieQuizResponse.json();
+        behavioralEconomicsFlashcardsData = await beFlashcardsResponse.json();
+        console.log('Week 6 & Week 7 data loaded successfully');
     } catch (error) {
-        console.error('Error loading Week 6 data:', error);
+        console.error('Error loading data:', error);
     }
     
     switchLanguage('en');

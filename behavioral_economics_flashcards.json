@@ -1,0 +1,162 @@
+[
+  {
+    "id": 61,
+    "term_en": "Loss Aversion",
+    "definition_cn": "损失厌恶 - 人们对损失的痛苦感大于对等量收益的愉悦感",
+    "definition_en": "People feel the pain of losses more acutely than the pleasure of equivalent gains; losses loom larger than gains",
+    "example_en": "Investors refuse to sell losing stocks to avoid realizing losses, even when selling would be rational",
+    "example_cn": "投资者拒绝卖出亏损股票以避免确认损失，即使卖出是理性的"
+  },
+  {
+    "id": 62,
+    "term_en": "Anchoring Effect",
+    "definition_cn": "锚定效应 - 过度依赖最先获得的信息（锚）做决策",
+    "definition_en": "The tendency to rely too heavily on the first piece of information encountered when making decisions",
+    "example_en": "Restaurant menu prices: a $50 dish makes the $25 main course seem reasonably priced",
+    "example_cn": "餐厅菜单定价：一道50美元的菜使25美元的主菜显得价格合理"
+  },
+  {
+    "id": 63,
+    "term_en": "Status Quo Bias",
+    "definition_cn": "现状偏见 - 偏好当前状态，回避变化的心理倾向",
+    "definition_en": "The preference for current state of affairs; the tendency to do nothing or maintain current choices",
+    "example_en": "Employees never changing their 401(k) investment allocations despite market changes",
+    "example_cn": "员工从不改变他们的401(k)投资配置，尽管市场发生变化"
+  },
+  {
+    "id": 64,
+    "term_en": "Mental Accounting",
+    "definition_cn": "心理账户 - 人们以非理性方式将钱分配到不同心理账户",
+    "definition_en": "The tendency to categorize money differently based on its origin or intended use, rather than treating all money as fungible",
+    "example_en": "Spending a tax refund freely while being frugal with regular income",
+    "example_cn": "随意花掉退税而对固定收入精打细算"
+  },
+  {
+    "id": 65,
+    "term_en": "Nudge Theory",
+    "definition_cn": "助推理论 - 通过设计选择架构引导人们做出更好决策",
+    "definition_en": "A concept by Thaler and Sunstein that designs choice architecture to influence behavior while preserving freedom of choice",
+    "example_en": "Placing healthy foods at eye level in cafeterias increases their selection",
+    "example_cn": "将健康食品放在自助餐厅的视线高度会增加它们被选择的概率"
+  },
+  {
+    "id": 66,
+    "term_en": "Default Effect",
+    "definition_cn": "默认选项效应 - 人们倾向于接受预设的默认选项",
+    "definition_en": "The tendency to accept pre-set options rather than make active choices; 'going with the flow'",
+    "example_en": "Most employees stay in default 401(k) contribution rates rather than actively choosing their own",
+    "example_cn": "大多数员工保持默认的401(k)缴款比例，而不是主动选择自己的比例"
+  },
+  {
+    "id": 67,
+    "term_en": "Present Bias",
+    "definition_cn": "现时偏见 - 过度看重即时奖励而低估未来收益",
+    "definition_en": "The tendency to overvalue immediate rewards relative to future rewards; difficulty in delaying gratification",
+    "example_en": "Choosing a smaller payment now over a larger payment next month",
+    "example_cn": "选择现在获得较少付款而不是下个月获得较多付款"
+  },
+  {
+    "id": 68,
+    "term_en": "Overconfidence Bias",
+    "definition_cn": "过度自信偏差 - 高估自己的知识、能力和判断准确性",
+    "definition_en": "The tendency to overestimate one's own abilities, knowledge, or chances of success",
+    "example_en": "90% of drivers consider themselves above-average drivers, which is statistically impossible",
+    "example_cn": "90%的司机认为自己驾驶水平高于平均水平，这在统计上是不可能的"
+  },
+  {
+    "id": 69,
+    "term_en": "Sunk Cost Fallacy",
+    "definition_cn": "沉没成本谬误 - 因为已投入资源而继续不合理的决策",
+    "definition_en": "Continuing a behavior because of previously invested resources (time, money, effort) rather than future value",
+    "example_en": "Finishing a boring movie just because you already paid for the ticket",
+    "example_cn": "仅仅因为已经买了票而看完一部无聊的电影"
+  },
+  {
+    "id": 70,
+    "term_en": "Framing Effect",
+    "definition_cn": "框架效应 - 决策受信息表述方式的影响",
+    "definition_en": "How information is presented (positive vs. negative framing) significantly affects people's choices",
+    "example_en": "'90% fat-free' sounds healthier than 'contains 10% fat' for the same product",
+    "example_cn": ""90%无脂肪"听起来比"含有10%脂肪"对同一产品更健康"
+  },
+  {
+    "id": 71,
+    "term_en": "Availability Heuristic",
+    "definition_cn": "可得性启发法 - 根据容易想到的例子判断事件可能性",
+    "definition_en": "Judging the likelihood of events based on how easily examples come to mind",
+    "example_en": "Overestimating shark attack risk after seeing news coverage, despite being very rare",
+    "example_cn": "在看到新闻报道后高估鲨鱼袭击风险，尽管实际上非常罕见"
+  },
+  {
+    "id": 72,
+    "term_en": " Endowment Effect",
+    "definition_cn": "禀赋效应 - 对自己拥有的物品估值高于未拥有时",
+    "definition_en": "Valuing items more highly when you own them than when you don't; reluctance to give up what we have",
+    "example_en": "Refusing to sell your concert ticket for twice its face value because you 'already have it'",
+    "example_cn": "拒绝以两倍面值出售你的演唱会票，因为你"已经有了""
+  },
+  {
+    "id": 73,
+    "term_en": "Herd Behavior",
+    "definition_cn": "从众行为 - 模仿他人决策而不独立分析",
+    "definition_en": "Following the actions and decisions of a large group rather than making independent choices",
+    "example_en": "Investors buying stocks during a bull market simply because 'everyone else is doing it'",
+    "example_cn": "投资者在牛市时仅仅因为"每个人都在买"而购买股票"
+  },
+  {
+    "id": 74,
+    "term_en": "Choice Overload",
+    "definition_cn": "选择过载 - 选项过多反而导致无法决策或满意度下降",
+    "definition_en": "Having too many options leads to decision paralysis or decreased satisfaction with chosen option",
+    "example_en": "Jam study: fewer flavors led to higher sales than 24 varieties",
+    "example_cn": "果酱研究：6种口味比24种口味带来更高销售"
+  },
+  {
+    "id": 75,
+    "term_en": "Optimism Bias",
+    "definition_cn": "乐观偏差 - 高估好事发生在自己身上的概率",
+    "definition_en": "The tendency to believe that positive events are more likely to happen to us than to others",
+    "example_en": "Most entrepreneurs believe their startup will succeed despite high failure rates",
+    "example_cn": "大多数企业家相信他们的创业会成功，尽管失败率很高"
+  },
+  {
+    "id": 76,
+    "term_en": "Hyperbolic Discounting",
+    "definition_cn": "双曲贴现 - 短期奖励的权重远高于长期奖励",
+    "definition_en": "The tendency to prefer smaller immediate rewards over larger later rewards, inconsistent over time",
+    "example_en": "Choosing $50 now over $100 in one year, but also choosing $100 in 2 years over $110 in 3 years",
+    "example_cn": "现在选择50美元而不是一年后获得100美元，但又选择两年后获得100美元而不是三年后获得110美元"
+  },
+  {
+    "id": 77,
+    "term_en": "Confirmation Bias",
+    "definition_cn": "确认偏差 - 寻找证实已有信念的信息",
+    "definition_en": "The tendency to search for and favor information that confirms pre-existing beliefs",
+    "example_en": "Only reading news sources that support your political views",
+    "example_cn": "只阅读支持你政治观点的新闻来源"
+  },
+  {
+    "id": 78,
+    "term_en": "Gambler's Fallacy",
+    "definition_cn": "赌徒谬误 - 认为随机序列会自我修正",
+    "definition_en": "Believing that if something happens more frequently than normal, it will happen less frequently in the future (or vice versa)",
+    "example_en": "After flipping 5 heads in a row, thinking tails is 'due' on the next flip",
+    "example_cn": "连续5次正面后，认为下一次翻转"应该"是反面"
+  },
+  {
+    "id": 79,
+    "term_en": "Commitment Device",
+    "definition_cn": "承诺装置 - 帮助克服短期诱惑的机制",
+    "definition_en": "A tool or mechanism that helps individuals stick to their long-term goals by restricting future choices",
+    "example_en": "Going to a café without Wi-Fi to finish writing, or paying a friend to hold you accountable",
+    "example_cn": "去没有Wi-Fi的咖啡馆写作，或付钱给朋友让你保持责任"
+  },
+  {
+    "id": 80,
+    "term_en": "Libertarian Paternalism",
+    "definition_cn": "自由意志家长制 - 政府助推但不强制公众做出选择",
+    "definition_en": "Thaler and Sunstein's concept: using nudges to help people while preserving their freedom to choose",
+    "example_en": "Opt-out organ donation systems increase donation rates without mandating donation",
+    "example_cn": "选择退出器官捐献系统在不强制捐献的情况下提高捐献率"
+  }
+]

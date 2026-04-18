@@ -1,0 +1,213 @@
+[
+  {
+    "id": 101,
+    "category": "information_economics",
+    "question_en": "What is information asymmetry?",
+    "question_cn": "什么是信息不对称？",
+    "options_en": [
+      "A. When the government controls all market information",
+      "B. When one party in a transaction has more or better information than the other",
+      "C. When all market participants have equal information",
+      "D. When information is completely unavailable to buyers"
+    ],
+    "options_cn": [
+      "A. 当政府控制所有市场信息时",
+      "B. 当交易中的一方比另一方拥有更多或更好的信息时",
+      "C. 当所有市场参与者拥有相同信息时",
+      "D. 当买家完全无法获得信息时"
+    ],
+    "answer": 1,
+    "explanation_en": "Information asymmetry occurs when one party in a transaction has more or better information than the other party, creating an imbalance that can lead to market failures.",
+    "explanation_cn": "信息不对称发生在交易中的一方比另一方拥有更多或更好的信息时，这种不平衡可能导致市场失灵。"
+  },
+  {
+    "id": 102,
+    "category": "information_economics",
+    "question_en": "The 'Lemons Problem' in the used car market is a classic example of:",
+    "question_cn": "二手车市场中的"柠檬问题"是以下哪个概念的经典例子？",
+    "options_en": [
+      "A. Moral hazard",
+      "B. Adverse selection",
+      "C. Principal-agent problem",
+      "D. Signal screening"
+    ],
+    "options_cn": [
+      "A. 道德风险",
+      "B. 逆向选择",
+      "C. 委托代理问题",
+      "D. 信息筛选"
+    ],
+    "answer": 1,
+    "explanation_en": "George Akerlof's 'Lemons Problem' demonstrates adverse selection: buyers can't distinguish good cars from bad ones, so they're unwilling to pay fair price, causing good cars to exit the market.",
+    "explanation_cn": "乔治·阿克洛夫的"柠檬问题"展示了逆向选择：买家无法区分好车和坏车，因此不愿支付公平价格，导致好车退出市场。"
+  },
+  {
+    "id": 103,
+    "category": "information_economics",
+    "question_en": "What distinguishes adverse selection from moral hazard?",
+    "question_cn": "逆向选择和道德风险的区别是什么？",
+    "options_en": [
+      "A. Adverse selection occurs before the transaction; moral hazard occurs after",
+      "B. They are the same concept with different names",
+      "C. Moral hazard occurs before insurance is purchased",
+      "D. Adverse selection only applies to insurance markets"
+    ],
+    "options_cn": [
+      "A. 逆向选择发生在交易之前；道德风险发生在交易之后",
+      "B. 它们是同一概念的不同名称",
+      "C. 道德风险发生在购买保险之前",
+      "D. 逆向选择仅适用于保险市场"
+    ],
+    "answer": 0,
+    "explanation_en": "Adverse selection is a pre-contractual problem where hidden characteristics lead to unfavorable matches. Moral hazard is a post-contractual problem where one party takes more risks because another bears the cost.",
+    "explanation_cn": "逆向选择是合同前问题，隐藏特征导致不利匹配。道德风险是合同后问题，一方因成本由他人承担而承担更大风险。"
+  },
+  {
+    "id": 104,
+    "category": "information_economics",
+    "question_en": "Why do high-risk individuals more likely to buy health insurance?",
+    "question_cn": "为什么高风险个体更可能购买健康保险？",
+    "options_en": [
+      "A. Because they have higher income",
+      "B. Due to adverse selection in insurance markets",
+      "C. Because insurance companies prefer high-risk customers",
+      "D. Due to government mandates"
+    ],
+    "options_cn": [
+      "A. 因为他们收入更高",
+      "B. 由于保险市场中的逆向选择",
+      "C. 因为保险公司更喜欢高风险客户",
+      "D. 由于政府强制规定"
+    ],
+    "answer": 1,
+    "explanation_en": "This is adverse selection: those with higher health risks have stronger incentive to purchase insurance, knowing they're more likely to need it, which can lead to higher premiums for everyone.",
+    "explanation_cn": "这是逆向选择：高健康风险人群知道他们更可能需要保险，因此有更强的购买动机，这可能导致所有人的保费上涨。"
+  },
+  {
+    "id": 105,
+    "category": "information_economics",
+    "question_en": "After buying car insurance, a driver becomes less careful. This is an example of:",
+    "question_cn": "购买汽车保险后，司机变得不那么小心了。这是以下哪个例子？",
+    "options_en": [
+      "A. Adverse selection",
+      "B. Principal-agent problem",
+      "C. Moral hazard",
+      "D. Information cascade"
+    ],
+    "options_cn": [
+      "A. 逆向选择",
+      "B. 委托代理问题",
+      "C. 道德风险",
+      "D. 信息瀑布"
+    ],
+    "answer": 2,
+    "explanation_en": "Moral hazard occurs when a person changes their behavior after entering an agreement because they don't bear the full consequences. The insured driver takes more risks knowing the insurer will cover losses.",
+    "explanation_cn": "道德风险发生在一个人签订协议后改变行为，因为他们不承担全部后果。投保司机知道保险公司会赔偿损失，因此承担更大风险。"
+  },
+  {
+    "id": 106,
+    "category": "information_economics",
+    "question_en": "Which mechanism helps reduce information asymmetry in labor markets?",
+    "question_cn": "哪种机制有助于减少劳动力市场的信息不对称？",
+    "options_en": [
+      "A. Government price controls",
+      "B. Signaling through education (diplomas, certifications)",
+      "C. Eliminating all employment contracts",
+      "D. Banning job interviews"
+    ],
+    "options_cn": [
+      "A. 政府价格控制",
+      "B. 通过教育进行信号传递（文凭、证书）",
+      "C. 取消所有雇佣合同",
+      "D. 禁止工作面试"
+    ],
+    "answer": 1,
+    "explanation_en": "Michael Spence's signaling theory shows that education serves as a credible signal of ability in labor markets. Workers invest in education to demonstrate their productivity to employers.",
+    "explanation_cn": "迈克尔·斯宾塞的信号理论表明，教育在劳动力市场中作为能力的可信信号。工人投资教育以向雇主展示他们的生产力。"
+  },
+  {
+    "id": 107,
+    "category": "information_economics",
+    "question_en": "What is a 'screening' mechanism in markets with information asymmetry?",
+    "question_cn": "信息不对称市场中什么是"筛选"机制？",
+    "options_en": [
+      "A. The government sets quality standards",
+      "B. The less-informed party designs incentives to reveal hidden information",
+      "C. All products must have quality labels",
+      "D. Only large companies can sell products"
+    ],
+    "options_cn": [
+      "A. 政府设定质量标准",
+      "B. 信息较少的一方设计激励措施来揭示隐藏信息",
+      "C. 所有产品必须有质量标签",
+      "D. 只有大公司可以销售产品"
+    ],
+    "options_cn_corrected": "B. 信息较少的一方设计激励措施来揭示隐藏信息",
+    "answer": 1,
+    "explanation_en": "Screening occurs when the less-informed party (e.g., insurer) creates mechanisms to induce the more-informed party (e.g., customers) to reveal their private information through self-selection.",
+    "explanation_cn": "筛选发生在信息较少的一方（如保险公司）创造机制，诱导信息较多的一方（如客户）通过自我选择揭示其私人信息。"
+  },
+  {
+    "id": 108,
+    "category": "information_economics",
+    "question_en": "Why might employers offer efficiency wages above market equilibrium?",
+    "question_cn": "为什么雇主可能提供高于市场均衡的效率工资？",
+    "options_en": [
+      "A. To reduce worker morale",
+      "B. To motivate workers and reduce shirking",
+      "C. To increase government taxes",
+      "D. To attract only low-quality workers"
+    ],
+    "options_cn": [
+      "A. 为了降低工人士气",
+      "B. 为了激励工人并减少偷懒",
+      "C. 为了增加政府税收",
+      "D. 为了吸引低质量工人"
+    ],
+    "answer": 1,
+    "explanation_en": "Efficiency wages help solve the principal-agent problem by incentivizing workers not to shirk. If workers can be easily replaced, they work harder to keep their high-paying job.",
+    "explanation_cn": "效率工资通过激励工人不偷懒来帮助解决委托代理问题。如果工人可以被轻易替换，他们会更加努力工作以保住高薪工作。"
+  },
+  {
+    "id": 109,
+    "category": "information_economics",
+    "question_en": "What role do warranties play in reducing information asymmetry?",
+    "question_cn": "保修在减少信息不对称中起什么作用？",
+    "options_en": [
+      "A. They increase information asymmetry",
+      "B. They serve as a credible quality signal from sellers",
+      "C. They have no effect on buyer decisions",
+      "D. They only apply to luxury goods"
+    ],
+    "options_cn": [
+      "A. 它们增加了信息不对称",
+      "B. 它们作为卖家可信的质量信号",
+      "C. 它们对买家决策没有影响",
+      "D. 它们只适用于奢侈品"
+    ],
+    "answer": 1,
+    "explanation_en": "Warranties act as quality signaling because only sellers with confident product quality will offer strong warranties. This helps buyers infer hidden product information.",
+    "explanation_cn": "保修作为质量信号，因为只有对产品质量有信心的卖家才会提供强力保修。这帮助买家推断隐藏的产品信息。"
+  },
+  {
+    "id": 110,
+    "category": "information_economics",
+    "question_en": "What is the Nobel Prize contribution of Akerlof, Spence, and Stigliz in 2001?",
+    "question_cn": "2001年阿克洛夫、斯宾塞和斯蒂格利茨的诺贝尔奖贡献是什么？",
+    "options_en": [
+      "A. Game theory applications in economics",
+      "B. Analysis of markets with asymmetric information",
+      "C. Development of monetary policy tools",
+      "D. Consumer preference theory"
+    ],
+    "options_cn": [
+      "A. 经济学中博弈论的应用",
+      "B. 信息不对称市场分析",
+      "C. 货币政策工具的发展",
+      "D. 消费者偏好理论"
+    ],
+    "answer": 1,
+    "explanation_en": "They won the Nobel Prize for their analyses of markets with asymmetric information. Akerlof showed the lemons problem, Spence demonstrated signaling, and Stigliz explained screening.",
+    "explanation_cn": "他们因对信息不对称市场的分析而获得诺贝尔奖。阿克洛夫展示了柠檬问题，斯宾塞证明了信号传递，斯蒂格利茨解释了筛选机制。"
+  }
+]
