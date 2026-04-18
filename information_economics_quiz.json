@@ -24,7 +24,7 @@
     "id": 102,
     "category": "information_economics",
     "question_en": "The 'Lemons Problem' in the used car market is a classic example of:",
-    "question_cn": "二手车市场中的"柠檬问题"是以下哪个概念的经典例子？",
+    "question_cn": "二手车市场中的「柠檬问题」是以下哪个概念的经典例子？",
     "options_en": [
       "A. Moral hazard",
       "B. Adverse selection",
@@ -38,8 +38,8 @@
       "D. 信息筛选"
     ],
     "answer": 1,
-    "explanation_en": "George Akerlof's 'Lemons Problem' demonstrates adverse selection: buyers can't distinguish good cars from bad ones, so they're unwilling to pay fair price, causing good cars to exit the market.",
-    "explanation_cn": "乔治·阿克洛夫的"柠檬问题"展示了逆向选择：买家无法区分好车和坏车，因此不愿支付公平价格，导致好车退出市场。"
+    "explanation_en": "George Akerlof's 'Lemons Problem' demonstrates adverse selection: buyers cannot distinguish good cars from bad ones, so they are unwilling to pay fair price, causing good cars to exit the market.",
+    "explanation_cn": "乔治·阿克洛夫的「柠檬问题」展示了逆向选择：买家无法区分好车和坏车，因此不愿支付公平价格，导致好车退出市场。"
   },
   {
     "id": 103,
@@ -80,7 +80,7 @@
       "D. 由于政府强制规定"
     ],
     "answer": 1,
-    "explanation_en": "This is adverse selection: those with higher health risks have stronger incentive to purchase insurance, knowing they're more likely to need it, which can lead to higher premiums for everyone.",
+    "explanation_en": "This is adverse selection: those with higher health risks have stronger incentive to purchase insurance, knowing they are more likely to need it, which can lead to higher premiums for everyone.",
     "explanation_cn": "这是逆向选择：高健康风险人群知道他们更可能需要保险，因此有更强的购买动机，这可能导致所有人的保费上涨。"
   },
   {
@@ -101,7 +101,7 @@
       "D. 信息瀑布"
     ],
     "answer": 2,
-    "explanation_en": "Moral hazard occurs when a person changes their behavior after entering an agreement because they don't bear the full consequences. The insured driver takes more risks knowing the insurer will cover losses.",
+    "explanation_en": "Moral hazard occurs when a person changes their behavior after entering an agreement because they do not bear the full consequences. The insured driver takes more risks knowing the insurer will cover losses.",
     "explanation_cn": "道德风险发生在一个人签订协议后改变行为，因为他们不承担全部后果。投保司机知道保险公司会赔偿损失，因此承担更大风险。"
   },
   {
@@ -129,7 +129,7 @@
     "id": 107,
     "category": "information_economics",
     "question_en": "What is a 'screening' mechanism in markets with information asymmetry?",
-    "question_cn": "信息不对称市场中什么是"筛选"机制？",
+    "question_cn": "信息不对称市场中什么是「筛选」机制？",
     "options_en": [
       "A. The government sets quality standards",
       "B. The less-informed party designs incentives to reveal hidden information",
@@ -142,7 +142,6 @@
       "C. 所有产品必须有质量标签",
       "D. 只有大公司可以销售产品"
     ],
-    "options_cn_corrected": "B. 信息较少的一方设计激励措施来揭示隐藏信息",
     "answer": 1,
     "explanation_en": "Screening occurs when the less-informed party (e.g., insurer) creates mechanisms to induce the more-informed party (e.g., customers) to reveal their private information through self-selection.",
     "explanation_cn": "筛选发生在信息较少的一方（如保险公司）创造机制，诱导信息较多的一方（如客户）通过自我选择揭示其私人信息。"

@@ -43,7 +43,7 @@
     "id": 66,
     "term_en": "Default Effect",
     "definition_cn": "默认选项效应 - 人们倾向于接受预设的默认选项",
-    "definition_en": "The tendency to accept pre-set options rather than make active choices; 'going with the flow'",
+    "definition_en": "The tendency to accept pre-set options rather than make active choices; going with the flow",
     "example_en": "Most employees stay in default 401(k) contribution rates rather than actively choosing their own",
     "example_cn": "大多数员工保持默认的401(k)缴款比例，而不是主动选择自己的比例"
   },
@@ -76,8 +76,8 @@
     "term_en": "Framing Effect",
     "definition_cn": "框架效应 - 决策受信息表述方式的影响",
     "definition_en": "How information is presented (positive vs. negative framing) significantly affects people's choices",
-    "example_en": "'90% fat-free' sounds healthier than 'contains 10% fat' for the same product",
-    "example_cn": ""90%无脂肪"听起来比"含有10%脂肪"对同一产品更健康"
+    "example_en": "90% fat-free sounds healthier than contains 10% fat for the same product",
+    "example_cn": "「90%无脂肪」听起来比「含有10%脂肪」对同一产品更健康"
   },
   {
     "id": 71,
@@ -89,19 +89,19 @@
   },
   {
     "id": 72,
-    "term_en": " Endowment Effect",
+    "term_en": "Endowment Effect",
     "definition_cn": "禀赋效应 - 对自己拥有的物品估值高于未拥有时",
-    "definition_en": "Valuing items more highly when you own them than when you don't; reluctance to give up what we have",
-    "example_en": "Refusing to sell your concert ticket for twice its face value because you 'already have it'",
-    "example_cn": "拒绝以两倍面值出售你的演唱会票，因为你"已经有了""
+    "definition_en": "Valuing items more highly when you own them than when you do not; reluctance to give up what we have",
+    "example_en": "Refusing to sell your concert ticket for twice its face value because you already have it",
+    "example_cn": "拒绝以两倍面值出售你的演唱会票，因为你「已经有了」"
   },
   {
     "id": 73,
     "term_en": "Herd Behavior",
     "definition_cn": "从众行为 - 模仿他人决策而不独立分析",
     "definition_en": "Following the actions and decisions of a large group rather than making independent choices",
-    "example_en": "Investors buying stocks during a bull market simply because 'everyone else is doing it'",
-    "example_cn": "投资者在牛市时仅仅因为"每个人都在买"而购买股票"
+    "example_en": "Investors buying stocks during a bull market simply because everyone else is doing it",
+    "example_cn": "投资者在牛市时仅仅因为「每个人都在买」而购买股票"
   },
   {
     "id": 74,
@@ -140,15 +140,15 @@
     "term_en": "Gambler's Fallacy",
     "definition_cn": "赌徒谬误 - 认为随机序列会自我修正",
     "definition_en": "Believing that if something happens more frequently than normal, it will happen less frequently in the future (or vice versa)",
-    "example_en": "After flipping 5 heads in a row, thinking tails is 'due' on the next flip",
-    "example_cn": "连续5次正面后，认为下一次翻转"应该"是反面"
+    "example_en": "After flipping 5 heads in a row, thinking tails is due on the next flip",
+    "example_cn": "连续5次正面后，认为下一次翻转「应该」是反面"
   },
   {
     "id": 79,
     "term_en": "Commitment Device",
     "definition_cn": "承诺装置 - 帮助克服短期诱惑的机制",
     "definition_en": "A tool or mechanism that helps individuals stick to their long-term goals by restricting future choices",
-    "example_en": "Going to a café without Wi-Fi to finish writing, or paying a friend to hold you accountable",
+    "example_en": "Going to a cafe without Wi-Fi to finish writing, or paying a friend to hold you accountable",
     "example_cn": "去没有Wi-Fi的咖啡馆写作，或付钱给朋友让你保持责任"
   },
   {
