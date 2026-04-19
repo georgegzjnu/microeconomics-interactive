@@ -189,39 +189,29 @@ footer{margin-top:30px;padding-top:20px;border-top:1px solid var(--bg-yellow-med
 
 <script>
 const quizData = [
-    {q:"According to the law of demand, when the price of a good increases:",o:["Quantity demanded increases","Quantity demanded decreases","Quantity supplied increases","Quantity supplied decreases"],a:1},
-    {q:"The point where the demand and supply curves intersect is called:",o:["Shortage point","Surplus point","Equilibrium point","Price ceiling"],a:2},
-    {q:"If the price of coffee beans rises, what happens to the supply curve for coffee?",o:["Shifts left (decrease)","Shifts right (increase)","Movement along the curve","No change"],a:0},
-    {q:"Which would cause a rightward shift of the demand curve for movie tickets?",o:["Increase in ticket prices","Decrease in consumer income","Popular new movie release","Higher popcorn prices"],a:2},
-    {q:"At the equilibrium price, the quantity demanded equals:",o:["Quantity supplied","Zero","Maximum possible output","Shortage amount"],a:0},
-    {q:"A price ceiling set below the equilibrium price leads to:",o:["Surplus","Shortage","No effect","Increase in quality"],a:1},
-    {q:"The law of supply describes a ______ relationship between price and quantity supplied.",o:["Direct","Inverse","No","Random"],a:0},
-    {q:"If demand increases while supply remains constant, the equilibrium price will:",o:["Increase","Decrease","Remain unchanged","Be indeterminate"],a:0},
-    {q:"A movement along the demand curve is caused by:",o:["Change in consumer preferences","Change in price of the good","Change in income","Change in price of related goods"],a:1},
-    {q:"Which is NOT a determinant of supply?",o:["Technology","Input prices","Consumer tastes","Number of sellers"],a:2}
+    {q:"What is information asymmetry?",o:["A. When the government controls all market information", "B. When one party in a transaction has more or better information than the other", "C. When all market participants have equal information", "D. When information is completely unavailable to buyers"],a:1},
+    {q:"The 'Lemons Problem' in the used car market is a classic example of:",o:["A. Moral hazard", "B. Adverse selection", "C. Principal-agent problem", "D. Signal screening"],a:1},
+    {q:"What distinguishes adverse selection from moral hazard?",o:["A. Adverse selection occurs before the transaction; moral hazard occurs after", "B. They are the same concept with different names", "C. Moral hazard occurs before insurance is purchased", "D. Adverse selection only applies to insurance markets"],a:0},
+    {q:"Why do high-risk individuals more likely to buy health insurance?",o:["A. Because they have higher income", "B. Due to adverse selection in insurance markets", "C. Because insurance companies prefer high-risk customers", "D. Due to government mandates"],a:1},
+    {q:"After buying car insurance, a driver becomes less careful. This is an example of:",o:["A. Adverse selection", "B. Principal-agent problem", "C. Moral hazard", "D. Information cascade"],a:2},
+    {q:"Which mechanism helps reduce information asymmetry in labor markets?",o:["A. Government price controls", "B. Signaling through education (diplomas, certifications)", "C. Eliminating all employment contracts", "D. Banning job interviews"],a:1},
+    {q:"What is a 'screening' mechanism in markets with information asymmetry?",o:["A. The government sets quality standards", "B. The less-informed party designs incentives to reveal hidden information", "C. All products must have quality labels", "D. Only large companies can sell products"],a:1},
+    {q:"Why might employers offer efficiency wages above market equilibrium?",o:["A. To reduce worker morale", "B. To motivate workers and reduce shirking", "C. To increase government taxes", "D. To attract only low-quality workers"],a:1},
+    {q:"What role do warranties play in reducing information asymmetry?",o:["A. They increase information asymmetry", "B. They serve as a credible quality signal from sellers", "C. They have no effect on buyer decisions", "D. They only apply to luxury goods"],a:1},
+    {q:"What is the Nobel Prize contribution of Akerlof, Spence, and Stigliz in 2001?",o:["A. Game theory applications in economics", "B. Analysis of markets with asymmetric information", "C. Development of monetary policy tools", "D. Consumer preference theory"],a:1}
 ];
 
 const flashcardsData = [
-    {term:"Demand",cn:"需求 - 消费者愿意且能够购买的商品数量",en:"Quantity consumers are willing/able to buy at various prices",ex:"When it's hot, you want more iced tea / 天气热时你想喝更多冰茶"},
-    {term:"Supply",cn:"供给 - 生产者在不同价格下愿意且能够出售的商品数量",en:"Quantity producers are willing/able to sell at various prices",ex:"If milk prices rise, farmers supply more milk / 牛奶价格上涨时农民供给更多"},
-    {term:"Equilibrium",cn:"均衡 - 需求量等于供给量时的状态",en:"Point where quantity demanded equals quantity supplied",ex:"The price where bubble tea shops sell exactly what customers want / 奶茶店恰好卖出顾客想买的数量时的价格"},
-    {term:"Law of Demand",cn:"需求定律 - 价格与需求量之间的反向关系",en:"Inverse relationship between price and quantity demanded",ex:"As movie tickets get cheaper, more people go to the cinema / 电影票越便宜，看电影的人越多"},
-    {term:"Law of Supply",cn:"供给定律 - 价格与供给量之间的正向关系",en:"Direct relationship between price and quantity supplied",ex:"When smartphone prices rise, companies produce more phones / 手机价格上涨时公司生产更多手机"},
-    {term:"Consumer Surplus",cn:"消费者剩余 - 最高支付意愿与实际价格的差额",en:"Difference between max price willing to pay and actual price",ex:"You're willing to pay 800 yuan but find it for 500 yuan / 你愿意付800元但发现只卖500元"},
-    {term:"Producer Surplus",cn:"生产者剩余 - 实际价格与最低接受价格的差额",en:"Difference between actual price and min acceptable price",ex:"A bakery sells muffins for 5 yuan but costs 2 yuan to make / 面包店以5元卖出成本2元的松饼"},
-    {term:"Deadweight Loss",cn:"无谓损失 - 市场扭曲导致的总剩余损失",en:"Loss of total surplus due to market distortion",ex:"Tax reduces quantity traded below efficient level / 税收使交易量降到有效水平以下"},
-    {term:"Elasticity",cn:"弹性 - 变量对其他变量变化的反应程度",en:"Measure of how responsive one variable is to changes in another",ex:"Price elasticity = % change in quantity demanded / % change in price / 需求价格弹性 = 需求量变化% / 价格变化%"},
-    {term:"Price Ceiling",cn:"价格上限 - 政府规定的最高价格",en:"Government-imposed maximum price",ex:"Rent control creating housing shortages / 租金管制导致住房短缺"},
-    {term:"Price Floor",cn:"价格下限 - 政府规定的最低价格",en:"Government-imposed minimum price",ex:"Minimum wage laws / 最低工资法"},
-    {term:"Substitute Goods",cn:"替代品 - 一种商品价格上升会导致另一种需求增加",en:"Goods that can replace each other",ex:"Tea and coffee / 茶和咖啡"},
-    {term:"Complementary Goods",cn:"互补品 - 一种商品价格上升会导致另一种需求减少",en:"Goods used together",ex:"Cars and gasoline / 汽车和汽油"},
-    {term:"Normal Good",cn:"正常品 - 收入增加时需求增加的商品",en:"Good for which demand increases when income rises",ex:"Organic food, travel, education / 有机食品、旅游、教育"},
-    {term:"Inferior Good",cn:"低档品 - 收入增加时需求减少的商品",en:"Good for which demand decreases when income rises",ex:"Instant noodles, used cars / 方便面、二手车"},
-    {term:"Opportunity Cost",cn:"机会成本 - 为获得某种东西而放弃的次优选择",en:"Value of the next-best alternative foregone",ex:"Choosing to study instead of working / 选择学习而非工作"},
-    {term:"Marginal Analysis",cn:"边际分析 - 比较额外成本与额外收益的决策方法",en:"Comparing additional costs and benefits of a decision",ex:"Should I produce one more unit? / 我应该多生产一单位吗？"},
-    {term:"Utility",cn:"效用 - 消费者从商品或服务中获得的满足感",en:"Satisfaction from consuming goods/services",ex:"Eating ice cream on a hot day / 热天吃冰淇淋"},
-    {term:"Information Asymmetry",cn:"信息不对称 - 交易一方比另一方拥有更多信息",en:"One party has more information than the other",ex:"Used car sellers know more than buyers / 二手车卖家比买家知道更多"},
-    {term:"Moral Hazard",cn:"道德风险 - 投保后改变行为承担更少风险",en:"Taking more risks because someone else bears the cost",ex:"Driver becomes less careful after buying insurance / 买了保险后司机变得不那么小心"}
+    {term:"Information Asymmetry",cn:"信息不对称 - 交易一方比另一方拥有更多信息",en:"One party has more or better information than the other in a transaction",ex:"Used car sellers know more about vehicle condition than buyers / 二手车卖家比买家更了解车况"},
+    {term:"Adverse Selection",cn:"逆向选择 - 交易前隐藏信息导致不利结果",en:"Hidden characteristics before transaction lead to unfavorable outcomes",ex:"High-risk individuals more likely to buy insurance / 高风险人群更倾向购买保险"},
+    {term:"Moral Hazard",cn:"道德风险 - 交易后改变行为承担更少风险",en:"Post-transaction behavior change where someone bears less risk",ex:"Driver becomes less careful after buying insurance / 买了保险后司机变得不那么小心"},
+    {term:"Lemons Problem",cn:"柠檬问题 - 信息不对称导致好商品退出市场",en:"Good products exit market due to buyers' inability to distinguish quality",ex:"Akerlof's used car market example / 阿克洛夫的二手车市场例子"},
+    {term:"Signaling",cn:"信号传递 - 信息多的一方主动传递可信信号",en:"Informed party voluntarily sends credible signals to uninformed party",ex:"Education as a signal of ability in job market / 教育作为劳动力市场中的能力信号"},
+    {term:"Screening",cn:"信息筛选 - 信息少的一方设计机制获取信息",en:"Uninformed party designs mechanisms to induce revelation of private information",ex:"Insurance companies offer different plans to self-select / 保险公司提供不同方案让客户自我筛选"},
+    {term:"Principal-Agent Problem",cn:"委托代理问题 - 利益不一致导致代理方行动偏离",en:"Agent's actions diverge from principal's interests due to conflicting goals",ex:"Manager may pursue personal goals over shareholder interests / 经理可能追求个人目标而非股东利益"},
+    {term:"Efficiency Wage",cn:"效率工资 - 高于市场均衡的工资以激励工人",en:"Wage above market equilibrium to motivate workers and reduce shirking",ex:"Higher pay incentivizes workers to work harder to keep their jobs / 高工资激励工人努力工作保住工作"},
+    {term:"Warranty/Guarantee",cn:"保修担保 - 可信的质量信号减少信息不对称",en:"Credible quality signal that reduces information asymmetry",ex:"Strong warranty indicates seller confidence in product / 强力保修表明卖家对产品有信心"},
+    {term:"Reputation",cn:"声誉机制 - 长期互动中建立的信任",en:"Trust built through repeated interactions over time",ex:"Restaurants maintain quality to keep good reviews / 餐厅保持质量以维持好评"}
 ];
 
 // State
