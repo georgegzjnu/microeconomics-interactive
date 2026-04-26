@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Asymmetry Visualizer | 信息不对称可视化工具</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .lang-switch {
+            margin-top: 15px;
+        }
+        .lang-switch button {
+            padding: 8px 20px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 0 5px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        .lang-switch button.active {
+            background: white;
+            color: #667eea;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .card h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .chart-container {
+            height: 350px;
+            margin: 20px 0;
+        }
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .control-group {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .control-group input[type="range"] {
+            width: 100%;
+            padding: 5px;
+        }
+        .control-group .value {
+            text-align: center;
+            font-size: 1.5em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .scenario-selector {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .scenario-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+            background: #e0e0e0;
+            color: #333;
+        }
+        .scenario-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .info-box h3 {
+            margin-bottom: 10px;
+        }
+        .info-box p {
+            line-height: 1.6;
+        }
+        .analysis-result {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin: 10px 0;
+        }
+        .analysis-result h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Information Asymmetry Visualizer</h1>
+            <p>信息不对称可视化工具 | Explore Adverse Selection & Moral Hazard</p>
+            <div class="lang-switch">
+                <button id="lang-en" class="active" onclick="setLanguage('en')">English</button>
+                <button id="lang-cn" onclick="setLanguage('cn')">中文</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Left Panel: Market Simulation -->
+            <div class="card">
+                <h2 id="chart-title">📊 Lemon Market Simulation</h2>
+                
+                <div class="scenario-selector">
+                    <button class="scenario-btn active" data-scenario="lemon" onclick="setScenario('lemon')">
+                        🍋 <span class="btn-text-en">Used Car Market</span><span class="btn-text-cn" style="display:none">二手车市场</span>
+                    </button>
+                    <button class="scenario-btn" data-scenario="insurance" onclick="setScenario('insurance')">
+                        🏥 <span class="btn-text-en">Insurance Market</span><span class="btn-text-cn" style="display:none">保险市场</span>
+                    </button>
+                    <button class="scenario-btn" data-scenario="labor" onclick="setScenario('labor')">
+                        💼 <span class="btn-text-en">Labor Market</span><span class="btn-text-cn" style="display:none">劳动市场</span>
+                    </button>
+                    <button class="scenario-btn" data-scenario="moral" onclick="setScenario('moral')">
+                        ⚠️ <span class="btn-text-en">Moral Hazard</span><span class="btn-text-cn" style="display:none">道德风险</span>
+                    </button>
+                </div>
+
+                <div class="controls" id="controls-lemon">
+                    <div class="control-group">
+                        <label id="label-quality">🍎 Quality Ratio (Good/Bad)</label>
+                        <input type="range" id="qualityRatio" min="0" max="100" value="50" oninput="updateChart()">
+                        <div class="value" id="value-quality">50% Good</div>
+                    </div>
+                    <div class="control-group">
+                        <label id="label-signal">📜 Signaling Effect</label>
+                        <input type="range" id="signaling" min="0" max="100" value="30" oninput="updateChart()">
+                        <div class="value" id="value-signal">30%</div>
+                    </div>
+                </div>
+
+                <div class="chart-container" id="chart"></div>
+
+                <div class="info-box">
+                    <h3 id="info-title">💡 Key Insight</h3>
+                    <p id="info-text">When buyers cannot distinguish good cars from lemons, they are unwilling to pay the fair price for good cars. This causes good cars to exit the market, leaving only lemons. This is called the "Market for Lemons" problem.</p>
+                </div>
+            </div>
+
+            <!-- Right Panel: Analysis -->
+            <div class="card">
+                <h2 id="analysis-title">📈 Market Analysis</h2>
+                
+                <table class="comparison-table" id="comparisonTable">
+                    <thead>
+                        <tr>
+                            <th id="th-metric">Metric</th>
+                            <th id="th-symmetric">Symmetric Info</th>
+                            <th id="th-asymmetric">Asymmetric Info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="td-goodcars">Good Cars Sold</td>
+                            <td id="sym-goodcars">100%</td>
+                            <td id="asym-goodcars">45%</td>
+                        </tr>
+                        <tr>
+                            <td id="td-avgquality">Average Quality</td>
+                            <td id="sym-quality">75%</td>
+                            <td id="asym-quality">40%</td>
+                        </tr>
+                        <tr>
+                            <td id="td-price">Market Price</td>
+                            <td id="sym-price">$10,000</td>
+                            <td id="asym-price">$6,500</td>
+                        </tr>
+                        <tr>
+                            <td id="td-efficiency">Market Efficiency</td>
+                            <td id="sym-efficiency">Optimal</td>
+                            <td id="asym-efficiency">Reduced</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="analysis-result">
+                    <h4 id="result-title">Adverse Selection Effect</h4>
+                    <p id="result-text">As quality uncertainty increases, buyers discount their willingness to pay, which disproportionately affects high-quality sellers. The market equilibrium shifts to an inefficient point where only lower-quality goods trade.</p>
+                </div>
+
+                <div class="analysis-result">
+                    <h4 id="solution-title">📋 Potential Solutions</h4>
+                    <ul id="solution-list">
+                        <li><strong>Signaling:</strong> Sellers with good products invest in warranties, certifications, or reputation</li>
+                        <li><strong>Screening:</strong> Buyers design selection mechanisms (tests, waiting periods) to differentiate quality</li>
+                        <li><strong>Third-party certification:</strong> Trusted intermediaries verify product quality</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Moral Hazard Section -->
+            <div class="card full-width">
+                <h2 id="hazard-title">⚖️ Moral Hazard Demonstration</h2>
+                <p id="hazard-desc">Moral hazard occurs when one party takes more risks because they don't bear the full consequences. See how insurance affects behavior:</p>
+                
+                <div class="chart-container" id="hazard-chart"></div>
+
+                <div class="controls">
+                    <div class="control-group">
+                        <label id="label-insurance">Insurance Coverage Rate</label>
+                        <input type="range" id="insuranceRate" min="0" max="100" value="80" oninput="updateMoralHazardChart()">
+                        <div class="value" id="value-insurance">80%</div>
+                    </div>
+                    <div class="control-group">
+                        <label id="label-monitoring">Monitoring Effectiveness</label>
+                        <input type="range" id="monitoring" min="0" max="100" value="50" oninput="updateMoralHazardChart()">
+                        <div class="value" id="value-monitoring">50%</div>
+                    </div>
+                </div>
+
+                <div class="analysis-result">
+                    <h4 id="hazard-result-title">Behavioral Impact</h4>
+                    <p id="hazard-result-text">Higher insurance coverage reduces individual incentive to prevent losses (less cautious driving, less preventive health behavior). This increases the expected loss, which in turn increases insurance premiums, potentially causing a cycle of adverse selection and moral hazard.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let chart = null;
+        let moralHazardChart = null;
+        let currentLang = 'en';
+        let currentScenario = 'lemon';
+
+        const translations = {
+            en: {
+                chartTitle: "📊 Lemon Market Simulation",
+                analysisTitle: "📈 Market Analysis",
+                hazardTitle: "⚖️ Moral Hazard Demonstration",
+                thMetric: "Metric",
+                thSymmetric: "Symmetric Info",
+                thAsymmetric: "Asymmetric Info",
+                tdGoodcars: "Good Cars Sold",
+                tdAvgquality: "Average Quality",
+                tdPrice: "Market Price",
+                tdEfficiency: "Market Efficiency",
+                resultTitle: "Adverse Selection Effect",
+                resultText: "As quality uncertainty increases, buyers discount their willingness to pay, which disproportionately affects high-quality sellers. The market equilibrium shifts to an inefficient point.",
+                solutionTitle: "📋 Potential Solutions",
+                solutions: [
+                    "<strong>Signaling:</strong> Sellers with good products invest in warranties, certifications, or reputation",
+                    "<strong>Screening:</strong> Buyers design selection mechanisms to differentiate quality",
+                    "<strong>Third-party certification:</strong> Trusted intermediaries verify product quality"
+                ],
+                hazardDesc: "Moral hazard occurs when one party takes more risks because they don't bear the full consequences.",
+                hazardResultTitle: "Behavioral Impact",
+                hazardResultText: "Higher insurance coverage reduces individual incentive to prevent losses.",
+                labelQuality: "🍎 Quality Ratio (Good/Bad)",
+                labelSignal: "📜 Signaling Effect",
+                labelInsurance: "Insurance Coverage Rate",
+                labelMonitoring: "Monitoring Effectiveness",
+                keyInsight: "💡 Key Insight",
+                keyInsightText: "When buyers cannot distinguish good cars from lemons, they are unwilling to pay the fair price for good cars. This causes good cars to exit the market, leaving only lemons."
+            },
+            cn: {
+                chartTitle: "📊 柠檬市场模拟",
+                analysisTitle: "📈 市场分析",
+                hazardTitle: "⚖️ 道德风险演示",
+                thMetric: "指标",
+                thSymmetric: "对称信息",
+                thAsymmetric: "信息不对称",
+                tdGoodcars: "优质车销量",
+                tdAvgquality: "平均质量",
+                tdPrice: "市场价格",
+                tdEfficiency: "市场效率",
+                resultTitle: "逆向选择效应",
+                resultText: "当质量不确定性增加时，买家会降低支付意愿，这不成比例地影响高质量卖家。市场均衡转移到一个低效的点。",
+                solutionTitle: "📋 潜在解决方案",
+                solutions: [
+                    "<strong>信号传递：</strong>拥有好产品的卖家投资于保修、认证或声誉",
+                    "<strong>信息筛选：</strong>买家设计筛选机制来区分质量",
+                    "<strong>第三方认证：</strong>可信赖的中介机构验证产品质量"
+                ],
+                hazardDesc: "道德风险发生在一方因不承担全部后果而承担更大风险时。",
+                hazardResultTitle: "行为影响",
+                hazardResultText: "更高的保险覆盖率降低个人预防损失的动机。",
+                labelQuality: "🍎 优质/劣质比例",
+                labelSignal: "📜 信号传递效果",
+                labelInsurance: "保险覆盖率",
+                labelMonitoring: "监控有效性",
+                keyInsight: "💡 关键洞察",
+                keyInsightText: "当买家无法区分好车和柠檬时，他们不愿为好车支付公平价格。这导致好车退出市场，只留下柠檬。"
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-cn').classList.toggle('active', lang === 'cn');
+            
+            // Toggle Chinese text
+            document.querySelectorAll('.btn-text-cn').forEach(el => {
+                el.style.display = lang === 'cn' ? 'inline' : 'none';
+            });
+            document.querySelectorAll('.btn-text-en').forEach(el => {
+                el.style.display = lang === 'en' ? 'inline' : 'none';
+            });
+
+            const t = translations[lang];
+            document.getElementById('chart-title').textContent = t.chartTitle;
+            document.getElementById('analysis-title').textContent = t.analysisTitle;
+            document.getElementById('hazard-title').textContent = t.hazardTitle;
+            document.getElementById('th-metric').textContent = t.thMetric;
+            document.getElementById('th-symmetric').textContent = t.thSymmetric;
+            document.getElementById('th-asymmetric').textContent = t.thAsymmetric;
+            document.getElementById('td-goodcars').textContent = t.tdGoodcars;
+            document.getElementById('td-avgquality').textContent = t.tdAvgquality;
+            document.getElementById('td-price').textContent = t.tdPrice;
+            document.getElementById('td-efficiency').textContent = t.tdEfficiency;
+            document.getElementById('result-title').textContent = t.resultTitle;
+            document.getElementById('result-text').textContent = t.resultText;
+            document.getElementById('hazard-desc').textContent = t.hazardDesc;
+            document.getElementById('hazard-result-title').textContent = t.hazardResultTitle;
+            document.getElementById('hazard-result-text').textContent = t.hazardResultText;
+            document.getElementById('label-quality').textContent = t.labelQuality;
+            document.getElementById('label-signal').textContent = t.labelSignal;
+            document.getElementById('label-insurance').textContent = t.labelInsurance;
+            document.getElementById('label-monitoring').textContent = t.labelMonitoring;
+            document.getElementById('info-title').textContent = t.keyInsight;
+            document.getElementById('info-text').textContent = t.keyInsightText;
+
+            // Update solution list
+            const solutionList = document.getElementById('solution-list');
+            solutionList.innerHTML = t.solutions.map(s => `<li>${s}</li>`).join('');
+
+            updateChart();
+            updateMoralHazardChart();
+        }
+
+        function setScenario(scenario) {
+            currentScenario = scenario;
+            document.querySelectorAll('.scenario-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.scenario === scenario);
+            });
+            updateChart();
+        }
+
+        function updateChart() {
+            if (!chart) {
+                chart = echarts.init(document.getElementById('chart'));
+            }
+
+            const qualityRatio = document.getElementById('qualityRatio').value / 100;
+            const signaling = document.getElementById('signaling').value / 100;
+
+            document.getElementById('value-quality').textContent = `${Math.round(qualityRatio * 100)}% Good`;
+            document.getElementById('value-signal').textContent = `${Math.round(signaling * 100)}%`;
+
+            // Calculate market outcomes
+            const symmetricGood = 100;
+            const symmetricBad = 0;
+            const asymmetricGood = symmetricGood * qualityRatio * (1 - qualityRatio * 0.5);
+            const asymmetricBad = symmetricGood * (1 - qualityRatio) + symmetricGood * qualityRatio * 0.5;
+            const withSignalingGood = asymmetricGood + signaling * (1 - signaling) * 50;
+            const withSignalingBad = asymmetricBad - signaling * 30;
+
+            const option = {
+                title: {
+                    text: currentLang === 'en' ? 'Market Quality Distribution' : '市场质量分布',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                legend: {
+                    data: [
+                        currentLang === 'en' ? 'Symmetric Info' : '对称信息',
+                        currentLang === 'en' ? 'Asymmetric Info' : '信息不对称',
+                        currentLang === 'en' ? 'With Signaling' : '信号传递后'
+                    ],
+                    top: 30
+                },
+                xAxis: {
+                    type: 'category',
+                    data: [
+                        currentLang === 'en' ? 'Good Quality' : '优质品',
+                        currentLang === 'en' ? 'Poor Quality' : '劣质品'
+                    ]
+                },
+                yAxis: {
+                    type: 'value',
+                    name: currentLang === 'en' ? 'Quantity Traded' : '交易数量',
+                    max: 120
+                },
+                series: [
+                    {
+                        name: currentLang === 'en' ? 'Symmetric Info' : '对称信息',
+                        type: 'bar',
+                        data: [symmetricGood, symmetricBad],
+                        itemStyle: { color: '#27ae60' }
+                    },
+                    {
+                        name: currentLang === 'en' ? 'Asymmetric Info' : '信息不对称',
+                        type: 'bar',
+                        data: [asymmetricGood.toFixed(0), asymmetricBad.toFixed(0)],
+                        itemStyle: { color: '#e74c3c' }
+                    },
+                    {
+                        name: currentLang === 'en' ? 'With Signaling' : '信号传递后',
+                        type: 'bar',
+                        data: [withSignalingGood.toFixed(0), Math.max(0, withSignalingBad).toFixed(0)],
+                        itemStyle: { color: '#3498db' }
+                    }
+                ]
+            };
+
+            chart.setOption(option);
+        }
+
+        function updateMoralHazardChart() {
+            if (!moralHazardChart) {
+                moralHazardChart = echarts.init(document.getElementById('hazard-chart'));
+            }
+
+            const insuranceRate = document.getElementById('insuranceRate').value / 100;
+            const monitoring = document.getElementById('monitoring').value / 100;
+
+            document.getElementById('value-insurance').textContent = `${Math.round(insuranceRate * 100)}%`;
+            document.getElementById('value-monitoring').textContent = `${Math.round(monitoring * 100)}%`;
+
+            // Calculate risk behavior
+            const baseRisk = 10;
+            const riskWithInsurance = baseRisk + insuranceRate * 40 * (1 - monitoring * 0.5);
+            const claimsRate = baseRisk + insuranceRate * 35 * (1 - monitoring * 0.6);
+
+            const option = {
+                title: {
+                    text: currentLang === 'en' ? 'Moral Hazard Effect' : '道德风险效应',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'line' }
+                },
+                legend: {
+                    data: [
+                        currentLang === 'en' ? 'Risk Level' : '风险水平',
+                        currentLang === 'en' ? 'Claims Rate' : '索赔率'
+                    ],
+                    top: 30
+                },
+                xAxis: {
+                    type: 'category',
+                    data: [
+                        currentLang === 'en' ? 'No Insurance' : '无保险',
+                        currentLang === 'en' ? 'Low Coverage' : '低覆盖率',
+                        currentLang === 'en' ? 'Medium Coverage' : '中等覆盖率',
+                        currentLang === 'en' ? 'High Coverage' : '高覆盖率',
+                        currentLang === 'en' ? 'Full Coverage' : '全额保险'
+                    ]
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '%'
+                },
+                series: [
+                    {
+                        name: currentLang === 'en' ? 'Risk Level' : '风险水平',
+                        type: 'line',
+                        data: [10, 25, 45, 65, 80],
+                        itemStyle: { color: '#e74c3c' },
+                        areaStyle: { color: 'rgba(231, 76, 60, 0.2)' }
+                    },
+                    {
+                        name: currentLang === 'en' ? 'Claims Rate' : '索赔率',
+                        type: 'line',
+                        data: [8, 20, 38, 55, 70],
+                        itemStyle: { color: '#3498db' },
+                        areaStyle: { color: 'rgba(52, 152, 219, 0.2)' }
+                    }
+                ]
+            };
+
+            moralHazardChart.setOption(option);
+        }
+
+        // Initialize charts
+        window.addEventListener('resize', () => {
+            if (chart) chart.resize();
+            if (moralHazardChart) moralHazardChart.resize();
+        });
+
+        updateChart();
+        updateMoralHazardChart();
+    </script>
+</body>
+</html>

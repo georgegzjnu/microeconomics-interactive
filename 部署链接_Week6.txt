@@ -1,0 +1,28 @@
+# Week 6 市场效率互动组件部署链接
+
+## 主站点
+**URL**: https://georgegzjnu.github.io/microeconomics-interactive/
+
+## Week 6 新增内容
+
+### 知识测验
+**URL**: https://georgegzjnu.github.io/microeconomics-interactive/index.html
+- 选择分类 "Market Efficiency" 即可访问Week 6测验
+- 包含10道双语选择题（含判断题、排序题、匹配题）
+
+### 概念闪卡
+**URL**: https://georgegzjnu.github.io/microeconomics-interactive/index.html
+- 选择分类 "Market Efficiency" 即可访问Week 6闪卡
+- 包含20张双语概念闪卡
+
+### 消费者与生产者剩余计算器
+**URL**: https://georgegzjnu.github.io/microeconomics-interactive/week6_consumer_producer_surplus_calculator.html
+
+### 市场效率分析仪
+**URL**: https://georgegzjnu.github.io/microeconomics-interactive/market_efficiency_analyzer.html
+
+## 部署时间
+2026年4月11日 10:10 (UTC+8)
+
+## GitHub仓库
+https://github.com/georgegzjnu/microeconomics-interactive

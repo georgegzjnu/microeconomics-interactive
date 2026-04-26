@@ -1,0 +1,162 @@
+[
+  {
+    "id": 41,
+    "term_en": "Market Failure",
+    "definition_cn": "市场失灵 - 自由市场无法有效配置资源，导致非帕累托最优的结果",
+    "definition_en": "The free market's inability to allocate resources efficiently, resulting in outcomes that are not Pareto optimal",
+    "example_en": "Marathon hotel price surges (500% increase) exploit participants' inelastic demand",
+    "example_cn": "马拉松酒店价格暴涨（500%涨幅）利用参与者的刚性需求"
+  },
+  {
+    "id": 42,
+    "term_en": "Externality",
+    "definition_cn": "外部性 - 经济活动对未参与交易的第三方产生的成本或收益",
+    "definition_en": "Costs or benefits of an economic activity that affect third parties not directly involved",
+    "example_en": "Factory pollution harms local residents (negative externality)",
+    "example_cn": "工厂污染损害当地居民（负外部性）"
+  },
+  {
+    "id": 43,
+    "term_en": "Negative Externality",
+    "definition_cn": "负外部性 - 经济活动给第三方带来成本（如污染、噪音）",
+    "definition_en": "When an economic activity imposes costs on third parties (e.g., pollution, noise)",
+    "example_en": "Cigarette smoking causing health problems for non-smokers",
+    "example_cn": "吸烟导致非吸烟者的健康问题"
+  },
+  {
+    "id": 44,
+    "term_en": "Positive Externality",
+    "definition_cn": "正外部性 - 经济活动给第三方带来收益（如教育、疫苗接种）",
+    "definition_en": "When an economic activity provides benefits to third parties (e.g., education, vaccination)",
+    "example_en": "Beekeeper's bees pollinate neighboring farms' crops",
+    "example_cn": "养蜂人的蜜蜂为邻近农场的作物授粉"
+  },
+  {
+    "id": 45,
+    "term_en": "Public Good",
+    "definition_cn": "公共物品 - 具有非排他性和非竞争性的物品（如国防、路灯）",
+    "definition_en": "Goods that are non-excludable and non-rivalrous (e.g., national defense, street lighting)",
+    "example_en": "Public fireworks display: everyone can watch without reducing others' enjoyment",
+    "example_cn": "公共烟花表演：每个人都可以观看，不会减少他人的享受"
+  },
+  {
+    "id": 46,
+    "term_en": "Free Rider Problem",
+    "definition_cn": "搭便车问题 - 个人享受公共物品收益而不承担成本的行为",
+    "definition_en": "When individuals benefit from public goods without paying for them",
+    "example_en": "Some countries rely on others' COVID-19 vaccine research without contributing",
+    "example_cn": "一些国家依赖其他国家的COVID-19疫苗研究而不做出贡献"
+  },
+  {
+    "id": 47,
+    "term_en": "Information Asymmetry",
+    "definition_cn": "信息不对称 - 交易中一方比另一方拥有更多或更好的信息",
+    "definition_en": "When one party in a transaction has more or better information than the other",
+    "example_en": "Used car sellers know more about vehicle quality than buyers",
+    "example_cn": "二手车卖家比买家更了解车况"
+  },
+  {
+    "id": 48,
+    "term_en": "Adverse Selection",
+    "definition_cn": "逆向选择 - 信息不对称导致劣质产品驱逐优质产品",
+    "definition_en": "When asymmetric information causes bad risks to drive out good ones",
+    "example_en": "In health insurance, high-risk individuals are more likely to purchase coverage",
+    "example_cn": "在健康保险中，高风险个体更可能购买保险"
+  },
+  {
+    "id": 49,
+    "term_en": "Moral Hazard",
+    "definition_cn": "道德风险 - 一方在协议后采取风险行为的倾向（因为成本由另一方承担）",
+    "definition_en": "The tendency to take greater risks when protected from the consequences",
+    "example_en": "After purchasing car insurance, drivers may be less cautious",
+    "example_cn": "购买汽车保险后，驾驶员可能不那么谨慎"
+  },
+  {
+    "id": 50,
+    "term_en": "Monopoly",
+    "definition_cn": "垄断 - 市场中只有一个卖者，具有价格控制能力",
+    "definition_en": "A market structure with a single seller who has price-setting power",
+    "example_en": "Local utility companies often have monopoly over water/electricity supply",
+    "example_cn": "地方公用事业公司通常对水/电供应具有垄断地位"
+  },
+  {
+    "id": 51,
+    "term_en": "Deadweight Loss",
+    "definition_cn": "无谓损失 - 由于市场扭曲（如垄断、税收）导致的总剩余损失",
+    "definition_en": "Loss of total surplus due to market distortion (e.g., monopoly, tax)",
+    "example_en": "Monopoly restricts output, preventing mutually beneficial transactions",
+    "example_cn": "垄断限制产出，阻止了互利交易"
+  },
+  {
+    "id": 52,
+    "term_en": "Pareto Optimality",
+    "definition_cn": "帕累托最优 - 在不使任何人境况变差的前提下，不可能再使某些人境况变得更好的状态",
+    "definition_en": "A state where no individual can be made better off without making someone else worse off",
+    "example_en": "Competitive market equilibrium is typically Pareto optimal",
+    "example_cn": "竞争性市场均衡通常是帕累托最优的"
+  },
+  {
+    "id": 53,
+    "term_en": "Government Intervention",
+    "definition_cn": "政府干预 - 政府通过政策纠正市场失灵（如税收、管制、公共提供）",
+    "definition_en": "Government policies to correct market failures (e.g., taxes, regulation, public provision)",
+    "example_en": "Pigouvian tax on carbon emissions to reduce pollution",
+    "example_cn": "对碳排放征收庇古税以减少污染"
+  },
+  {
+    "id": 54,
+    "term_en": "Pigouvian Tax",
+    "definition_cn": "庇古税 - 旨在纠正负外部性的税收，使外部成本内部化",
+    "definition_en": "A tax designed to correct negative externalities by internalizing external costs",
+    "example_en": "Carbon tax on fossil fuel consumption",
+    "example_cn": "对化石燃料消费征收碳税"
+  },
+  {
+    "id": 55,
+    "term_en": "Coase Theorem",
+    "definition_cn": "科斯定理 - 如果交易成本为零，产权明确，市场可以自行解决外部性问题",
+    "definition_en": "If transaction costs are zero and property rights are clearly defined, markets can solve externality problems on their own",
+    "example_en": "Factory and residents negotiate compensation for pollution",
+    "example_cn": "工厂和居民就污染补偿进行谈判"
+  },
+  {
+    "id": 56,
+    "term_en": "Regulation",
+    "definition_cn": "管制 - 政府通过规则限制经济活动（如排放标准、价格控制）",
+    "definition_en": "Government rules that restrict economic activities (e.g., emission standards, price controls)",
+    "example_en": "Clean Air Act limits industrial pollutant emissions",
+    "example_cn": "《清洁空气法》限制工业污染物排放"
+  },
+  {
+    "id": 57,
+    "term_en": "Public Provision",
+    "definition_cn": "公共提供 - 政府直接提供公共物品或服务（如国防、基础教育）",
+    "definition_en": "Government directly provides public goods or services (e.g., national defense, basic education)",
+    "example_en": "Public schools funded by tax revenue",
+    "example_cn": "由税收资助的公立学校"
+  },
+  {
+    "id": 58,
+    "term_en": "Market Power",
+    "definition_cn": "市场权力 - 企业影响市场价格的能力（如垄断、寡头）",
+    "definition_en": "A firm's ability to influence market prices (e.g., monopoly, oligopoly)",
+    "example_en": "Tech giants setting prices above competitive levels",
+    "example_cn": "科技巨头将价格设定在竞争水平之上"
+  },
+  {
+    "id": 59,
+    "term_en": "Imperfect Competition",
+    "definition_cn": "不完全竞争 - 企业具有一定程度市场权力的市场结构（如垄断竞争、寡头）",
+    "definition_en": "Market structures where firms have some degree of market power (e.g., monopolistic competition, oligopoly)",
+    "example_en": "Smartphone market with few dominant brands",
+    "example_cn": "智能手机市场由少数主导品牌控制"
+  },
+  {
+    "id": 60,
+    "term_en": "Tragedy of the Commons",
+    "definition_cn": "公地悲剧 - 共享资源因个体理性使用而导致资源耗竭",
+    "definition_en": "Depletion of shared resources due to individual rational use",
+    "example_en": "Overfishing in international waters",
+    "example_cn": "国际水域的过度捕捞"
+  }
+]

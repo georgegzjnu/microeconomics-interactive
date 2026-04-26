@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microeconomics Interactive Learning</title>
+    <style>
+:root{--primary-blue:#4A90E2;--primary-blue-dark:#2D5AA0;--accent-orange:#FF9500;--accent-orange-dark:#FF6B35;--bg-yellow-light:#FFF9E6;--bg-yellow-medium:#FFEBB2;--text-dark:#333;--text-medium:#666;--text-light:#999;--white:#fff;--shadow:rgba(0,0,0,.1);--border-radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,var(--bg-yellow-light),var(--bg-yellow-medium));color:var(--text-dark);line-height:1.6;min-height:100vh;padding:20px}
+.container{max-width:900px;margin:0 auto;background:var(--white);border-radius:var(--border-radius);box-shadow:0 10px 30px var(--shadow);padding:25px}
+header{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:2px solid var(--bg-yellow-medium);margin-bottom:25px}
+.logo h1{font-size:1.8rem;color:var(--primary-blue-dark)}
+.language-switch{display:flex;gap:5px;background:var(--bg-yellow-light);border-radius:30px;padding:4px}
+.lang-btn{padding:8px 18px;border:none;background:transparent;border-radius:30px;font-weight:700;cursor:pointer;transition:all .3s}
+.lang-btn.active{background:var(--primary-blue);color:var(--white)}
+.lang-btn:hover:not(.active){background:var(--bg-yellow-medium)}
+.tabs{display:flex;gap:10px;margin-bottom:30px;border-bottom:2px solid var(--bg-yellow-medium);padding-bottom:10px}
+.tab-btn{padding:12px 24px;border:none;background:transparent;border-radius:var(--border-radius) var(--border-radius) 0 0;font-size:1rem;font-weight:600;color:var(--text-medium);cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .3s}
+.tab-btn.active{color:var(--primary-blue);background:var(--bg-yellow-light);border-bottom:3px solid var(--accent-orange)}
+.tab-btn:hover:not(.active){color:var(--primary-blue-dark);background:var(--bg-yellow-light)}
+.tab-content{display:none;animation:fadeIn .5s}
+.tab-content.active{display:block}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.quiz-header,.flashcards-header{text-align:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed var(--text-light)}
+.quiz-header h2,.flashcards-header h2{color:var(--primary-blue-dark);margin-bottom:10px}
+.quiz-header p,.flashcards-header p{color:var(--text-medium);max-width:700px;margin:0 auto 15px}
+.quiz-meta,.flashcards-meta{display:flex;justify-content:center;gap:20px;font-size:.9rem;color:var(--text-light)}
+.quiz-container{padding:20px;background:var(--bg-yellow-light);border-radius:var(--border-radius);margin-bottom:30px}
+.question-card{background:var(--white);border-radius:var(--border-radius);padding:25px;margin-bottom:25px;box-shadow:0 4px 10px var(--shadow);border-left:5px solid var(--primary-blue)}
+.question-text{font-size:1.2rem;font-weight:600;margin-bottom:20px}
+.options{display:grid;grid-template-columns:1fr;gap:12px}
+.option{display:flex;align-items:center;padding:15px;background:var(--bg-yellow-light);border-radius:8px;cursor:pointer;transition:all .3s;border:2px solid transparent}
+.option:hover{background:var(--bg-yellow-medium)}
+.option.selected{border-color:var(--primary-blue);background:rgba(74,144,226,.1)}
+.option-letter{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--primary-blue);color:var(--white);border-radius:50%;margin-right:15px;font-weight:700}
+.option-text{flex:1}
+.quiz-controls{display:flex;justify-content:space-between;align-items:center;margin-top:30px}
+.quiz-controls button{padding:12px 24px;border:none;border-radius:30px;font-weight:600;cursor:pointer;transition:all .3s}
+#prev-btn,#next-btn{background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue)}
+#prev-btn:hover,#next-btn:hover{background:var(--primary-blue);color:var(--white)}
+#submit-btn{background:var(--accent-orange);color:var(--white)}
+#submit-btn:hover{background:var(--accent-orange-dark)}
+#result-container{background:var(--white);border-radius:var(--border-radius);padding:30px;text-align:center;border:2px solid var(--bg-yellow-medium)}
+.score-display{margin:25px 0}
+.score-circle{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,var(--primary-blue),var(--accent-orange));color:var(--white);display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:700;margin:0 auto 20px}
+#score-message{font-size:1.2rem;color:var(--text-medium)}
+#retry-btn{margin-top:20px;padding:12px 30px;background:var(--primary-blue);color:var(--white);border:none;border-radius:30px;font-weight:600;cursor:pointer}
+#retry-btn:hover{background:var(--primary-blue-dark)}
+.flashcards-container{padding:20px;background:var(--bg-yellow-light);border-radius:var(--border-radius)}
+.card-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+.card-nav button{padding:10px 20px;border:none;background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue);border-radius:30px;font-weight:600;cursor:pointer}
+.card-nav button:hover{background:var(--primary-blue);color:var(--white)}
+#card-counter{font-weight:600}
+.card-area{height:300px;margin-bottom:30px;display:flex;align-items:center;justify-content:center;background:var(--white);border-radius:var(--border-radius);box-shadow:0 4px 10px var(--shadow);cursor:pointer}
+.card-term h3{font-size:3rem;text-align:center;color:var(--primary-blue-dark)}
+.card-area .hint{font-size:.9rem;opacity:.8;text-align:center;margin-top:15px}
+.card-controls{display:flex;justify-content:center;gap:15px;margin-bottom:30px}
+.card-controls button{padding:12px 24px;border:none;border-radius:30px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px}
+#flip-btn{background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue)}
+#flip-btn:hover{background:var(--primary-blue);color:var(--white)}
+.master-btn{background:#4CAF50;color:var(--white)}
+.review-btn{background:#FF9800;color:var(--white)}
+.progress{background:var(--white);padding:20px;border-radius:var(--border-radius)}
+.progress-bar{height:12px;background:var(--bg-yellow-medium);border-radius:6px;overflow:hidden;margin-bottom:15px}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary-blue),var(--accent-orange));border-radius:6px;transition:width .5s}
+.progress-labels{display:flex;justify-content:space-between;font-size:.9rem;color:var(--text-medium)}
+.feedback-section{background:linear-gradient(135deg,#f8f9fa,#e9ecef);border-radius:var(--border-radius);padding:20px;margin-top:30px}
+.feedback-section h3{color:var(--text-dark);margin-bottom:10px}
+.feedback-section p{color:var(--text-medium);margin-bottom:15px;font-size:.95rem}
+.feedback-buttons{display:flex;justify-content:center;gap:15px;margin-bottom:15px}
+.feedback-btn{padding:12px 24px;border:none;border-radius:30px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:1rem}
+.feedback-btn.too-easy{background:linear-gradient(135deg,#28a745,#20c997);color:white}
+.feedback-btn.just-right{background:linear-gradient(135deg,#007bff,#17a2b8);color:white}
+.feedback-btn.too-hard{background:linear-gradient(135deg,#dc3545,#fd7e14);color:white}
+.feedback-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.1)}
+#feedback-thankyou{text-align:center;padding:15px;background:#d4edda;border-radius:var(--border-radius);color:#155724;border:1px solid #c3e6cb;margin-top:15px}
+.feedback-stats{text-align:center;color:var(--text-light);font-size:.85rem;margin-top:10px}
+footer{margin-top:30px;padding-top:20px;border-top:1px solid var(--bg-yellow-medium);text-align:center;color:var(--text-light);font-size:.9rem}
+.hidden{display:none!important}
+@media(max-width:768px){.container{padding:15px}header{flex-direction:column;gap:15px;text-align:center}.logo h1{font-size:1.5rem}.tabs{flex-wrap:wrap}.tab-btn{padding:10px 15px;font-size:.9rem}.question-card{padding:20px}.card-term h3{font-size:2rem}.quiz-controls{flex-direction:column;gap:15px}.quiz-controls button{width:100%}}
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <h1>Microeconomics Interactive Lab</h1>
+        </div>
+        <div class="language-switch">
+            <button id="lang-en" class="lang-btn active">EN</button>
+            <button id="lang-cn" class="lang-btn">中文</button>
+        </div>
+    </header>
+    
+    <nav class="tabs">
+        <button class="tab-btn active" data-tab="quiz"><i class="fas fa-question-circle"></i> <span>Knowledge Quiz</span></button>
+        <button class="tab-btn" data-tab="flashcards"><i class="fas fa-layer-group"></i> <span>Concept Flashcards</span></button>
+    </nav>
+    
+    <main>
+        <div id="quiz-tab" class="tab-content active">
+            <div class="quiz-header">
+                <h2>Supply & Demand Quiz</h2>
+                <p>Test your understanding of basic microeconomics concepts.</p>
+                <div class="quiz-meta">
+                    <span><i class="fas fa-star"></i> Score: <span id="score-value">0</span>/100</span>
+                </div>
+            </div>
+            
+            <div class="quiz-container">
+                <div id="question-container"></div>
+                <div class="quiz-controls">
+                    <button id="prev-btn">Previous</button>
+                    <button id="next-btn">Next</button>
+                    <button id="submit-btn">Submit Quiz</button>
+                </div>
+            </div>
+            
+            <div id="result-container" class="hidden">
+                <h3>Quiz Results</h3>
+                <div class="score-display">
+                    <div class="score-circle"><span id="final-score">0</span>%</div>
+                    <p id="score-message">Complete the quiz to see your score.</p>
+                </div>
+                <button id="retry-btn">Try Again</button>
+            </div>
+        </div>
+        
+        <div id="flashcards-tab" class="tab-content">
+            <div class="flashcards-header">
+                <h2>Core Concepts Flashcards</h2>
+                <p>Flip cards to learn key microeconomics terms. Bilingual definitions included.</p>
+                <div class="flashcards-meta">
+                    <span><i class="fas fa-layer-group"></i> <span id="card-counter-text">Card 1 of 20</span></span>
+                </div>
+            </div>
+            
+            <div class="flashcards-container">
+                <div class="card-nav">
+                    <button id="prev-card">← Previous</button>
+                    <span id="card-counter">1</span>
+                    <button id="next-card">Next →</button>
+                </div>
+                
+                <div class="card-area" id="flashcard">
+                    <div>
+                        <h3 id="term-display">Demand</h3>
+                        <p class="hint">Click to see definition</p>
+                    </div>
+                </div>
+                <div id="card-definition" style="display:none;background:var(--white);padding:20px;border-radius:12px;margin-top:-20px;">
+                    <p id="definition-cn" style="font-size:1.1rem;margin-bottom:10px;"></p>
+                    <p id="definition-en" style="color:var(--text-medium);margin-bottom:15px;"></p>
+                    <p id="example-text" style="background:var(--bg-yellow-light);padding:15px;border-radius:8px;"></p>
+                </div>
+                <div class="card-controls">
+                    <button id="flip-btn">Flip Card</button>
+                    <button id="master-btn" class="master-btn">Mark as Mastered</button>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:5%;"></div></div>
+                    <div class="progress-labels">
+                        <span>Progress: <span id="progress-percent">5</span>%</span>
+                        <span>Mastered: <span id="mastered-count">0</span>/20</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div class="feedback-section">
+        <h3>How was this material for you?</h3>
+        <p>Your anonymous feedback helps us improve the learning experience.</p>
+        <div class="feedback-buttons">
+            <button class="feedback-btn too-easy" data-diff="easy"><i class="fas fa-smile"></i> Too Easy</button>
+            <button class="feedback-btn just-right" data-diff="right"><i class="fas fa-meh"></i> Just Right</button>
+            <button class="feedback-btn too-hard" data-diff="hard"><i class="fas fa-frown"></i> Too Hard</button>
+        </div>
+        <div id="feedback-thankyou" class="hidden">
+            <p>Thank you for your feedback! Your input has been recorded.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Microeconomics Teaching Agent - Interactive Learning Tool. © 2026</p>
+    </footer>
+</div>
+
+<script>
+const quizData = [
+    {q:"According to the law of demand, when the price of a good increases:",o:["Quantity demanded increases","Quantity demanded decreases","Quantity supplied increases","Quantity supplied decreases"],a:1},
+    {q:"The point where the demand and supply curves intersect is called:",o:["Shortage point","Surplus point","Equilibrium point","Price ceiling"],a:2},
+    {q:"If the price of coffee beans rises, what happens to the supply curve for coffee?",o:["Shifts left (decrease)","Shifts right (increase)","Movement along the curve","No change"],a:0},
+    {q:"Which would cause a rightward shift of the demand curve for movie tickets?",o:["Increase in ticket prices","Decrease in consumer income","Popular new movie release","Higher popcorn prices"],a:2},
+    {q:"At the equilibrium price, the quantity demanded equals:",o:["Quantity supplied","Zero","Maximum possible output","Shortage amount"],a:0},
+    {q:"A price ceiling set below the equilibrium price leads to:",o:["Surplus","Shortage","No effect","Increase in quality"],a:1},
+    {q:"The law of supply describes a ______ relationship between price and quantity supplied.",o:["Direct","Inverse","No","Random"],a:0},
+    {q:"If demand increases while supply remains constant, the equilibrium price will:",o:["Increase","Decrease","Remain unchanged","Be indeterminate"],a:0},
+    {q:"A movement along the demand curve is caused by:",o:["Change in consumer preferences","Change in price of the good","Change in income","Change in price of related goods"],a:1},
+    {q:"Which is NOT a determinant of supply?",o:["Technology","Input prices","Consumer tastes","Number of sellers"],a:2}
+];
+
+const flashcardsData = [
+    {term:"Demand",cn:"需求 - 消费者愿意且能够购买的商品数量",en:"Quantity consumers are willing/able to buy at various prices",ex:"When it's hot, you want more iced tea / 天气热时你想喝更多冰茶"},
+    {term:"Supply",cn:"供给 - 生产者在不同价格下愿意且能够出售的商品数量",en:"Quantity producers are willing/able to sell at various prices",ex:"If milk prices rise, farmers supply more milk / 牛奶价格上涨时农民供给更多"},
+    {term:"Equilibrium",cn:"均衡 - 需求量等于供给量时的状态",en:"Point where quantity demanded equals quantity supplied",ex:"The price where bubble tea shops sell exactly what customers want / 奶茶店恰好卖出顾客想买的数量时的价格"},
+    {term:"Law of Demand",cn:"需求定律 - 价格与需求量之间的反向关系",en:"Inverse relationship between price and quantity demanded",ex:"As movie tickets get cheaper, more people go to the cinema / 电影票越便宜，看电影的人越多"},
+    {term:"Law of Supply",cn:"供给定律 - 价格与供给量之间的正向关系",en:"Direct relationship between price and quantity supplied",ex:"When smartphone prices rise, companies produce more phones / 手机价格上涨时公司生产更多手机"},
+    {term:"Consumer Surplus",cn:"消费者剩余 - 最高支付意愿与实际价格的差额",en:"Difference between max price willing to pay and actual price",ex:"You're willing to pay 800 yuan but find it for 500 yuan / 你愿意付800元但发现只卖500元"},
+    {term:"Producer Surplus",cn:"生产者剩余 - 实际价格与最低接受价格的差额",en:"Difference between actual price and min acceptable price",ex:"A bakery sells muffins for 5 yuan but costs 2 yuan to make / 面包店以5元卖出成本2元的松饼"},
+    {term:"Deadweight Loss",cn:"无谓损失 - 市场扭曲导致的总剩余损失",en:"Loss of total surplus due to market distortion",ex:"Tax reduces quantity traded below efficient level / 税收使交易量降到有效水平以下"},
+    {term:"Elasticity",cn:"弹性 - 变量对其他变量变化的反应程度",en:"Measure of how responsive one variable is to changes in another",ex:"Price elasticity = % change in quantity demanded / % change in price / 需求价格弹性 = 需求量变化% / 价格变化%"},
+    {term:"Price Ceiling",cn:"价格上限 - 政府规定的最高价格",en:"Government-imposed maximum price",ex:"Rent control creating housing shortages / 租金管制导致住房短缺"},
+    {term:"Price Floor",cn:"价格下限 - 政府规定的最低价格",en:"Government-imposed minimum price",ex:"Minimum wage laws / 最低工资法"},
+    {term:"Substitute Goods",cn:"替代品 - 一种商品价格上升会导致另一种需求增加",en:"Goods that can replace each other",ex:"Tea and coffee / 茶和咖啡"},
+    {term:"Complementary Goods",cn:"互补品 - 一种商品价格上升会导致另一种需求减少",en:"Goods used together",ex:"Cars and gasoline / 汽车和汽油"},
+    {term:"Normal Good",cn:"正常品 - 收入增加时需求增加的商品",en:"Good for which demand increases when income rises",ex:"Organic food, travel, education / 有机食品、旅游、教育"},
+    {term:"Inferior Good",cn:"低档品 - 收入增加时需求减少的商品",en:"Good for which demand decreases when income rises",ex:"Instant noodles, used cars / 方便面、二手车"},
+    {term:"Opportunity Cost",cn:"机会成本 - 为获得某种东西而放弃的次优选择",en:"Value of the next-best alternative foregone",ex:"Choosing to study instead of working / 选择学习而非工作"},
+    {term:"Marginal Analysis",cn:"边际分析 - 比较额外成本与额外收益的决策方法",en:"Comparing additional costs and benefits of a decision",ex:"Should I produce one more unit? / 我应该多生产一单位吗？"},
+    {term:"Utility",cn:"效用 - 消费者从商品或服务中获得的满足感",en:"Satisfaction from consuming goods/services",ex:"Eating ice cream on a hot day / 热天吃冰淇淋"},
+    {term:"Information Asymmetry",cn:"信息不对称 - 交易一方比另一方拥有更多信息",en:"One party has more information than the other",ex:"Used car sellers know more than buyers / 二手车卖家比买家知道更多"},
+    {term:"Moral Hazard",cn:"道德风险 - 投保后改变行为承担更少风险",en:"Taking more risks because someone else bears the cost",ex:"Driver becomes less careful after buying insurance / 买了保险后司机变得不那么小心"}
+];
+
+// State
+let currentQuestion = 0;
+let userAnswers = new Array(quizData.length).fill(null);
+let quizSubmitted = false;
+let currentCard = 0;
+let masteredCards = new Set();
+let isFlipped = false;
+let currentLang = 'en';
+
+// DOM Elements
+const langEnBtn = document.getElementById('lang-en');
+const langCnBtn = document.getElementById('lang-cn');
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+const questionContainer = document.getElementById('question-container');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const submitBtn = document.getElementById('submit-btn');
+const resultContainer = document.getElementById('result-container');
+const retryBtn = document.getElementById('retry-btn');
+const scoreValue = document.getElementById('score-value');
+const finalScore = document.getElementById('final-score');
+const scoreMessage = document.getElementById('score-message');
+const prevCardBtn = document.getElementById('prev-card');
+const nextCardBtn = document.getElementById('next-card');
+const flipBtn = document.getElementById('flip-btn');
+const masterBtn = document.getElementById('master-btn');
+const flashcard = document.getElementById('flashcard');
+const cardDefinition = document.getElementById('card-definition');
+const termDisplay = document.getElementById('term-display');
+const definitionCn = document.getElementById('definition-cn');
+const definitionEn = document.getElementById('definition-en');
+const exampleText = document.getElementById('example-text');
+const cardCounter = document.getElementById('card-counter');
+const cardCounterText = document.getElementById('card-counter-text');
+const progressFill = document.getElementById('progress-fill');
+const progressPercent = document.getElementById('progress-percent');
+const masteredCount = document.getElementById('mastered-count');
+const feedbackBtns = document.querySelectorAll('.feedback-btn');
+const feedbackThankYou = document.getElementById('feedback-thankyou');
+
+// Render Question
+function renderQuestion() {
+    if (quizSubmitted) return;
+    const q = quizData[currentQuestion];
+    let html = `<div class="question-card"><div class="question-text">${currentQuestion + 1}. ${q.q}</div><div class="options">`;
+    q.o.forEach((opt, i) => {
+        const sel = userAnswers[currentQuestion] === i ? 'selected' : '';
+        const letter = String.fromCharCode(65 + i);
+        html += `<div class="option ${sel}" data-index="${i}"><span class="option-letter">${letter}</span><span class="option-text">${opt}</span></div>`;
+    });
+    html += '</div></div>';
+    questionContainer.innerHTML = html;
+    
+    document.querySelectorAll('.option').forEach(opt => {
+        opt.addEventListener('click', () => {
+            userAnswers[currentQuestion] = parseInt(opt.dataset.index);
+            renderQuestion();
+        });
+    });
+    
+    prevBtn.disabled = currentQuestion === 0;
+    nextBtn.disabled = currentQuestion === quizData.length - 1;
+}
+
+// Switch Tab
+function switchTab(tabName) {
+    tabBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabName);
+    });
+    tabContents.forEach(content => {
+        content.classList.toggle('active', content.id === tabName + '-tab');
+    });
+}
+
+// Submit Quiz
+function submitQuiz() {
+    quizSubmitted = true;
+    let correct = 0;
+    quizData.forEach((q, i) => {
+        if (userAnswers[i] === q.a) correct++;
+    });
+    const score = Math.round((correct / quizData.length) * 100);
+    finalScore.textContent = score;
+    scoreMessage.textContent = `You got ${correct} out of ${quizData.length} correct.`;
+    scoreValue.textContent = score;
+    questionContainer.innerHTML = `<p style="text-align:center;padding:30px;font-size:1.2rem;">Quiz submitted! Click 'Try Again' to retake.</p>`;
+    resultContainer.classList.remove('hidden');
+}
+
+// Reset Quiz
+function resetQuiz() {
+    currentQuestion = 0;
+    userAnswers = new Array(quizData.length).fill(null);
+    quizSubmitted = false;
+    resultContainer.classList.add('hidden');
+    renderQuestion();
+}
+
+// Render Flashcard
+function renderFlashcard() {
+    const card = flashcardsData[currentCard];
+    termDisplay.textContent = card.term;
+    definitionCn.textContent = card.cn;
+    definitionEn.textContent = card.en;
+    exampleText.textContent = card.ex;
+    cardCounter.textContent = currentCard + 1;
+    cardCounterText.textContent = `Card ${currentCard + 1} of ${flashcardsData.length}`;
+    
+    const progress = Math.round(((currentCard + 1) / flashcardsData.length) * 100);
+    progressFill.style.width = progress + '%';
+    progressPercent.textContent = progress;
+    masteredCount.textContent = masteredCards.size;
+    
+    masterBtn.textContent = masteredCards.has(currentCard) ? 'Unmark Mastered' : 'Mark as Mastered';
+    
+    // Reset flip state
+    isFlipped = false;
+    flashcard.innerHTML = `<div><h3 id="term-display">${card.term}</h3><p class="hint">Click to see definition</p></div>`;
+    cardDefinition.style.display = 'none';
+}
+
+// Event Listeners
+langEnBtn.addEventListener('click', () => {
+    currentLang = 'en';
+    langEnBtn.classList.add('active');
+    langCnBtn.classList.remove('active');
+});
+
+langCnBtn.addEventListener('click', () => {
+    currentLang = 'cn';
+    langCnBtn.classList.add('active');
+    langEnBtn.classList.remove('active');
+});
+
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+    }
+});
+
+nextBtn.addEventListener('click', () => {
+    if (currentQuestion < quizData.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+    }
+});
+
+submitBtn.addEventListener('click', submitQuiz);
+retryBtn.addEventListener('click', resetQuiz);
+
+prevCardBtn.addEventListener('click', () => {
+    if (currentCard > 0) {
+        currentCard--;
+        renderFlashcard();
+    }
+});
+
+nextCardBtn.addEventListener('click', () => {
+    if (currentCard < flashcardsData.length - 1) {
+        currentCard++;
+        renderFlashcard();
+    }
+});
+
+flipBtn.addEventListener('click', () => {
+    isFlipped = !isFlipped;
+    if (isFlipped) {
+        const card = flashcardsData[currentCard];
+        flashcard.innerHTML = `<div style="padding:20px;text-align:center;"><p style="font-size:1.1rem;margin-bottom:10px;">${card.cn}</p><p style="color:#666;margin-bottom:15px;">${card.en}</p><p style="background:#FFF9E6;padding:15px;border-radius:8px;">${card.ex}</p></div>`;
+        cardDefinition.style.display = 'none';
+    } else {
+        renderFlashcard();
+    }
+});
+
+flashcard.addEventListener('click', () => {
+    isFlipped = !isFlipped;
+    if (isFlipped) {
+        const card = flashcardsData[currentCard];
+        flashcard.innerHTML = `<div style="padding:20px;text-align:center;"><p style="font-size:1.1rem;margin-bottom:10px;">${card.cn}</p><p style="color:#666;margin-bottom:15px;">${card.en}</p><p style="background:#FFF9E6;padding:15px;border-radius:8px;">${card.ex}</p></div>`;
+        cardDefinition.style.display = 'none';
+    } else {
+        renderFlashcard();
+    }
+});
+
+masterBtn.addEventListener('click', () => {
+    if (masteredCards.has(currentCard)) {
+        masteredCards.delete(currentCard);
+    } else {
+        masteredCards.add(currentCard);
+    }
+    masteredCount.textContent = masteredCards.size;
+    masterBtn.textContent = masteredCards.has(currentCard) ? 'Unmark Mastered' : 'Mark as Mastered';
+});
+
+feedbackBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        feedbackThankYou.classList.remove('hidden');
+        setTimeout(() => feedbackThankYou.classList.add('hidden'), 3000);
+    });
+});
+
+// Init
+renderQuestion();
+renderFlashcard();
+console.log('Microeconomics Interactive Lab loaded successfully!');
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</body>
+</html>

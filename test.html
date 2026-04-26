@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microeconomics Interactive - Test Version</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-btn { padding: 15px 30px; margin: 10px; font-size: 18px; cursor: pointer; background: #4A90E2; color: white; border: none; border-radius: 8px; }
+        .test-btn:hover { background: #2D5AA0; }
+        #status { padding: 20px; margin: 20px 0; border-radius: 8px; font-size: 16px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .loading { background: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <h1>Microeconomics Interactive - Debug Test</h1>
+    
+    <div id="status" class="loading">Testing...</div>
+    
+    <button class="test-btn" id="test-btn-1">Test Button 1 - Click Me!</button>
+    <button class="test-btn" id="test-btn-2">Test Button 2 - Click Me!</button>
+    
+    <div id="click-log"></div>
+    
+    <h2>Test Results:</h2>
+    <ul id="test-results"></ul>
+
+    <script>
+        // Simple test script
+        const status = document.getElementById('status');
+        const testResults = document.getElementById('test-results');
+        const clickLog = document.getElementById('click-log');
+        
+        function addResult(text, isSuccess) {
+            const li = document.createElement('li');
+            li.textContent = text;
+            li.style.color = isSuccess ? 'green' : 'red';
+            testResults.appendChild(li);
+        }
+        
+        function logClick(msg) {
+            clickLog.innerHTML += `<p>${new Date().toLocaleTimeString()}: ${msg}</p>`;
+        }
+        
+        // Test 1: Check if script runs at all
+        addResult('✓ Script is running', true);
+        status.textContent = 'Script is running!';
+        status.className = 'success';
+        
+        // Test 2: Check button existence
+        const btn1 = document.getElementById('test-btn-1');
+        if (btn1) {
+            addResult('✓ Button 1 found', true);
+            btn1.addEventListener('click', () => {
+                logClick('Button 1 clicked!');
+                btn1.textContent = 'Button 1 clicked!';
+            });
+        } else {
+            addResult('✗ Button 1 NOT found', false);
+        }
+        
+        const btn2 = document.getElementById('test-btn-2');
+        if (btn2) {
+            addResult('✓ Button 2 found', true);
+            btn2.addEventListener('click', () => {
+                logClick('Button 2 clicked!');
+                btn2.textContent = 'Button 2 clicked!';
+            });
+        } else {
+            addResult('✗ Button 2 NOT found', false);
+        }
+        
+        // Test 3: Check if external resources load
+        addResult('Testing external resources...', true);
+        
+        Promise.all([
+            fetch('week6_market_efficiency_quiz.json').then(r => r.json()).then(d => { addResult('✓ week6_market_efficiency_quiz.json loaded (' + d.length + ' items)', true); }),
+            fetch('script.js').then(r => r.text()).then(d => { addResult('✓ script.js loaded (' + d.length + ' chars)', true); })
+        ]).catch(err => {
+            addResult('✗ Error loading resources: ' + err.message, false);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+[
+    {
+        "id": 53,
+        "type": "multiple_choice",
+        "question_en": "Which of the following is NOT considered a traditional factor of production?",
+        "question_cn": "以下哪项不被视为传统生产要素？",
+        "options_en": ["Labor", "Capital", "Land", "Data"],
+        "options_cn": ["劳动", "资本", "土地", "数据"],
+        "answer": 3,
+        "explanation_en": "Traditional factors of production are labor, capital, and land. Data is recognized as the fourth factor in the digital economy era.",
+        "explanation_cn": "传统生产要素是劳动、资本和土地。数据在数字经济时代被认可为第四大生产要素。"
+    },
+    {
+        "id": 54,
+        "type": "true_false",
+        "question_en": "Demand for production factors is derived from the demand for final goods.",
+        "question_cn": "判断题：生产要素的需求来源于最终产品的需求。",
+        "options_en": ["True", "False"],
+        "options_cn": ["正确", "错误"],
+        "answer": 0,
+        "explanation_en": "Factor demand is derived demand because firms demand factors to produce goods and services that consumers want.",
+        "explanation_cn": "要素需求是派生需求，因为企业需求生产要素是为了生产消费者想要的商品和服务。"
+    },
+    {
+        "id": 55,
+        "type": "multiple_choice",
+        "question_en": "According to the World Inequality Report 2026, what percentage of global wealth is owned by the top 10%?",
+        "question_cn": "根据2026年《世界不平等报告》，全球最富有的10%人群拥有多少比例的财富？",
+        "options_en": ["25%", "45%", "60%", "75%"],
+        "options_cn": ["25%", "45%", "60%", "75%"],
+        "answer": 3,
+        "explanation_en": "The report shows the top 10% owns 75% of global wealth, while the bottom 50% owns only 2%, indicating severe inequality.",
+        "explanation_cn": "报告显示最富有的10%人群拥有全球75%的财富，而最底层的50%人群仅拥有2%，表明严重的不平等。"
+    },
+    {
+        "id": 56,
+        "type": "ordering",
+        "question_en": "Rank the following policy tools from most effective to least effective in reducing income inequality:",
+        "question_cn": "将以下政策工具按减少收入不平等的有效性从高到低排序：",
+        "options_en": ["Progressive income tax", "Universal basic income", "Minimum wage increase", "Education subsidies"],
+        "options_cn": ["累进所得税", "全民基本收入", "最低工资提高", "教育补贴"],
+        "answer": [0, 2, 1, 3],
+        "explanation_en": "Progressive taxation directly redistributes income (most effective). Minimum wage targets low-wage workers. UBI provides baseline support. Education subsidies have long-term effects but slower impact.",
+        "explanation_cn": "累进税制直接重新分配收入（最有效）。最低工资针对低工资工人。全民基本收入提供基准支持。教育补贴具有长期效果但影响较慢。"
+    },
+    {
+        "id": 57,
+        "type": "matching",
+        "question_en": "Match each economic concept with its correct description:",
+        "question_cn": "将每个经济概念与其正确描述匹配：",
+        "options_en": ["Human Capital", "Economic Rent", "Lorenz Curve", "Gini Coefficient"],
+        "options_cn": ["人力资本", "经济租金", "洛伦兹曲线", "基尼系数"],
+        "matching_pairs": [
+            {"case": 0, "description": 0},
+            {"case": 1, "description": 1},
+            {"case": 2, "description": 2},
+            {"case": 3, "description": 3}
+        ],
+        "description_options_en": [
+            "Skills and knowledge acquired through education and training",
+            "Payment above what is needed to keep a factor in its current use",
+            "Graph showing cumulative income distribution",
+            "Numerical measure of income inequality (0=perfect equality, 1=perfect inequality)"
+        ],
+        "description_options_cn": [
+            "通过教育和培训获得的技能和知识",
+            "超过保持生产要素当前使用所需的最低支付",
+            "显示累积收入分布的图形",
+            "收入不平等的数值度量（0=完全平等，1=完全不平等）"
+        ],
+        "explanation_en": "Human capital refers to productive skills. Economic rent is excess payment. Lorenz Curve visualizes inequality. Gini Coefficient quantifies it.",
+        "explanation_cn": "人力资本指生产性技能。经济租金是超额支付。洛伦兹曲线可视化不平等。基尼系数量化不平等。"
+    },
+    {
+        "id": 58,
+        "type": "multiple_choice",
+        "question_en": "Which factor market has been most transformed by the gig economy?",
+        "question_cn": "哪个要素市场受零工经济影响最大？",
+        "options_en": ["Labor market", "Capital market", "Land market", "Data market"],
+        "options_cn": ["劳动市场", "资本市场", "土地市场", "数据市场"],
+        "answer": 0,
+        "explanation_en": "The gig economy primarily transforms the labor market by creating flexible, platform-mediated work arrangements.",
+        "explanation_cn": "零工经济主要通过创建灵活的、平台中介的工作安排来改变劳动市场。"
+    },
+    {
+        "id": 59,
+        "type": "multiple_choice",
+        "question_en": "What does a Gini coefficient of 0.45 indicate about income distribution?",
+        "question_cn": "基尼系数为0.45表明收入分配状况如何？",
+        "options_en": ["Perfect equality", "Moderate inequality", "High inequality", "Perfect inequality"],
+        "options_cn": ["完全平等", "中等不平等", "高度不平等", "完全不平等"],
+        "answer": 2,
+        "explanation_en": "Gini coefficient ranges from 0 (perfect equality) to 1 (perfect inequality). 0.45 indicates high inequality, typical of many developing countries.",
+        "explanation_cn": "基尼系数范围从0（完全平等）到1（完全不平等）。0.45表明高度不平等，在许多发展中国家典型。"
+    },
+    {
+        "id": 60,
+        "type": "multiple_choice",
+        "question_en": "In the context of Shanghai's gig market diversification, which sector shows the highest demand growth?",
+        "question_cn": "在上海零工市场多元化背景下，哪个行业需求增长最快？",
+        "options_en": ["Traditional manufacturing", "Food delivery services", "Digital content creation", "Healthcare services"],
+        "options_cn": ["传统制造业", "外卖服务", "数字内容创作", "医疗服务"],
+        "answer": 2,
+        "explanation_en": "Digital content creation (short video, livestreaming) shows the highest demand growth due to platform economy expansion.",
+        "explanation_cn": "由于平台经济扩张，数字内容创作（短视频、直播）显示出最高的需求增长。"
+    },
+    {
+        "id": 61,
+        "type": "multiple_choice",
+        "question_en": "Which policy intervention is most effective for addressing skill mismatches in the labor market?",
+        "question_cn": "哪种政策干预对于解决劳动市场中的技能不匹配问题最有效？",
+        "options_en": ["Job placement subsidies", "Vocational training programs", "Wage controls", "Immigration restrictions"],
+        "options_cn": ["工作安置补贴", "职业培训项目", "工资控制", "移民限制"],
+        "answer": 1,
+        "explanation_en": "Vocational training directly addresses skill mismatches by equipping workers with relevant skills for emerging industries.",
+        "explanation_cn": "职业培训通过为工人提供新兴产业相关技能，直接解决技能不匹配问题。"
+    },
+    {
+        "id": 62,
+        "type": "multiple_choice",
+        "question_en": "How does the rise of data as a production factor affect traditional income distribution theories?",
+        "question_cn": "数据作为生产要素的兴起如何影响传统收入分配理论？",
+        "options_en": ["It reinforces marginal productivity theory", "It creates new forms of rent and intellectual property income", "It makes land and capital irrelevant", "It eliminates all forms of inequality"],
+        "options_cn": ["它强化了边际生产力理论", "它创造了新的租金和知识产权收入形式", "它使土地和资本无关紧要", "它消除了所有形式的不平等"],
+        "answer": 1,
+        "explanation_en": "Data creates new income streams through data rents, platform fees, and intellectual property, challenging traditional factor payment models.",
+        "explanation_cn": "数据通过数据租金、平台费用和知识产权创造新的收入流，挑战传统的要素支付模型。"
+    },
+    {
+        "id": 63,
+        "type": "multiple_choice",
+        "question_en": "What is the primary reason for the declining labor share of GDP in advanced economies?",
+        "question_cn": "发达经济体劳动收入占GDP比重下降的主要原因是什么？",
+        "options_en": ["Rising capital intensity and automation", "Declining worker productivity", "Excessive unionization", "Overpopulation"],
+        "options_cn": ["资本密集度和自动化程度提高", "工人生产率下降", "过度工会化", "人口过剩"],
+        "answer": 0,
+        "explanation_en": "Automation and capital-biased technological change increase the capital share at the expense of labor share.",
+        "explanation_cn": "自动化和资本偏向型技术进步提高了资本份额，而以劳动份额为代价。"
+    },
+    {
+        "id": 64,
+        "type": "multiple_choice",
+        "question_en": "Which of the following best illustrates economic rent in the digital economy?",
+        "question_cn": "以下哪个最好地说明了数字经济中的经济租金？",
+        "options_en": ["Platform fees charged by app stores", "Minimum wage for gig workers", "Government subsidies for startups", "Corporate income taxes"],
+        "options_cn": ["应用商店收取的平台费用", "零工工人的最低工资", "对初创企业的政府补贴", "企业所得税"],
+        "answer": 0,
+        "explanation_en": "Platform fees represent economic rent—payments above competitive levels due to market power and network effects.",
+        "explanation_cn": "平台费用代表经济租金——由于市场力量和网络效应，支付超过竞争水平。"
+    }
+]

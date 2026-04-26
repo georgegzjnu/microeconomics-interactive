@@ -1,0 +1,202 @@
+[
+  {
+    "id": 31,
+    "question_en": "Which of the following best describes market failure?",
+    "question_cn": "以下哪项最好地描述了市场失灵？",
+    "options_en": [
+      "A. Government intervention causing market inefficiency",
+      "B. Free market's inability to allocate resources efficiently",
+      "C. Excessive competition reducing corporate profits",
+      "D. Insufficient consumer demand causing recession"
+    ],
+    "options_cn": [
+      "A. 政府干预导致市场效率低下",
+      "B. 自由市场无法有效配置资源",
+      "C. 过度竞争降低企业利润",
+      "D. 消费者需求不足导致经济衰退"
+    ],
+    "answer": 1,
+    "explanation_en": "Market failure occurs when the free market fails to allocate resources efficiently, resulting in outcomes that are not Pareto optimal. This is the core definition.",
+    "explanation_cn": "市场失灵是指自由市场无法有效配置资源，导致非帕累托最优的结果。这是核心定义。"
+  },
+  {
+    "id": 32,
+    "question_en": "A factory emitting pollutants that harm nearby residents is an example of:",
+    "question_cn": "工厂排放污染物损害附近居民是以下哪种情况的例子？",
+    "options_en": [
+      "A. Positive externality",
+      "B. Negative externality",
+      "C. Public good",
+      "D. Information asymmetry"
+    ],
+    "options_cn": [
+      "A. 正外部性",
+      "B. 负外部性",
+      "C. 公共物品",
+      "D. 信息不对称"
+    ],
+    "answer": 1,
+    "explanation_en": "Negative externality occurs when an economic activity imposes costs on third parties not involved in the transaction. Pollution is a classic negative externality.",
+    "explanation_cn": "负外部性发生在经济活动给未参与交易的第三方带来成本时。污染是典型的负外部性。"
+  },
+  {
+    "id": 33,
+    "question_en": "Which of the following is a characteristic of public goods?",
+    "question_cn": "以下哪项是公共物品的特征？",
+    "options_en": [
+      "A. Excludability and rivalry",
+      "B. Non-excludability and non-rivalry",
+      "C. Excludability and non-rivalry",
+      "D. Non-excludability and rivalry"
+    ],
+    "options_cn": [
+      "A. 排他性和竞争性",
+      "B. 非排他性和非竞争性",
+      "C. 排他性和非竞争性",
+      "D. 非排他性和竞争性"
+    ],
+    "answer": 1,
+    "explanation_en": "Public goods are both non-excludable (cannot prevent people from using) and non-rivalrous (one person's use doesn't reduce availability to others). Examples: street lighting, national defense.",
+    "explanation_cn": "公共物品具有非排他性（无法阻止人们使用）和非竞争性（一个人的使用不会减少他人的可用性）。例如：路灯、国防。"
+  },
+  {
+    "id": 34,
+    "question_en": "In the used car market, sellers know more about car quality than buyers. This leads to 'lemons problem', which is an example of:",
+    "question_cn": "二手车市场中，卖家比买家更了解车况，导致'柠檬问题'，这是以下哪种情况的例子？",
+    "options_en": [
+      "A. Moral hazard",
+      "B. Adverse selection",
+      "C. Negative externality",
+      "D. Monopoly power"
+    ],
+    "options_cn": [
+      "A. 道德风险",
+      "B. 逆向选择",
+      "C. 负外部性",
+      "D. 垄断权力"
+    ],
+    "answer": 1,
+    "explanation_en": "Adverse selection occurs when asymmetric information leads to bad risks driving out good ones. In used car markets, poor quality cars (lemons) dominate because buyers can't distinguish quality.",
+    "explanation_cn": "逆向选择发生在信息不对称导致劣质风险驱逐优质风险时。二手车市场中，劣质车（柠檬）占主导，因为买家无法区分质量。"
+  },
+  {
+    "id": 35,
+    "question_en": "Monopoly creates deadweight loss because:",
+    "question_cn": "垄断造成无谓损失，因为：",
+    "options_en": [
+      "A. Monopolists produce too much output",
+      "B. Monopoly prices are lower than competitive prices",
+      "C. Some mutually beneficial transactions do not occur",
+      "D. Monopolists have higher production costs"
+    ],
+    "options_cn": [
+      "A. 垄断者生产过多产出",
+      "B. 垄断价格低于竞争价格",
+      "C. 一些互利交易没有发生",
+      "D. 垄断者生产成本更高"
+    ],
+    "answer": 2,
+    "explanation_en": "Deadweight loss represents the loss of total surplus that occurs when the monopoly restricts output and raises price above marginal cost, preventing some transactions that would benefit both buyers and sellers.",
+    "explanation_cn": "无谓损失表示当垄断者限制产出并将价格提高到边际成本以上时，导致总剩余损失，阻止了一些对买卖双方都有利的交易。"
+  },
+  {
+    "id": 36,
+    "question_en": "A common government intervention to correct negative externalities is:",
+    "question_cn": "纠正负外部性的常见政府干预措施是：",
+    "options_en": [
+      "A. Price ceiling",
+      "B. Pigouvian tax",
+      "C. Subsidy to producers",
+      "D. Deregulation"
+    ],
+    "options_cn": [
+      "A. 价格上限",
+      "B. 庇古税",
+      "C. 生产者补贴",
+      "D. 放松管制"
+    ],
+    "answer": 1,
+    "explanation_en": "Pigouvian tax (named after economist Arthur Pigou) internalizes the externality by imposing a tax equal to the external cost, making producers bear the full social cost.",
+    "explanation_cn": "庇古税（以经济学家阿瑟·庇古命名）通过征收等于外部成本的税来内部化外部性，使生产者承担全部社会成本。"
+  },
+  {
+    "id": 37,
+    "question_en": "During marathon events, hotel prices surge over 500%. This case primarily involves:",
+    "question_cn": "马拉松赛事期间，酒店价格暴涨超500%。这个案例主要涉及：",
+    "options_en": [
+      "A. Public goods and free rider problem",
+      "B. Information asymmetry and negative externality",
+      "C. Monopoly and deadweight loss",
+      "D. Positive externality and subsidies"
+    ],
+    "options_cn": [
+      "A. 公共物品和搭便车问题",
+      "B. 信息不对称和负外部性",
+      "C. 垄断和无谓损失",
+      "D. 正外部性和补贴"
+    ],
+    "answer": 1,
+    "explanation_en": "Hotels exploit information asymmetry (knowing participants have limited alternatives) and create negative externalities (imposing high costs on marathon attendees). Government price investigation is a corrective intervention.",
+    "explanation_cn": "酒店利用信息不对称（知道参与者选择有限）并产生负外部性（给马拉松参与者带来高成本）。政府价格调查是一种纠正干预。"
+  },
+  {
+    "id": 38,
+    "question_en": "The wholesale-retail inversion in Anhui electricity market, where wholesale prices exceed retail prices, is mainly caused by:",
+    "question_cn": "安徽电力市场批零倒挂（批发价高于零售价）主要是由以下哪种情况引起的？",
+    "options_en": [
+      "A. Perfect competition",
+      "B. Oligopoly collusion",
+      "C. Positive externality",
+      "D. Public good provision"
+    ],
+    "options_cn": [
+      "A. 完全竞争",
+      "B. 寡头勾结",
+      "C. 正外部性",
+      "D. 公共物品提供"
+    ],
+    "answer": 1,
+    "explanation_en": "Three major power plants controlling over 70% of coal-fired capacity engaged in collusive pricing, artificially inflating wholesale prices. This is a market failure due to imperfect competition (oligopoly).",
+    "explanation_cn": "三大发电企业控制着超70%的煤电产能，进行串通定价，人为抬高批发价格。这是由不完全竞争（寡头垄断）导致的市场失灵。"
+  },
+  {
+    "id": 39,
+    "question_en": "The sugarcane glut in Guangzhou Nansha, where farmers held onto produce expecting price increases but faced huge losses, illustrates:",
+    "question_cn": "广州南沙甘蔗滞销，蔗农囤积甘蔗期望价格上涨却面临巨大损失，说明了：",
+    "options_en": [
+      "A. Efficient market adjustment",
+      "B. Information asymmetry and coordination failure",
+      "C. Positive externality from farming",
+      "D. Monopoly power of farmers"
+    ],
+    "options_cn": [
+      "A. 有效的市场调节",
+      "B. 信息不对称和协调失败",
+      "C. 农业的正外部性",
+      "D. 农民的垄断权力"
+    ],
+    "answer": 1,
+    "explanation_en": "Farmers had imperfect information about market conditions and made speculative decisions. Individual rationality led to collective losses—a classic coordination failure in markets.",
+    "explanation_cn": "蔗农对市场状况的信息不完全，并做出投机决策。个体理性导致集体损失——市场中典型的协调失败。"
+  },
+  {
+    "id": 40,
+    "question_en": "Pareto optimality is achieved when:",
+    "question_cn": "帕累托最优在以下情况下实现：",
+    "options_en": [
+      "A. Everyone has equal income",
+      "B. No one can be made better off without making someone else worse off",
+      "C. Total output is maximized",
+      "D. Government intervention is minimized"
+    ],
+    "options_cn": [
+      "A. 每个人收入相等",
+      "B. 在不使任何人境况变差的前提下，不可能再使某些人境况变得更好",
+      "C. 总产出最大化",
+      "D. 政府干预最小化"
+    ],
+    "answer": 1,
+    "explanation_en": "Pareto optimality (or Pareto efficiency) is a state where resources are allocated such that no individual can be made better off without making at least one individual worse off.",
+    "explanation_cn": "帕累托最优（或帕累托效率）是一种资源分配状态，在不使至少一个人境况变差的前提下，不可能再使任何人的境况变得更好。"
+  }
+]

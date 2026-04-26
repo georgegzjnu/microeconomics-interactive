@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microeconomics Interactive - Standalone Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --primary-blue-dark: #2D5AA0;
+            --accent-orange: #FF9500;
+            --accent-orange-dark: #FF6B35;
+            --bg-yellow-light: #FFF9E6;
+            --bg-yellow-medium: #FFEBB2;
+            --text-dark: #333333;
+            --text-medium: #666666;
+            --text-light: #999999;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-yellow-light) 0%, var(--bg-yellow-medium) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow);
+            overflow: hidden;
+            padding: 25px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--bg-yellow-medium);
+            margin-bottom: 25px;
+        }
+        .logo h1 { font-size: 1.8rem; color: var(--primary-blue-dark); }
+        .language-switch {
+            display: flex;
+            gap: 5px;
+            background: var(--bg-yellow-light);
+            border-radius: 30px;
+            padding: 4px;
+        }
+        .lang-btn {
+            padding: 8px 18px;
+            border: none;
+            background: transparent;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .lang-btn.active { background: var(--primary-blue); color: var(--white); }
+        .lang-btn:hover:not(.active) { background: var(--bg-yellow-medium); }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--bg-yellow-medium);
+            padding-bottom: 10px;
+        }
+        .tab-btn {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-medium);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        .tab-btn.active {
+            color: var(--primary-blue);
+            background: var(--bg-yellow-light);
+            border-bottom: 3px solid var(--accent-orange);
+        }
+        .tab-btn:hover:not(.active) { color: var(--primary-blue-dark); background: var(--bg-yellow-light); }
+        .tab-content { display: none; animation: fadeIn 0.5s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .quiz-header, .flashcards-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed var(--text-light); }
+        .quiz-header h2, .flashcards-header h2 { color: var(--primary-blue-dark); margin-bottom: 10px; }
+        .quiz-header p, .flashcards-header p { color: var(--text-medium); max-width: 700px; margin: 0 auto 15px; }
+        .quiz-meta, .flashcards-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .quiz-meta i, .flashcards-meta i { margin-right: 5px; }
+        .quiz-container {
+            padding: 20px;
+            background: var(--bg-yellow-light);
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+        .question-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px var(--shadow);
+            border-left: 5px solid var(--primary-blue);
+        }
+        .question-text { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; color: var(--text-dark); }
+        .options { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: var(--bg-yellow-light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        .option:hover { background: var(--bg-yellow-medium); }
+        .option.selected { border-color: var(--primary-blue); background: rgba(74, 144, 226, 0.1); }
+        .option-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .option-text { flex: 1; }
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .quiz-controls button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        #prev-btn, #next-btn {
+            background: var(--white);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+        #prev-btn:hover, #next-btn:hover { background: var(--primary-blue); color: var(--white); }
+        #submit-btn { background: var(--accent-orange); color: var(--white); }
+        #submit-btn:hover { background: var(--accent-orange-dark); }
+        #result-container {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            border: 2px solid var(--bg-yellow-medium);
+        }
+        .score-display { margin: 25px 0; }
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        #retry-btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--bg-yellow-medium);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .hidden { display: none !important; }
+        .debug-panel {
+            background: #f8f9fa;
+            border: 2px dashed #ccc;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .debug-panel h3 { margin-bottom: 10px; }
+        .debug-panel p { margin: 5px 0; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Microeconomics Interactive Lab</h1>
+            </div>
+            <div class="language-switch">
+                <button id="lang-en" class="lang-btn active">EN</button>
+                <button id="lang-cn" class="lang-btn">中文</button>
+            </div>
+        </header>
+        
+        <div class="debug-panel">
+            <h3>🔧 Debug Info:</h3>
+            <p id="debug-status">Initializing...</p>
+            <p id="debug-script-status">Script: Not loaded</p>
+            <p id="debug-dom-status">DOM Elements: Checking...</p>
+        </div>
+        
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="quiz"><i class="fas fa-question-circle"></i> <span>Knowledge Quiz</span></button>
+            <button class="tab-btn" data-tab="flashcards"><i class="fas fa-layer-group"></i> <span>Concept Flashcards</span></button>
+        </nav>
+        
+        <main>
+            <div id="quiz-tab" class="tab-content active">
+                <div class="quiz-header">
+                    <h2>Supply & Demand Quiz</h2>
+                    <p>Test your understanding of basic microeconomics concepts.</p>
+                    <div class="quiz-meta">
+                        <span><i class="fas fa-star"></i> Score: <span id="score-value">0</span>/100</span>
+                    </div>
+                </div>
+                
+                <div class="quiz-container">
+                    <div id="question-container">
+                        <p>Loading questions...</p>
+                    </div>
+                    
+                    <div class="quiz-controls">
+                        <button id="prev-btn">Previous</button>
+                        <button id="next-btn">Next</button>
+                        <button id="submit-btn">Submit Quiz</button>
+                    </div>
+                </div>
+                
+                <div id="result-container" class="hidden">
+                    <h3>Quiz Results</h3>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="final-score">0</span>%
+                        </div>
+                    </div>
+                    <button id="retry-btn">Try Again</button>
+                </div>
+            </div>
+            
+            <div id="flashcards-tab" class="tab-content">
+                <div class="flashcards-header">
+                    <h2>Core Concepts Flashcards</h2>
+                    <p>Flip cards to learn key microeconomics terms.</p>
+                    <div class="flashcards-meta">
+                        <span><i class="fas fa-layer-group"></i> <span id="card-counter">Card 1</span></span>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; padding: 50px; background: var(--bg-yellow-light); border-radius: 12px;">
+                    <p style="font-size: 24px; margin-bottom: 20px;">This is a test flashcard.</p>
+                    <p>Click the buttons below to navigate.</p>
+                </div>
+                
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+                    <button id="prev-card">← Previous</button>
+                    <button id="next-card">Next →</button>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Microeconomics Teaching Agent - Test Version. © 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // ================ DEBUG ================
+        const debugStatus = document.getElementById('debug-status');
+        const debugScript = document.getElementById('debug-script-status');
+        const debugDOM = document.getElementById('debug-dom-status');
+        
+        debugStatus.textContent = '✓ JavaScript is running!';
+        debugStatus.style.color = 'green';
+        debugScript.textContent = '✓ Inline script executed successfully!';
+        
+        // ================ Quiz Data ================
+        const quizData = [
+            {
+                question: "According to the law of demand, when the price of a good increases:",
+                options: ["Quantity demanded increases", "Quantity demanded decreases", "Quantity supplied increases", "Quantity supplied decreases"],
+                answer: 1
+            },
+            {
+                question: "The point where the demand and supply curves intersect is called:",
+                options: ["Shortage point", "Surplus point", "Equilibrium point", "Price ceiling"],
+                answer: 2
+            },
+            {
+                question: "A price ceiling set below the equilibrium price leads to:",
+                options: ["Surplus", "Shortage", "No effect", "Increase in quality"],
+                answer: 1
+            }
+        ];
+        
+        // ================ State ================
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let quizSubmitted = false;
+        let currentLang = 'en';
+        
+        // ================ DOM Elements ================
+        const langEnBtn = document.getElementById('lang-en');
+        const langCnBtn = document.getElementById('lang-cn');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const questionContainer = document.getElementById('question-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const resultContainer = document.getElementById('result-container');
+        const retryBtn = document.getElementById('retry-btn');
+        const scoreValue = document.getElementById('score-value');
+        const finalScore = document.getElementById('final-score');
+        const cardCounter = document.getElementById('card-counter');
+        const prevCardBtn = document.getElementById('prev-card');
+        const nextCardBtn = document.getElementById('next-card');
+        
+        debugDOM.textContent = '✓ All DOM elements found!';
+        debugDOM.style.color = 'green';
+        
+        // ================ Functions ================
+        function renderQuestion() {
+            if (quizSubmitted) return;
+            
+            const q = quizData[currentQuestion];
+            let html = `
+                <div class="question-card">
+                    <div class="question-text">${currentQuestion + 1}. ${q.question}</div>
+                    <div class="options">
+            `;
+            
+            q.options.forEach((opt, i) => {
+                const selected = userAnswers[currentQuestion] === i ? 'selected' : '';
+                const letter = String.fromCharCode(65 + i);
+                html += `
+                    <div class="option ${selected}" data-index="${i}">
+                        <span class="option-letter">${letter}</span>
+                        <span class="option-text">${opt}</span>
+                    </div>
+                `;
+            });
+            
+            html += '</div></div>';
+            questionContainer.innerHTML = html;
+            
+            // Attach click events
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    const idx = parseInt(opt.dataset.index);
+                    userAnswers[currentQuestion] = idx;
+                    renderQuestion();
+                });
+            });
+            
+            // Update controls
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.disabled = currentQuestion === quizData.length - 1;
+        }
+        
+        function switchTab(tabName) {
+            tabBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tabName);
+            });
+            tabContents.forEach(content => {
+                content.classList.toggle('active', content.id === tabName + '-tab');
+            });
+        }
+        
+        function submitQuiz() {
+            quizSubmitted = true;
+            let correct = 0;
+            quizData.forEach((q, i) => {
+                if (userAnswers[i] === q.answer) correct++;
+            });
+            const score = Math.round((correct / quizData.length) * 100);
+            finalScore.textContent = score;
+            questionContainer.innerHTML = `<p style="text-align:center;padding:30px;">Quiz submitted! Your score: ${score}%</p>`;
+            resultContainer.classList.remove('hidden');
+        }
+        
+        function resetQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            quizSubmitted = false;
+            resultContainer.classList.add('hidden');
+            renderQuestion();
+        }
+        
+        // ================ Event Listeners ================
+        console.log('Setting up event listeners...');
+        
+        langEnBtn.addEventListener('click', () => {
+            currentLang = 'en';
+            langEnBtn.classList.add('active');
+            langCnBtn.classList.remove('active');
+        });
+        
+        langCnBtn.addEventListener('click', () => {
+            currentLang = 'cn';
+            langCnBtn.classList.add('active');
+            langEnBtn.classList.remove('active');
+        });
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+            }
+        });
+        
+        submitBtn.addEventListener('click', submitQuiz);
+        retryBtn.addEventListener('click', resetQuiz);
+        
+        prevCardBtn.addEventListener('click', () => {
+            cardCounter.textContent = 'Card Previous clicked!';
+        });
+        
+        nextCardBtn.addEventListener('click', () => {
+            cardCounter.textContent = 'Card Next clicked!';
+        });
+        
+        // ================ Initialize ================
+        console.log('Initializing quiz...');
+        renderQuestion();
+        debugStatus.textContent = '✓ Quiz initialized and ready!';
+        debugScript.textContent = '✓ All event listeners attached successfully!';
+        
+        // Final debug message
+        setTimeout(() => {
+            alert('Test complete! If you can see this message and buttons are working, the JavaScript is functioning correctly.');
+        }, 2000);
+    </script>
+</body>
+</html>

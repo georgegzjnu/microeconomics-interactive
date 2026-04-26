@@ -1,0 +1,162 @@
+[
+    {
+        "id": 21,
+        "term_en": "Price Elasticity of Demand",
+        "definition_cn": "需求价格弹性 - 衡量需求量对价格变化的反应程度",
+        "definition_en": "Measures responsiveness of quantity demanded to price changes",
+        "example_en": "If price rises 10% and quantity demanded falls 20%, elasticity = -2.0 (elastic)",
+        "example_cn": "如果价格上涨10%，需求量下降20%，弹性 = -2.0（富有弹性）"
+    },
+    {
+        "id": 22,
+        "term_en": "Price Elasticity of Supply",
+        "definition_cn": "供给价格弹性 - 衡量供给量对价格变化的反应程度",
+        "definition_en": "Measures responsiveness of quantity supplied to price changes",
+        "example_en": "Farmers quickly planting more soybeans when soybean prices rise → elastic supply",
+        "example_cn": "大豆价格上涨时农民迅速种植更多大豆 → 富有弹性的供给"
+    },
+    {
+        "id": 23,
+        "term_en": "Income Elasticity of Demand",
+        "definition_cn": "需求的收入弹性 - 衡量需求量对收入变化的反应程度",
+        "definition_en": "Measures responsiveness of quantity demanded to income changes",
+        "example_en": "Luxury cars have high positive income elasticity (>1); instant noodles have negative elasticity (inferior good)",
+        "example_cn": "豪华汽车具有高的正收入弹性（>1）；方便面具有负弹性（低档品）"
+    },
+    {
+        "id": 24,
+        "term_en": "Cross‑Price Elasticity of Demand",
+        "definition_cn": "需求的交叉价格弹性 - 衡量一种商品需求量对另一种商品价格变化的反应程度",
+        "definition_en": "Measures responsiveness of quantity demanded for one good to price changes of another good",
+        "example_en": "Coffee price up → tea demand up (positive cross‑elasticity, substitutes)",
+        "example_cn": "咖啡价格上涨 → 茶需求上升（正交叉弹性，替代品）"
+    },
+    {
+        "id": 25,
+        "term_en": "Elastic Demand",
+        "definition_cn": "富有弹性的需求 - 需求量的变化百分比大于价格变化百分比（|Ed| > 1）",
+        "definition_en": "Quantity demanded changes proportionally more than price (|Ed| > 1)",
+        "example_en": "Movie tickets: price up 10%, quantity demanded down 30% → |Ed| = 3.0 (elastic)",
+        "example_cn": "电影票：价格上涨10%，需求量下降30% → |Ed| = 3.0（富有弹性）"
+    },
+    {
+        "id": 26,
+        "term_en": "Inelastic Demand",
+        "definition_cn": "缺乏弹性的需求 - 需求量的变化百分比小于价格变化百分比（|Ed| < 1）",
+        "definition_en": "Quantity demanded changes proportionally less than price (|Ed| < 1)",
+        "example_en": "Gasoline: price up 20%, quantity demanded down 4% → |Ed| = 0.2 (inelastic)",
+        "example_cn": "汽油：价格上涨20%，需求量下降4% → |Ed| = 0.2（缺乏弹性）"
+    },
+    {
+        "id": 27,
+        "term_en": "Unit Elastic Demand",
+        "definition_cn": "单位弹性需求 - 需求量的变化百分比等于价格变化百分比（|Ed| = 1）",
+        "definition_en": "Quantity demanded changes proportionally equal to price (|Ed| = 1)",
+        "example_en": "Price rises 5%, quantity demanded falls exactly 5% → |Ed| = 1.0 (unit elastic)",
+        "example_cn": "价格上涨5%，需求量恰好下降5% → |Ed| = 1.0（单位弹性）"
+    },
+    {
+        "id": 28,
+        "term_en": "Perfectly Inelastic Demand",
+        "definition_cn": "完全无弹性需求 - 需求量对价格变化完全没有反应（|Ed| = 0）",
+        "definition_en": "Quantity demanded does not change at all when price changes (|Ed| = 0)",
+        "example_en": "Life‑saving medication: patients will pay any price → demand curve vertical",
+        "example_cn": "救生药物：患者愿意支付任何价格 → 需求曲线垂直"
+    },
+    {
+        "id": 29,
+        "term_en": "Perfectly Elastic Demand",
+        "definition_cn": "完全弹性需求 - 价格微小变化导致需求量无限变化（|Ed| = ∞）",
+        "definition_en": "Tiny price change leads to infinite quantity change (|Ed| = ∞)",
+        "example_en": "Perfectly competitive market: firms are price takers, demand curve horizontal",
+        "example_cn": "完全竞争市场：企业是价格接受者，需求曲线水平"
+    },
+    {
+        "id": 30,
+        "term_en": "Total Revenue Test",
+        "definition_cn": "总收入检验 - 通过价格变化对总收入的影响判断需求弹性",
+        "definition_en": "Determining elasticity by observing how total revenue changes when price changes",
+        "example_en": "Price cut increases total revenue → demand is elastic (|Ed| > 1)",
+        "example_cn": "降价使总收入增加 → 需求富有弹性（|Ed| > 1）"
+    },
+    {
+        "id": 31,
+        "term_en": "Luxury Good",
+        "definition_cn": "奢侈品 - 收入弹性大于1的商品（需求量增长快于收入增长）",
+        "definition_en": "Good with income elasticity >1 (demand grows faster than income)",
+        "example_en": "Designer handbags, international travel, fine dining restaurants",
+        "example_cn": "设计师手袋、国际旅行、高档餐厅"
+    },
+    {
+        "id": 32,
+        "term_en": "Necessity Good",
+        "definition_cn": "必需品 - 收入弹性在0到1之间的商品（需求量增长慢于收入增长）",
+        "definition_en": "Good with income elasticity between 0 and 1 (demand grows slower than income)",
+        "example_en": "Basic food items, utilities, public transportation",
+        "example_cn": "基本食品、公用事业、公共交通"
+    },
+    {
+        "id": 33,
+        "term_en": "Inferior Good",
+        "definition_cn": "低档品 - 收入弹性为负的商品（收入增加时需求量减少）",
+        "definition_en": "Good with negative income elasticity (demand decreases when income increases)",
+        "example_en": "Instant noodles, used clothing, low‑cost fast food",
+        "example_cn": "方便面、二手衣服、低价快餐"
+    },
+    {
+        "id": 34,
+        "term_en": "Substitute Goods",
+        "definition_cn": "替代品 - 交叉价格弹性为正的两种商品（一种涨价导致另一种需求增加）",
+        "definition_en": "Goods with positive cross‑price elasticity (price increase of one raises demand for the other)",
+        "example_en": "Tea and coffee, butter and margarine, Uber and Lyft",
+        "example_cn": "茶和咖啡、黄油和人造黄油、Uber和Lyft"
+    },
+    {
+        "id": 35,
+        "term_en": "Complementary Goods",
+        "definition_cn": "互补品 - 交叉价格弹性为负的两种商品（一种涨价导致另一种需求减少）",
+        "definition_en": "Goods with negative cross‑price elasticity (price increase of one reduces demand for the other)",
+        "example_en": "Printers and ink cartridges, smartphones and cases, cars and gasoline",
+        "example_cn": "打印机和墨盒、智能手机和保护壳、汽车和汽油"
+    },
+    {
+        "id": 36,
+        "term_en": "Short‑Run Elasticity",
+        "definition_cn": "短期弹性 - 消费者或生产者短期内对价格变化的反应程度",
+        "definition_en": "Responsiveness to price changes within a short time horizon",
+        "example_en": "Gasoline demand is inelastic in the short run (consumers can't quickly change driving habits)",
+        "example_cn": "汽油需求在短期内缺乏弹性（消费者不能快速改变驾驶习惯）"
+    },
+    {
+        "id": 37,
+        "term_en": "Long‑Run Elasticity",
+        "definition_cn": "长期弹性 - 消费者或生产者长期内对价格变化的反应程度",
+        "definition_en": "Responsiveness to price changes over a longer time horizon",
+        "example_en": "Gasoline demand becomes more elastic in the long run (consumers can switch to electric vehicles)",
+        "example_cn": "汽油需求在长期内变得更有弹性（消费者可以转向电动汽车）"
+    },
+    {
+        "id": 38,
+        "term_en": "Elasticity Determinants",
+        "definition_cn": "弹性决定因素 - 影响需求或供给弹性的因素（替代品、时间、预算份额等）",
+        "definition_en": "Factors affecting elasticity of demand or supply (substitutes, time, budget share, etc.)",
+        "example_en": "More substitutes → more elastic demand; longer time → more elastic supply",
+        "example_cn": "替代品越多 → 需求越有弹性；时间越长 → 供给越有弹性"
+    },
+    {
+        "id": 39,
+        "term_en": "Tax Incidence",
+        "definition_cn": "税收归宿 - 税收负担在买方和卖方之间的分配，取决于相对弹性",
+        "definition_en": "Distribution of tax burden between buyers and sellers, depends on relative elasticities",
+        "example_en": "When demand is inelastic, consumers bear most of the tax burden (e.g., cigarettes)",
+        "example_cn": "当需求缺乏弹性时，消费者承担大部分税收负担（如香烟）"
+    },
+    {
+        "id": 40,
+        "term_en": "Elasticity and Decision Making",
+        "definition_cn": "弹性与决策 - 利用弹性概念制定定价、税收和政策决策",
+        "definition_en": "Using elasticity concepts for pricing, taxation, and policy decisions",
+        "example_en": "Airlines use price discrimination based on different elasticities of business vs leisure travelers",
+        "example_cn": "航空公司根据商务旅客和休闲旅客的不同弹性进行价格歧视"
+    }
+]
