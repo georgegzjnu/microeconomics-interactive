@@ -3,431 +3,545 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microeconomics Interactive Learning</title>
+    <title>Week 8: Production Costs | Microeconomics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-:root{--primary-blue:#4A90E2;--primary-blue-dark:#2D5AA0;--accent-orange:#FF9500;--accent-orange-dark:#FF6B35;--bg-yellow-light:#FFF9E6;--bg-yellow-medium:#FFEBB2;--text-dark:#333;--text-medium:#666;--text-light:#999;--white:#fff;--shadow:rgba(0,0,0,.1);--border-radius:12px}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,var(--bg-yellow-light),var(--bg-yellow-medium));color:var(--text-dark);line-height:1.6;min-height:100vh;padding:20px}
-.container{max-width:900px;margin:0 auto;background:var(--white);border-radius:var(--border-radius);box-shadow:0 10px 30px var(--shadow);padding:25px}
-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:2px solid var(--bg-yellow-medium);margin-bottom:25px}
-.logo h1{font-size:1.8rem;color:var(--primary-blue-dark)}
-.language-switch{display:flex;gap:5px;background:var(--bg-yellow-light);border-radius:30px;padding:4px}
-.lang-btn{padding:8px 18px;border:none;background:transparent;border-radius:30px;font-weight:700;cursor:pointer;transition:all .3s}
-.lang-btn.active{background:var(--primary-blue);color:var(--white)}
-.lang-btn:hover:not(.active){background:var(--bg-yellow-medium)}
-.tabs{display:flex;gap:10px;margin-bottom:30px;border-bottom:2px solid var(--bg-yellow-medium);padding-bottom:10px}
-.tab-btn{padding:12px 24px;border:none;background:transparent;border-radius:var(--border-radius) var(--border-radius) 0 0;font-size:1rem;font-weight:600;color:var(--text-medium);cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .3s}
-.tab-btn.active{color:var(--primary-blue);background:var(--bg-yellow-light);border-bottom:3px solid var(--accent-orange)}
-.tab-btn:hover:not(.active){color:var(--primary-blue-dark);background:var(--bg-yellow-light)}
-.tab-content{display:none;animation:fadeIn .5s}
-.tab-content.active{display:block}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.quiz-header,.flashcards-header{text-align:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed var(--text-light)}
-.quiz-header h2,.flashcards-header h2{color:var(--primary-blue-dark);margin-bottom:10px}
-.quiz-header p,.flashcards-header p{color:var(--text-medium);max-width:700px;margin:0 auto 15px}
-.quiz-meta,.flashcards-meta{display:flex;justify-content:center;gap:20px;font-size:.9rem;color:var(--text-light)}
-.quiz-container{padding:20px;background:var(--bg-yellow-light);border-radius:var(--border-radius);margin-bottom:30px}
-.question-card{background:var(--white);border-radius:var(--border-radius);padding:25px;margin-bottom:25px;box-shadow:0 4px 10px var(--shadow);border-left:5px solid var(--primary-blue)}
-.question-text{font-size:1.2rem;font-weight:600;margin-bottom:20px}
-.options{display:grid;grid-template-columns:1fr;gap:12px}
-.option{display:flex;align-items:center;padding:15px;background:var(--bg-yellow-light);border-radius:8px;cursor:pointer;transition:all .3s;border:2px solid transparent}
-.option:hover{background:var(--bg-yellow-medium)}
-.option.selected{border-color:var(--primary-blue);background:rgba(74,144,226,.1)}
-.option-letter{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--primary-blue);color:var(--white);border-radius:50%;margin-right:15px;font-weight:700}
-.option-text{flex:1}
-.quiz-controls{display:flex;justify-content:space-between;align-items:center;margin-top:30px}
-.quiz-controls button{padding:12px 24px;border:none;border-radius:30px;font-weight:600;cursor:pointer;transition:all .3s}
-#prev-btn,#next-btn{background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue)}
-#prev-btn:hover,#next-btn:hover{background:var(--primary-blue);color:var(--white)}
-#submit-btn{background:var(--accent-orange);color:var(--white)}
-#submit-btn:hover{background:var(--accent-orange-dark)}
-#result-container{background:var(--white);border-radius:var(--border-radius);padding:30px;text-align:center;border:2px solid var(--bg-yellow-medium)}
-.score-display{margin:25px 0}
-.score-circle{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,var(--primary-blue),var(--accent-orange));color:var(--white);display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:700;margin:0 auto 20px}
-#score-message{font-size:1.2rem;color:var(--text-medium)}
-#retry-btn{margin-top:20px;padding:12px 30px;background:var(--primary-blue);color:var(--white);border:none;border-radius:30px;font-weight:600;cursor:pointer}
-#retry-btn:hover{background:var(--primary-blue-dark)}
-.flashcards-container{padding:20px;background:var(--bg-yellow-light);border-radius:var(--border-radius)}
-.card-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
-.card-nav button{padding:10px 20px;border:none;background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue);border-radius:30px;font-weight:600;cursor:pointer}
-.card-nav button:hover{background:var(--primary-blue);color:var(--white)}
-#card-counter{font-weight:600}
-.card-area{height:300px;margin-bottom:30px;display:flex;align-items:center;justify-content:center;background:var(--white);border-radius:var(--border-radius);box-shadow:0 4px 10px var(--shadow);cursor:pointer}
-.card-term h3{font-size:3rem;text-align:center;color:var(--primary-blue-dark)}
-.card-area .hint{font-size:.9rem;opacity:.8;text-align:center;margin-top:15px}
-.card-controls{display:flex;justify-content:center;gap:15px;margin-bottom:30px}
-.card-controls button{padding:12px 24px;border:none;border-radius:30px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px}
-#flip-btn{background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue)}
-#flip-btn:hover{background:var(--primary-blue);color:var(--white)}
-.master-btn{background:#4CAF50;color:var(--white)}
-.review-btn{background:#FF9800;color:var(--white)}
-.progress{background:var(--white);padding:20px;border-radius:var(--border-radius)}
-.progress-bar{height:12px;background:var(--bg-yellow-medium);border-radius:6px;overflow:hidden;margin-bottom:15px}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary-blue),var(--accent-orange));border-radius:6px;transition:width .5s}
-.progress-labels{display:flex;justify-content:space-between;font-size:.9rem;color:var(--text-medium)}
-.feedback-section{background:linear-gradient(135deg,#f8f9fa,#e9ecef);border-radius:var(--border-radius);padding:20px;margin-top:30px}
-.feedback-section h3{color:var(--text-dark);margin-bottom:10px}
-.feedback-section p{color:var(--text-medium);margin-bottom:15px;font-size:.95rem}
-.feedback-buttons{display:flex;justify-content:center;gap:15px;margin-bottom:15px}
-.feedback-btn{padding:12px 24px;border:none;border-radius:30px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:1rem}
-.feedback-btn.too-easy{background:linear-gradient(135deg,#28a745,#20c997);color:white}
-.feedback-btn.just-right{background:linear-gradient(135deg,#007bff,#17a2b8);color:white}
-.feedback-btn.too-hard{background:linear-gradient(135deg,#dc3545,#fd7e14);color:white}
-.feedback-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.1)}
-#feedback-thankyou{text-align:center;padding:15px;background:#d4edda;border-radius:var(--border-radius);color:#155724;border:1px solid #c3e6cb;margin-top:15px}
-.feedback-stats{text-align:center;color:var(--text-light);font-size:.85rem;margin-top:10px}
-footer{margin-top:30px;padding-top:20px;border-top:1px solid var(--bg-yellow-medium);text-align:center;color:var(--text-light);font-size:.9rem}
-.hidden{display:none!important}
-@media(max-width:768px){.container{padding:15px}header{flex-direction:column;gap:15px;text-align:center}.logo h1{font-size:1.5rem}.tabs{flex-wrap:wrap}.tab-btn{padding:10px 15px;font-size:.9rem}.question-card{padding:20px}.card-term h3{font-size:2rem}.quiz-controls{flex-direction:column;gap:15px}.quiz-controls button{width:100%}}
+        :root{--primary-blue:#4A90E2;--primary-blue-dark:#2D5AA0;--accent-orange:#FF9500;--accent-orange-dark:#FF6B35;--bg-yellow-light:#FFF9E6;--bg-yellow-medium:#FFEBB2;--text-dark:#333;--text-medium:#666;--text-light:#999;--white:#fff;--shadow:rgba(0,0,0,.1);--border-radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,var(--bg-yellow-light),var(--bg-yellow-medium));color:var(--text-dark);line-height:1.6;min-height:100vh;padding:20px}
+        .container{max-width:900px;margin:0 auto;background:var(--white);border-radius:var(--border-radius);box-shadow:0 10px 30px var(--shadow);padding:25px}
+        header{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:2px solid var(--bg-yellow-medium);margin-bottom:25px}
+        .logo h1{font-size:1.5rem;color:var(--primary-blue-dark)}
+        .logo .subtitle{font-size:0.9rem;color:var(--text-medium)}
+        .language-switch{display:flex;gap:5px;background:var(--bg-yellow-light);border-radius:30px;padding:4px}
+        .lang-btn{padding:8px 18px;border:none;background:transparent;border-radius:30px;font-weight:700;cursor:pointer;transition:all .3s}
+        .lang-btn.active{background:var(--primary-blue);color:var(--white)}
+        .lang-btn:hover:not(.active){background:var(--bg-yellow-medium)}
+        .tabs{display:flex;gap:10px;margin-bottom:30px;border-bottom:2px solid var(--bg-yellow-medium);padding-bottom:10px}
+        .tab-btn{padding:12px 24px;border:none;background:transparent;border-radius:var(--border-radius) var(--border-radius) 0 0;font-size:1rem;font-weight:600;color:var(--text-medium);cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .3s}
+        .tab-btn.active{color:var(--primary-blue);background:var(--bg-yellow-light);border-bottom:3px solid var(--accent-orange)}
+        .tab-btn:hover:not(.active){color:var(--primary-blue-dark);background:var(--bg-yellow-light)}
+        .tab-content{display:none;animation:fadeIn .5s}
+        .tab-content.active{display:block}
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        .quiz-header,.flashcards-header{text-align:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed var(--text-light)}
+        .quiz-header h2,.flashcards-header h2{color:var(--primary-blue-dark);margin-bottom:10px}
+        .quiz-header p,.flashcards-header p{color:var(--text-medium);max-width:700px;margin:0 auto 15px}
+        .quiz-meta,.flashcards-meta{display:flex;justify-content:center;gap:20px;font-size:.9rem;color:var(--text-light)}
+        .quiz-container{padding:20px;background:var(--bg-yellow-light);border-radius:var(--border-radius);margin-bottom:30px}
+        .question-card{background:var(--white);border-radius:var(--border-radius);padding:25px;margin-bottom:25px;box-shadow:0 4px 10px var(--shadow);border-left:5px solid var(--primary-blue)}
+        .question-text{font-size:1.1rem;font-weight:600;margin-bottom:20px}
+        .options{display:grid;grid-template-columns:1fr;gap:12px}
+        .option{display:flex;align-items:center;padding:15px;background:var(--bg-yellow-light);border-radius:8px;cursor:pointer;transition:all .3s;border:2px solid transparent}
+        .option:hover{background:var(--bg-yellow-medium)}
+        .option.selected{border-color:var(--primary-blue);background:rgba(74,144,226,.1)}
+        .option-letter{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--primary-blue);color:var(--white);border-radius:50%;margin-right:15px;font-weight:700}
+        .option-text{flex:1}
+        .quiz-controls{display:flex;justify-content:space-between;align-items:center;margin-top:30px}
+        .quiz-controls button{padding:12px 24px;border:none;border-radius:30px;font-weight:600;cursor:pointer;transition:all .3s}
+        #prev-btn,#next-btn{background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue)}
+        #prev-btn:hover,#next-btn:hover{background:var(--primary-blue);color:var(--white)}
+        #submit-btn{background:var(--accent-orange);color:var(--white)}
+        #submit-btn:hover{background:var(--accent-orange-dark)}
+        #result-container{background:var(--white);border-radius:var(--border-radius);padding:30px;text-align:center;border:2px solid var(--bg-yellow-medium)}
+        .score-display{margin:25px 0}
+        .score-circle{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,var(--primary-blue),var(--accent-orange));color:var(--white);display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:700;margin:0 auto 20px}
+        #score-message{font-size:1.2rem;color:var(--text-medium)}
+        #retry-btn{margin-top:20px;padding:12px 30px;background:var(--primary-blue);color:var(--white);border:none;border-radius:30px;font-weight:600;cursor:pointer}
+        #retry-btn:hover{background:var(--primary-blue-dark)}
+        .flashcards-container{padding:20px;background:var(--bg-yellow-light);border-radius:var(--border-radius)}
+        .card-area{background:var(--white);border-radius:var(--border-radius);padding:40px;min-height:200px;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 4px 10px var(--shadow);margin-bottom:20px}
+        .card-term h2{font-size:2.5rem;color:var(--primary-blue-dark);margin-bottom:10px}
+        .card-term .hint{color:var(--text-light);font-size:.9rem}
+        .card-nav{display:flex;justify-content:center;align-items:center;gap:20px;margin-bottom:20px}
+        .card-nav button{padding:10px 20px;border:none;background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue);border-radius:30px;font-weight:600;cursor:pointer}
+        .card-nav button:hover{background:var(--primary-blue);color:var(--white)}
+        .card-nav span{font-weight:600;color:var(--text-medium)}
+        .card-controls{display:flex;justify-content:center;gap:15px;margin-bottom:20px}
+        .card-controls button{padding:12px 24px;border:none;border-radius:30px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px}
+        #flip-btn{background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue)}
+        #flip-btn:hover{background:var(--primary-blue);color:var(--white)}
+        .master-btn{background:#4CAF50;color:var(--white)}
+        .review-btn{background:#FF9800;color:var(--white)}
+        .progress{margin-top:20px}
+        .progress-bar{height:10px;background:var(--bg-yellow-medium);border-radius:5px;overflow:hidden}
+        .progress-fill{height:100%;background:linear-gradient(90deg,var(--primary-blue),var(--accent-orange));transition:width .3s}
+        .progress-labels{display:flex;justify-content:space-between;margin-top:10px;font-size:.9rem;color:var(--text-light)}
+        .hidden{display:none!important}
+        footer{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--bg-yellow-medium);color:var(--text-light);font-size:.9rem}
+        @media(max-width:768px){.container{padding:15px}header{flex-direction:column;gap:15px;text-align:center}.logo h1{font-size:1.3rem}.tabs{flex-wrap:wrap}.tab-btn{padding:10px 15px;font-size:.9rem}.question-card{padding:20px}.card-term h2{font-size:1.8rem}.quiz-controls{flex-direction:column;gap:15px}.quiz-controls button{width:100%}}}
     </style>
 </head>
 <body>
-<div class="container">
-    <header>
-        <div class="logo">
-            <h1>Microeconomics Interactive Lab</h1>
-        </div>
-        <div class="language-switch">
-            <button id="lang-en" class="lang-btn active">EN</button>
-            <button id="lang-cn" class="lang-btn">中文</button>
-        </div>
-    </header>
-    
-    <nav class="tabs">
-        <button class="tab-btn active" data-tab="quiz"><i class="fas fa-question-circle"></i> <span>Knowledge Quiz</span></button>
-        <button class="tab-btn" data-tab="flashcards"><i class="fas fa-layer-group"></i> <span>Concept Flashcards</span></button>
-    </nav>
-    
-    <main>
-        <div id="quiz-tab" class="tab-content active">
-            <div class="quiz-header">
-                <h2>Supply & Demand Quiz</h2>
-                <p>Test your understanding of basic microeconomics concepts.</p>
-                <div class="quiz-meta">
-                    <span><i class="fas fa-star"></i> Score: <span id="score-value">0</span>/100</span>
-                </div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Week 8: Production Costs</h1>
+                <p class="subtitle">生产成本 | Microeconomics</p>
             </div>
-            
-            <div class="quiz-container">
-                <div id="question-container"></div>
-                <div class="quiz-controls">
-                    <button id="prev-btn">Previous</button>
-                    <button id="next-btn">Next</button>
-                    <button id="submit-btn">Submit Quiz</button>
-                </div>
+            <div class="language-switch">
+                <button id="lang-en" class="lang-btn active">EN</button>
+                <button id="lang-cn" class="lang-btn">中文</button>
             </div>
-            
-            <div id="result-container" class="hidden">
-                <h3>Quiz Results</h3>
-                <div class="score-display">
-                    <div class="score-circle"><span id="final-score">0</span>%</div>
-                    <p id="score-message">Complete the quiz to see your score.</p>
-                </div>
-                <button id="retry-btn">Try Again</button>
-            </div>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="quiz"><i class="fas fa-question-circle"></i> <span>Knowledge Quiz</span></button>
+            <button class="tab-btn" data-tab="flashcards"><i class="fas fa-layer-group"></i> <span>Concept Flashcards</span></button>
         </div>
         
-        <div id="flashcards-tab" class="tab-content">
-            <div class="flashcards-header">
-                <h2>Core Concepts Flashcards</h2>
-                <p>Flip cards to learn key microeconomics terms. Bilingual definitions included.</p>
-                <div class="flashcards-meta">
-                    <span><i class="fas fa-layer-group"></i> <span id="card-counter-text">Card 1 of 20</span></span>
+        <main>
+            <div id="quiz-tab" class="tab-content active">
+                <div class="quiz-header">
+                    <h2>Production Costs Quiz</h2>
+                    <p>Test your understanding of production costs, opportunity costs, and economies of scale.</p>
+                    <div class="quiz-meta">
+                        <span><i class="fas fa-star"></i> Score: <span id="score-value">0</span>/100</span>
+                        <span id="question-counter">Question 1/26</span>
+                    </div>
+                </div>
+                
+                <div class="quiz-container">
+                    <div id="question-container"></div>
+                    <div class="quiz-controls">
+                        <button id="prev-btn">Previous</button>
+                        <button id="next-btn">Next</button>
+                        <button id="submit-btn">Submit Quiz</button>
+                    </div>
+                </div>
+                
+                <div id="result-container" class="hidden">
+                    <h3>Quiz Results</h3>
+                    <div class="score-display">
+                        <div class="score-circle"><span id="final-score">0</span>%</div>
+                        <p id="score-message">Complete the quiz to see your score.</p>
+                    </div>
+                    <button id="retry-btn">Try Again</button>
                 </div>
             </div>
             
-            <div class="flashcards-container">
-                <div class="card-nav">
-                    <button id="prev-card">← Previous</button>
-                    <span id="card-counter">1</span>
-                    <button id="next-card">Next →</button>
-                </div>
-                
-                <div class="card-area" id="flashcard">
-                    <div>
-                        <h3 id="term-display">Demand</h3>
-                        <p class="hint">Click to see definition</p>
+            <div id="flashcards-tab" class="tab-content">
+                <div class="flashcards-header">
+                    <h2>Core Concepts Flashcards</h2>
+                    <p>Flip cards to learn key production cost concepts. Bilingual definitions included.</p>
+                    <div class="flashcards-meta">
+                        <span><i class="fas fa-layer-group"></i> <span id="card-counter-text">Card 1 of 30</span></span>
                     </div>
                 </div>
-                <div id="card-definition" style="display:none;background:var(--white);padding:20px;border-radius:12px;margin-top:-20px;">
-                    <p id="definition-cn" style="font-size:1.1rem;margin-bottom:10px;"></p>
-                    <p id="definition-en" style="color:var(--text-medium);margin-bottom:15px;"></p>
-                    <p id="example-text" style="background:var(--bg-yellow-light);padding:15px;border-radius:8px;"></p>
-                </div>
-                <div class="card-controls">
-                    <button id="flip-btn">Flip Card</button>
-                    <button id="master-btn" class="master-btn">Mark as Mastered</button>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:5%;"></div></div>
-                    <div class="progress-labels">
-                        <span>Progress: <span id="progress-percent">5</span>%</span>
-                        <span>Mastered: <span id="mastered-count">0</span>/20</span>
+                
+                <div class="flashcards-container">
+                    <div class="card-nav">
+                        <button id="prev-card">← Previous</button>
+                        <span id="card-counter">1</span>
+                        <button id="next-card">Next →</button>
+                    </div>
+                    
+                    <div class="card-area" id="flashcard">
+                        <div class="card-term">
+                            <h2 id="term-display">Loading...</h2>
+                            <p class="hint">Click to see definition</p>
+                        </div>
+                    </div>
+                    <div id="card-definition" style="display:none;background:var(--white);padding:20px;border-radius:12px;margin-top:-20px;">
+                        <p id="definition-cn" style="font-size:1.1rem;margin-bottom:10px;"></p>
+                        <p id="definition-en" style="color:var(--text-medium);margin-bottom:15px;"></p>
+                        <p id="example-text" style="background:var(--bg-yellow-light);padding:15px;border-radius:8px;"></p>
+                    </div>
+                    <div class="card-controls">
+                        <button id="flip-btn">Flip Card</button>
+                        <button id="master-btn" class="master-btn">Mark as Mastered</button>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:3.3%;"></div></div>
+                        <div class="progress-labels">
+                            <span>Progress: <span id="progress-percent">3</span>%</span>
+                            <span>Mastered: <span id="mastered-count">0</span>/30</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-    
-    <div class="feedback-section">
-        <h3>How was this material for you?</h3>
-        <p>Your anonymous feedback helps us improve the learning experience.</p>
-        <div class="feedback-buttons">
-            <button class="feedback-btn too-easy" data-diff="easy"><i class="fas fa-smile"></i> Too Easy</button>
-            <button class="feedback-btn just-right" data-diff="right"><i class="fas fa-meh"></i> Just Right</button>
-            <button class="feedback-btn too-hard" data-diff="hard"><i class="fas fa-frown"></i> Too Hard</button>
-        </div>
-        <div id="feedback-thankyou" class="hidden">
-            <p>Thank you for your feedback! Your input has been recorded.</p>
-        </div>
+        </main>
+        
+        <footer>
+            <p>Week 8: Production Costs | Microeconomics Teaching Agent</p>
+            <p>Reference: Mankiw, Principles of Economics, Chapter 13</p>
+        </footer>
     </div>
-    
-    <footer>
-        <p>Microeconomics Teaching Agent - Interactive Learning Tool. © 2026</p>
-    </footer>
-</div>
 
-<script>
-const quizData = [
-    {q:"What is information asymmetry?",o:["A. When the government controls all market information", "B. When one party in a transaction has more or better information than the other", "C. When all market participants have equal information", "D. When information is completely unavailable to buyers"],a:1},
-    {q:"The 'Lemons Problem' in the used car market is a classic example of:",o:["A. Moral hazard", "B. Adverse selection", "C. Principal-agent problem", "D. Signal screening"],a:1},
-    {q:"What distinguishes adverse selection from moral hazard?",o:["A. Adverse selection occurs before the transaction; moral hazard occurs after", "B. They are the same concept with different names", "C. Moral hazard occurs before insurance is purchased", "D. Adverse selection only applies to insurance markets"],a:0},
-    {q:"Why do high-risk individuals more likely to buy health insurance?",o:["A. Because they have higher income", "B. Due to adverse selection in insurance markets", "C. Because insurance companies prefer high-risk customers", "D. Due to government mandates"],a:1},
-    {q:"After buying car insurance, a driver becomes less careful. This is an example of:",o:["A. Adverse selection", "B. Principal-agent problem", "C. Moral hazard", "D. Information cascade"],a:2},
-    {q:"Which mechanism helps reduce information asymmetry in labor markets?",o:["A. Government price controls", "B. Signaling through education (diplomas, certifications)", "C. Eliminating all employment contracts", "D. Banning job interviews"],a:1},
-    {q:"What is a 'screening' mechanism in markets with information asymmetry?",o:["A. The government sets quality standards", "B. The less-informed party designs incentives to reveal hidden information", "C. All products must have quality labels", "D. Only large companies can sell products"],a:1},
-    {q:"Why might employers offer efficiency wages above market equilibrium?",o:["A. To reduce worker morale", "B. To motivate workers and reduce shirking", "C. To increase government taxes", "D. To attract only low-quality workers"],a:1},
-    {q:"What role do warranties play in reducing information asymmetry?",o:["A. They increase information asymmetry", "B. They serve as a credible quality signal from sellers", "C. They have no effect on buyer decisions", "D. They only apply to luxury goods"],a:1},
-    {q:"What is the Nobel Prize contribution of Akerlof, Spence, and Stigliz in 2001?",o:["A. Game theory applications in economics", "B. Analysis of markets with asymmetric information", "C. Development of monetary policy tools", "D. Consumer preference theory"],a:1}
-];
+    <script>
+        // Week 8 Production Costs Data
+        const quizData = [
+            {
+                id: 101,
+                question_en: "A entrepreneur uses $100,000 of her own savings to start a business that earns $80,000 in accounting profit. If the market interest rate is 5%, what is her economic profit?",
+                question_cn: "一位企业家用她自己的10万美元储蓄创办了一家企业，赚取了8万美元的会计利润。如果市场利率是5%，她的经济利润是多少？",
+                options_en: ["$80,000", "$75,000", "$70,000", "$5,000"],
+                options_cn: ["80,000美元", "75,000美元", "70,000美元", "5,000美元"],
+                answer: 3,
+                explanation_en: "Economic profit = Accounting profit - Implicit costs. The implicit cost of using her own savings is $100,000 × 5% = $5,000 (forgone interest). Economic profit = $80,000 - $5,000 = $5,000.",
+                explanation_cn: "经济利润 = 会计利润 - 隐性成本。使用自有储蓄的隐性成本是100,000 × 5% = 5,000美元（放弃的利息）。经济利润 = 80,000 - 5,000 = 5,000美元。"
+            },
+            {
+                id: 102,
+                question_en: "Which of the following is an example of an explicit cost?",
+                question_cn: "以下哪项是显性成本的例子？",
+                options_en: ["The owner's opportunity cost of time spent managing the business", "Foregone salary the owner could have earned elsewhere", "Wages paid to employees", "The owner's foregone rental income from using own property"],
+                options_cn: ["业主花时间管理企业的机会成本", "业主在其他地方放弃的薪水", "支付给员工的工资", "业主使用自己房产放弃的租金收入"],
+                answer: 2,
+                explanation_en: "Explicit costs are actual cash payments. Wages paid to employees are direct monetary payments. Opportunity costs like foregone salary or rental income are implicit costs (non-cash).",
+                explanation_cn: "显性成本是实际的现金支付。支付给员工的工资是直接的货币支付。像放弃的薪水或租金收入这样的机会成本是隐性成本（非现金）。"
+            },
+            {
+                id: 103,
+                question_en: "A bakery owner uses her own building for her bakery. The building could be rented for $2,000/month. This $2,000 is:",
+                question_cn: "一位面包店老板用自己的建筑经营面包店。这栋建筑可以以每月2,000美元出租。这2,000美元是：",
+                options_en: ["An explicit cost", "An implicit cost", "A variable cost", "A fixed cost"],
+                options_cn: ["显性成本", "隐性成本", "可变成本", "固定成本"],
+                answer: 1,
+                explanation_en: "This is an implicit cost because it's an opportunity cost - the foregone rental income from using the building herself rather than renting it out. No actual cash payment is made.",
+                explanation_cn: "这是隐性成本，因为它是机会成本——使用建筑而不是出租它的放弃租金收入。没有实际的现金支付。"
+            },
+            {
+                id: 104,
+                question_en: "Normal profit is defined as:",
+                question_cn: "正常利润的定义是：",
+                options_en: ["The minimum profit needed to keep entrepreneurs in the industry", "Revenue minus all explicit costs", "Revenue minus all costs including opportunity costs", "The profit earned when economic profit equals zero"],
+                options_cn: ["保持企业家留在该行业所需的最低利润", "收入减去所有显性成本", "收入减去包括机会成本在内的所有成本", "经济利润等于零时获得的利润"],
+                answer: 3,
+                explanation_en: "Normal profit equals the total opportunity cost of production, including both explicit and implicit costs. When economic profit = 0, the firm is earning exactly its normal profit - enough to stay in business but no more than the next best alternative.",
+                explanation_cn: "正常利润等于生产的总机会成本，包括显性成本和隐性成本。当经济利润=0时，企业获得的正好是正常利润——足以留在行业中但不超过次优选择。"
+            },
+            {
+                id: 105,
+                question_en: "A firm has total revenue of $500,000, explicit costs of $300,000, and implicit costs of $250,000. What is the accounting profit and economic profit?",
+                question_cn: "某企业有50万美元的总收入，30万美元的显性成本和25万美元的隐性成本。会计利润和经济利润是多少？",
+                options_en: ["Accounting profit = $200,000; Economic profit = -$50,000", "Accounting profit = $200,000; Economic profit = $50,000", "Accounting profit = $550,000; Economic profit = $300,000", "Accounting profit = $200,000; Economic profit = $0"],
+                options_cn: ["会计利润=200,000美元；经济利润=-50,000美元", "会计利润=200,000美元；经济利润=50,000美元", "会计利润=550,000美元；经济利润=300,000美元", "会计利润=200,000美元；经济利润=0美元"],
+                answer: 0,
+                explanation_en: "Accounting profit = Total Revenue - Explicit costs = $500,000 - $300,000 = $200,000. Economic profit = Accounting profit - Implicit costs = $200,000 - $250,000 = -$50,000 (a loss).",
+                explanation_cn: "会计利润 = 总收入 - 显性成本 = 500,000 - 300,000 = 200,000美元。经济利润 = 会计利润 - 隐性成本 = 200,000 - 250,000 = -50,000美元（亏损）。"
+            },
+            {
+                id: 106,
+                question_en: "The production function shows the relationship between:",
+                question_cn: "生产函数显示以下哪两者之间的关系：",
+                options_en: ["Price and quantity demanded", "Input quantities and output quantity", "Marginal cost and marginal revenue", "Fixed cost and variable cost"],
+                options_cn: ["价格与需求量", "投入数量与产出数量", "边际成本与边际收益", "固定成本与可变成本"],
+                answer: 1,
+                explanation_en: "The production function describes the technological relationship showing how much output (Q) can be produced with different combinations of inputs like labor (L) and capital (K): Q = f(L, K).",
+                explanation_cn: "生产函数描述了技术关系，显示用不同组合的投入（如劳动L和资本K）可以生产多少产出Q：Q = f(L, K)。"
+            },
+            {
+                id: 107,
+                question_en: "Marginal Product (MP) is defined as:",
+                question_cn: "边际产量（MP）的定义是：",
+                options_en: ["Output divided by total inputs", "Change in total output from adding one more unit of input", "Average output per worker", "Total output at the minimum point of the production function"],
+                options_cn: ["产出除以总投入", "增加一单位投入所带来的总产出变化", "每个工人的平均产出", "生产函数最低点的总产出"],
+                answer: 1,
+                explanation_en: "Marginal Product = Change in Total Product / Change in Input. MP measures the additional output from hiring one more unit of labor (or other input), holding other inputs constant.",
+                explanation_cn: "边际产量 = 总产量的变化 / 投入的变化。MP测量的是雇用一单位额外劳动（或其他投入）所带来的额外产出，同时保持其他投入不变。"
+            },
+            {
+                id: 108,
+                question_en: "Based on the table, what is the marginal product of the 3rd worker?\n\n| Workers | Total Product |\n|---------|---------------|\n| 0 | 0 |\n| 1 | 10 |\n| 2 | 22 |\n| 3 | 30 |\n| 4 | 36 |",
+                question_cn: "根据下表，第3个工人的边际产量是多少？\n\n| 工人数量 | 总产量 |\n|---------|---------------|\n| 0 | 0 |\n| 1 | 10 |\n| 2 | 22 |\n| 3 | 30 |\n| 4 | 36 |",
+                options_en: ["8 units", "10 units", "12 units", "30 units"],
+                options_cn: ["8单位", "10单位", "12单位", "30单位"],
+                answer: 0,
+                explanation_en: "Marginal Product of 3rd worker = TP(3) - TP(2) = 30 - 22 = 8 units. The MP is decreasing, demonstrating diminishing marginal returns.",
+                explanation_cn: "第3个工人的边际产量 = TP(3) - TP(2) = 30 - 22 = 8单位。边际产量的递减表明边际收益递减。"
+            },
+            {
+                id: 109,
+                question_en: "The Law of Diminishing Marginal Returns states that:",
+                question_cn: "边际收益递减规律表明：",
+                options_en: ["Total output always decreases as more inputs are added", "Adding more of one input, while holding others constant, will eventually decrease marginal product", "Average product always exceeds marginal product", "The production function eventually becomes horizontal"],
+                options_cn: ["总产出总是随着投入的增加而减少", "在保持其他投入不变的情况下，增加一种投入最终会减少边际产量", "平均产量总是超过边际产量", "生产函数最终变得水平"],
+                answer: 1,
+                explanation_en: "Diminishing marginal returns occur because, as you add more of a variable input to fixed inputs, the marginal product of the variable input eventually declines. This is a technological relationship in the short run.",
+                explanation_cn: "边际收益递减发生是因为，当你在固定投入上增加更多可变投入时，可变投入的边际产量最终会下降。这是短期内的技术关系。"
+            },
+            {
+                id: 110,
+                question_en: "When marginal product is greater than average product:",
+                question_cn: "当边际产量大于平均产量时：",
+                options_en: ["Average product is decreasing", "Average product is increasing", "Marginal product is decreasing", "Total product is at its maximum"],
+                options_cn: ["平均产量正在下降", "平均产量正在上升", "边际产量正在下降", "总产量处于最大值"],
+                answer: 1,
+                explanation_en: "When MP > AP, the average is being pulled upward, so AP is increasing. Think of it like grades: if you score above average on a test, your average goes up.",
+                explanation_cn: "当MP > AP时，平均被向上拉，所以AP在上升。就像成绩一样：如果你考试成绩高于平均分，你的平均分会上升。"
+            }
+        ];
 
-const flashcardsData = [
-    {term:"Information Asymmetry",cn:"信息不对称 - 交易一方比另一方拥有更多信息",en:"One party has more or better information than the other in a transaction",ex:"Used car sellers know more about vehicle condition than buyers / 二手车卖家比买家更了解车况"},
-    {term:"Adverse Selection",cn:"逆向选择 - 交易前隐藏信息导致不利结果",en:"Hidden characteristics before transaction lead to unfavorable outcomes",ex:"High-risk individuals more likely to buy insurance / 高风险人群更倾向购买保险"},
-    {term:"Moral Hazard",cn:"道德风险 - 交易后改变行为承担更少风险",en:"Post-transaction behavior change where someone bears less risk",ex:"Driver becomes less careful after buying insurance / 买了保险后司机变得不那么小心"},
-    {term:"Lemons Problem",cn:"柠檬问题 - 信息不对称导致好商品退出市场",en:"Good products exit market due to buyers' inability to distinguish quality",ex:"Akerlof's used car market example / 阿克洛夫的二手车市场例子"},
-    {term:"Signaling",cn:"信号传递 - 信息多的一方主动传递可信信号",en:"Informed party voluntarily sends credible signals to uninformed party",ex:"Education as a signal of ability in job market / 教育作为劳动力市场中的能力信号"},
-    {term:"Screening",cn:"信息筛选 - 信息少的一方设计机制获取信息",en:"Uninformed party designs mechanisms to induce revelation of private information",ex:"Insurance companies offer different plans to self-select / 保险公司提供不同方案让客户自我筛选"},
-    {term:"Principal-Agent Problem",cn:"委托代理问题 - 利益不一致导致代理方行动偏离",en:"Agent's actions diverge from principal's interests due to conflicting goals",ex:"Manager may pursue personal goals over shareholder interests / 经理可能追求个人目标而非股东利益"},
-    {term:"Efficiency Wage",cn:"效率工资 - 高于市场均衡的工资以激励工人",en:"Wage above market equilibrium to motivate workers and reduce shirking",ex:"Higher pay incentivizes workers to work harder to keep their jobs / 高工资激励工人努力工作保住工作"},
-    {term:"Warranty/Guarantee",cn:"保修担保 - 可信的质量信号减少信息不对称",en:"Credible quality signal that reduces information asymmetry",ex:"Strong warranty indicates seller confidence in product / 强力保修表明卖家对产品有信心"},
-    {term:"Reputation",cn:"声誉机制 - 长期互动中建立的信任",en:"Trust built through repeated interactions over time",ex:"Restaurants maintain quality to keep good reviews / 餐厅保持质量以维持好评"}
-];
+        const flashcardsData = [
+            {term:"Opportunity Cost",cn:"机会成本 - 为获取某项资源而放弃的最高价值替代选择",en:"The highest-valued alternative that must be given up to obtain something",ex:"Going to graduate school means giving up the salary you could earn working / 读研究生意味着放弃工作时可以获得的薪水"},
+            {term:"Explicit Cost",cn:"显性成本 - 实际货币支付的现金支出",en:"Direct monetary payments for resources used in production",ex:"Wages paid to workers, rent paid for office space / 支付给工人的工资，支付给办公空间的租金"},
+            {term:"Implicit Cost",cn:"隐性成本 - 机会成本，非现金但同样真实",en:"Non-cash opportunity costs of using resources owned by the firm",ex:"Owner using own savings instead of earning interest / 业主使用自己的储蓄而不是赚取利息"},
+            {term:"Accounting Profit",cn:"会计利润 - 收入减去显性成本",en:"Total revenue minus explicit costs",ex:"Revenue $500,000 - Explicit costs $300,000 = $200,000 / 收入500,000 - 显性成本300,000 = 200,000"},
+            {term:"Economic Profit",cn:"经济利润 - 收入减去所有成本（显性+隐性）",en:"Total revenue minus ALL costs (explicit + implicit including normal profit)",ex:"Economic profit = 0 means the firm is earning normal profit / 经济利润=0意味着企业正在获得正常利润"},
+            {term:"Normal Profit",cn:"正常利润 - 经济利润为零时的利润水平",en:"Profit equal to the total opportunity cost; occurs when economic profit is zero",ex:"Minimum profit needed to keep entrepreneurs in the industry / 保持企业家留在该行业所需的最低利润"},
+            {term:"Production Function",cn:"生产函数 - 投入与最大产出之间的关系",en:"The relationship between inputs and the maximum output that can be produced",ex:"Q = f(L, K) shows output depends on labor and capital / Q = f(L, K)显示产出取决于劳动和资本"},
+            {term:"Marginal Product (MP)",cn:"边际产量 - 增加一单位投入所增加的产出",en:"Change in total output from adding one more unit of an input",ex:"MP of 3rd worker = Total output with 3 workers - Total output with 2 workers / 第3个工人的MP = 3个工人的总产出 - 2个工人的总产出"},
+            {term:"Diminishing Marginal Returns",cn:"边际收益递减 - 超过某一点后边际产量下降",en:"When adding more of one input eventually leads to decreasing marginal product",ex:"Adding too many workers to a fixed workspace reduces efficiency / 向固定工作空间添加太多工人会降低效率"},
+            {term:"Total Cost (TC)",cn:"总成本 - 固定成本加可变成本",en:"Total of all production costs = TFC + TVC",ex:"TC = $50,000 (TFC) + $100,000 (TVC) = $150,000"},
+            {term:"Average Total Cost (ATC)",cn:"平均总成本 - 总成本除以产量",en:"Total cost divided by quantity of output; also called AC (Average Cost)",ex:"ATC = TC / Q = $150,000 / 10,000 = $15 per unit"},
+            {term:"Marginal Cost (MC)",cn:"边际成本 - 增加一单位产出所增加的成本",en:"Change in total cost from producing one more unit",ex:"MC = Change in TC / Change in Q = $1,000 / 100 = $10 per unit"},
+            {term:"Fixed Cost (FC)",cn:"固定成本 - 不随产量变化的成本",en:"Costs that do not vary with the quantity of output produced",ex:"Rent, insurance, fixed equipment depreciation / 租金、保险、固定设备折旧"},
+            {term:"Variable Cost (VC)",cn:"可变成本 - 随产量变化的成本",en:"Costs that vary with the quantity of output produced",ex:"Raw materials, hourly wages, electricity for production / 原材料、计时工资、生产用电"},
+            {term:"ATC Curve Shape",cn:"ATC曲线形状 - U型（边际成本先降后升）",en:"U-shaped because of opposing forces: spreading overhead and diminishing returns",ex:"At low output: spreading overhead dominates. At high output: diminishing returns dominate / 低产量：分摊管理费用占主导。高产量：边际收益递减占主导"},
+            {term:"Economies of Scale",cn:"规模经济 - 产量增加导致长期平均成本下降",en:"Long-run average total cost falls as output increases",ex:"Larger factories allow specialization and lower per-unit costs / 更大的工厂允许专业化并降低单位成本"},
+            {term:"Diseconomies of Scale",cn:"规模不经济 - 产量增加导致长期平均成本上升",en:"Long-run average total cost rises as output increases",ex:"Managing a very large organization becomes complex and costly / 管理非常大的组织变得复杂且成本高昂"},
+            {term:"Constant Returns to Scale",cn:"规模收益不变 - 产量增加不影响长期平均成本",en:"Long-run average total cost remains constant as output changes",ex:"Output doubles and ATC stays the same / 产出翻倍，ATC保持不变"},
+            {term:"Efficient Scale",cn:"有效规模 - ATC最低点的产量",en:"Quantity that minimizes average total cost",ex:"The point where MC curve crosses ATC curve from below / MC曲线从下方穿过ATC曲线的交点"},
+            {term:"Short Run vs Long Run",cn:"短期vs长期 - 区分标准是是否有固定投入",en:"Short run: at least one input is fixed. Long run: all inputs can vary",ex:"Factory size is fixed in short run but can be changed in long run / 工厂规模在短期内固定，但长期可以改变"}
+        ];
 
-// State
-let currentQuestion = 0;
-let userAnswers = new Array(quizData.length).fill(null);
-let quizSubmitted = false;
-let currentCard = 0;
-let masteredCards = new Set();
-let isFlipped = false;
-let currentLang = 'en';
+        // State
+        let currentQuestion = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let quizSubmitted = false;
+        let currentCard = 0;
+        let masteredCards = new Set();
+        let isFlipped = false;
+        let currentLang = 'en';
 
-// DOM Elements
-const langEnBtn = document.getElementById('lang-en');
-const langCnBtn = document.getElementById('lang-cn');
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
-const questionContainer = document.getElementById('question-container');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const submitBtn = document.getElementById('submit-btn');
-const resultContainer = document.getElementById('result-container');
-const retryBtn = document.getElementById('retry-btn');
-const scoreValue = document.getElementById('score-value');
-const finalScore = document.getElementById('final-score');
-const scoreMessage = document.getElementById('score-message');
-const prevCardBtn = document.getElementById('prev-card');
-const nextCardBtn = document.getElementById('next-card');
-const flipBtn = document.getElementById('flip-btn');
-const masterBtn = document.getElementById('master-btn');
-const flashcard = document.getElementById('flashcard');
-const cardDefinition = document.getElementById('card-definition');
-const termDisplay = document.getElementById('term-display');
-const definitionCn = document.getElementById('definition-cn');
-const definitionEn = document.getElementById('definition-en');
-const exampleText = document.getElementById('example-text');
-const cardCounter = document.getElementById('card-counter');
-const cardCounterText = document.getElementById('card-counter-text');
-const progressFill = document.getElementById('progress-fill');
-const progressPercent = document.getElementById('progress-percent');
-const masteredCount = document.getElementById('mastered-count');
-const feedbackBtns = document.querySelectorAll('.feedback-btn');
-const feedbackThankYou = document.getElementById('feedback-thankyou');
+        // DOM Elements
+        const langEnBtn = document.getElementById('lang-en');
+        const langCnBtn = document.getElementById('lang-cn');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const questionContainer = document.getElementById('question-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const resultContainer = document.getElementById('result-container');
+        const retryBtn = document.getElementById('retry-btn');
+        const scoreValue = document.getElementById('score-value');
+        const finalScore = document.getElementById('final-score');
+        const scoreMessage = document.getElementById('score-message');
+        const questionCounter = document.getElementById('question-counter');
+        const prevCardBtn = document.getElementById('prev-card');
+        const nextCardBtn = document.getElementById('next-card');
+        const flipBtn = document.getElementById('flip-btn');
+        const masterBtn = document.getElementById('master-btn');
+        const flashcard = document.getElementById('flashcard');
+        const cardDefinition = document.getElementById('card-definition');
+        const termDisplay = document.getElementById('term-display');
+        const definitionCn = document.getElementById('definition-cn');
+        const definitionEn = document.getElementById('definition-en');
+        const exampleText = document.getElementById('example-text');
+        const cardCounter = document.getElementById('card-counter');
+        const cardCounterText = document.getElementById('card-counter-text');
+        const progressFill = document.getElementById('progress-fill');
+        const progressPercent = document.getElementById('progress-percent');
+        const masteredCount = document.getElementById('mastered-count');
 
-// Render Question
-function renderQuestion() {
-    if (quizSubmitted) return;
-    const q = quizData[currentQuestion];
-    let html = `<div class="question-card"><div class="question-text">${currentQuestion + 1}. ${q.q}</div><div class="options">`;
-    q.o.forEach((opt, i) => {
-        const sel = userAnswers[currentQuestion] === i ? 'selected' : '';
-        const letter = String.fromCharCode(65 + i);
-        html += `<div class="option ${sel}" data-index="${i}"><span class="option-letter">${letter}</span><span class="option-text">${opt}</span></div>`;
-    });
-    html += '</div></div>';
-    questionContainer.innerHTML = html;
-    
-    document.querySelectorAll('.option').forEach(opt => {
-        opt.addEventListener('click', () => {
-            userAnswers[currentQuestion] = parseInt(opt.dataset.index);
+        // Language Switching
+        langEnBtn.addEventListener('click', () => switchLanguage('en'));
+        langCnBtn.addEventListener('click', () => switchLanguage('cn'));
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            if (lang === 'en') {
+                langEnBtn.classList.add('active');
+                langCnBtn.classList.remove('active');
+            } else {
+                langCnBtn.classList.add('active');
+                langEnBtn.classList.remove('active');
+            }
             renderQuestion();
+            renderFlashcard();
+        }
+
+        // Tab Switching
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tab = btn.getAttribute('data-tab');
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(tab + '-tab').classList.add('active');
+            });
         });
-    });
-    
-    prevBtn.disabled = currentQuestion === 0;
-    nextBtn.disabled = currentQuestion === quizData.length - 1;
-}
 
-// Switch Tab
-function switchTab(tabName) {
-    tabBtns.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.tab === tabName);
-    });
-    tabContents.forEach(content => {
-        content.classList.toggle('active', content.id === tabName + '-tab');
-    });
-}
+        // Quiz Functions
+        function renderQuestion() {
+            const q = quizData[currentQuestion];
+            const questionText = currentLang === 'en' ? q.question_en : q.question_cn;
+            const options = currentLang === 'en' ? q.options_en : q.options_cn;
+            
+            const html = `
+                <div class="question-card">
+                    <p class="question-text">${currentQuestion + 1}. ${questionText}</p>
+                    <div class="options">
+                        ${options.map((opt, i) => `
+                            <div class="option ${userAnswers[currentQuestion] === i ? 'selected' : ''}" data-index="${i}">
+                                <span class="option-letter">${String.fromCharCode(65 + i)}</span>
+                                <span class="option-text">${opt}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            questionContainer.innerHTML = html;
+            
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    if (!quizSubmitted) {
+                        userAnswers[currentQuestion] = parseInt(opt.getAttribute('data-index'));
+                        renderQuestion();
+                    }
+                });
+            });
+            
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.disabled = currentQuestion === quizData.length - 1;
+            questionCounter.textContent = `Question ${currentQuestion + 1}/${quizData.length}`;
+        }
 
-// Submit Quiz
-function submitQuiz() {
-    quizSubmitted = true;
-    let correct = 0;
-    quizData.forEach((q, i) => {
-        if (userAnswers[i] === q.a) correct++;
-    });
-    const score = Math.round((correct / quizData.length) * 100);
-    finalScore.textContent = score;
-    scoreMessage.textContent = `You got ${correct} out of ${quizData.length} correct.`;
-    scoreValue.textContent = score;
-    questionContainer.innerHTML = `<p style="text-align:center;padding:30px;font-size:1.2rem;">Quiz submitted! Click 'Try Again' to retake.</p>`;
-    resultContainer.classList.remove('hidden');
-}
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+            }
+        });
 
-// Reset Quiz
-function resetQuiz() {
-    currentQuestion = 0;
-    userAnswers = new Array(quizData.length).fill(null);
-    quizSubmitted = false;
-    resultContainer.classList.add('hidden');
-    renderQuestion();
-}
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+            }
+        });
 
-// Render Flashcard
-function renderFlashcard() {
-    const card = flashcardsData[currentCard];
-    termDisplay.textContent = card.term;
-    definitionCn.textContent = card.cn;
-    definitionEn.textContent = card.en;
-    exampleText.textContent = card.ex;
-    cardCounter.textContent = currentCard + 1;
-    cardCounterText.textContent = `Card ${currentCard + 1} of ${flashcardsData.length}`;
-    
-    const progress = Math.round(((currentCard + 1) / flashcardsData.length) * 100);
-    progressFill.style.width = progress + '%';
-    progressPercent.textContent = progress;
-    masteredCount.textContent = masteredCards.size;
-    
-    masterBtn.textContent = masteredCards.has(currentCard) ? 'Unmark Mastered' : 'Mark as Mastered';
-    
-    // Reset flip state
-    isFlipped = false;
-    flashcard.innerHTML = `<div><h3 id="term-display">${card.term}</h3><p class="hint">Click to see definition</p></div>`;
-    cardDefinition.style.display = 'none';
-}
+        submitBtn.addEventListener('click', () => {
+            quizSubmitted = true;
+            let score = 0;
+            quizData.forEach((q, i) => {
+                if (userAnswers[i] === q.answer) score++;
+            });
+            const percentage = Math.round((score / quizData.length) * 100);
+            
+            let html = `
+                <h3>Quiz Results</h3>
+                <div class="score-display">
+                    <div class="score-circle"><span id="final-score">${percentage}</span>%</div>
+                    <p id="score-message">You got ${score} out of ${quizData.length} questions correct!</p>
+                </div>
+            `;
+            
+            html += '<div style="text-align:left;margin-top:20px;">';
+            quizData.forEach((q, i) => {
+                const isCorrect = userAnswers[i] === q.answer;
+                const yourAnswer = currentLang === 'en' ? q.options_en[userAnswers[i]] : q.options_cn[userAnswers[i]];
+                const correctAnswer = currentLang === 'en' ? q.options_en[q.answer] : q.options_cn[q.answer];
+                const explanation = currentLang === 'en' ? q.explanation_en : q.explanation_cn;
+                
+                html += `
+                    <div style="margin-bottom:15px;padding:15px;background:${isCorrect ? '#e8f5e9' : '#ffebee'};border-radius:8px;">
+                        <p style="font-weight:bold;">${i + 1}. ${currentLang === 'en' ? q.question_en : q.question_cn}</p>
+                        <p style="color:${isCorrect ? '#4CAF50' : '#f44336'};">${isCorrect ? '✓' : '✗'} ${currentLang === 'en' ? 'Your answer' : '你的答案'}: ${yourAnswer}</p>
+                        ${!isCorrect ? `<p style="color:#4CAF50;">${currentLang === 'en' ? 'Correct answer' : '正确答案'}: ${correctAnswer}</p>` : ''}
+                        <p style="font-size:0.9rem;color:#666;margin-top:5px;">${currentLang === 'en' ? 'Explanation' : '解析'}: ${explanation}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            resultContainer.innerHTML = html + '<button id="retry-btn" onclick="retryQuiz()">Try Again</button>';
+            resultContainer.classList.remove('hidden');
+            questionContainer.classList.add('hidden');
+            document.querySelector('.quiz-controls').classList.add('hidden');
+            
+            scoreValue.textContent = percentage;
+            finalScore.textContent = percentage;
+        });
 
-// Event Listeners
-langEnBtn.addEventListener('click', () => {
-    currentLang = 'en';
-    langEnBtn.classList.add('active');
-    langCnBtn.classList.remove('active');
-});
+        function retryQuiz() {
+            currentQuestion = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            quizSubmitted = false;
+            resultContainer.classList.add('hidden');
+            questionContainer.classList.remove('hidden');
+            document.querySelector('.quiz-controls').classList.remove('hidden');
+            renderQuestion();
+        }
 
-langCnBtn.addEventListener('click', () => {
-    currentLang = 'cn';
-    langCnBtn.classList.add('active');
-    langEnBtn.classList.remove('active');
-});
+        // Flashcard Functions
+        function renderFlashcard() {
+            const card = flashcardsData[currentCard];
+            termDisplay.textContent = card.term;
+            definitionCn.textContent = card.cn;
+            definitionEn.textContent = card.en;
+            exampleText.textContent = card.example;
+            cardCounter.textContent = currentCard + 1;
+            cardCounterText.textContent = `Card ${currentCard + 1}/${flashcardsData.length}`;
+            progressPercent.textContent = Math.round(((currentCard + 1) / flashcardsData.length) * 100);
+            progressFill.style.width = `${((currentCard + 1) / flashcardsData.length) * 100}%`;
+            masteredCount.textContent = masteredCards.size;
+            
+            if (masteredCards.has(currentCard)) {
+                masterBtn.textContent = 'Mark as Unmastered';
+                masterBtn.classList.remove('master-btn');
+                masterBtn.classList.add('review-btn');
+            } else {
+                masterBtn.textContent = 'Mark as Mastered';
+                masterBtn.classList.add('master-btn');
+                masterBtn.classList.remove('review-btn');
+            }
+            
+            prevCardBtn.disabled = currentCard === 0;
+            nextCardBtn.disabled = currentCard === flashcardsData.length - 1;
+        }
 
-tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
-});
+        flipBtn.addEventListener('click', () => {
+            isFlipped = !isFlipped;
+            if (isFlipped) {
+                flashcard.querySelector('.card-term').style.display = 'none';
+                cardDefinition.style.display = 'block';
+                flipBtn.textContent = 'Show Term';
+            } else {
+                flashcard.querySelector('.card-term').style.display = 'block';
+                cardDefinition.style.display = 'none';
+                flipBtn.textContent = 'Flip Card';
+            }
+        });
 
-prevBtn.addEventListener('click', () => {
-    if (currentQuestion > 0) {
-        currentQuestion--;
+        masterBtn.addEventListener('click', () => {
+            if (masteredCards.has(currentCard)) {
+                masteredCards.delete(currentCard);
+            } else {
+                masteredCards.add(currentCard);
+            }
+            masteredCount.textContent = masteredCards.size;
+            renderFlashcard();
+        });
+
+        prevCardBtn.addEventListener('click', () => {
+            if (currentCard > 0) {
+                currentCard--;
+                isFlipped = false;
+                flashcard.querySelector('.card-term').style.display = 'block';
+                cardDefinition.style.display = 'none';
+                flipBtn.textContent = 'Flip Card';
+                renderFlashcard();
+            }
+        });
+
+        nextCardBtn.addEventListener('click', () => {
+            if (currentCard < flashcardsData.length - 1) {
+                currentCard++;
+                isFlipped = false;
+                flashcard.querySelector('.card-term').style.display = 'block';
+                cardDefinition.style.display = 'none';
+                flipBtn.textContent = 'Flip Card';
+                renderFlashcard();
+            }
+        });
+
+        // Initialize
         renderQuestion();
-    }
-});
-
-nextBtn.addEventListener('click', () => {
-    if (currentQuestion < quizData.length - 1) {
-        currentQuestion++;
-        renderQuestion();
-    }
-});
-
-submitBtn.addEventListener('click', submitQuiz);
-retryBtn.addEventListener('click', resetQuiz);
-
-prevCardBtn.addEventListener('click', () => {
-    if (currentCard > 0) {
-        currentCard--;
         renderFlashcard();
-    }
-});
-
-nextCardBtn.addEventListener('click', () => {
-    if (currentCard < flashcardsData.length - 1) {
-        currentCard++;
-        renderFlashcard();
-    }
-});
-
-flipBtn.addEventListener('click', () => {
-    isFlipped = !isFlipped;
-    if (isFlipped) {
-        const card = flashcardsData[currentCard];
-        flashcard.innerHTML = `<div style="padding:20px;text-align:center;"><p style="font-size:1.1rem;margin-bottom:10px;">${card.cn}</p><p style="color:#666;margin-bottom:15px;">${card.en}</p><p style="background:#FFF9E6;padding:15px;border-radius:8px;">${card.ex}</p></div>`;
-        cardDefinition.style.display = 'none';
-    } else {
-        renderFlashcard();
-    }
-});
-
-flashcard.addEventListener('click', () => {
-    isFlipped = !isFlipped;
-    if (isFlipped) {
-        const card = flashcardsData[currentCard];
-        flashcard.innerHTML = `<div style="padding:20px;text-align:center;"><p style="font-size:1.1rem;margin-bottom:10px;">${card.cn}</p><p style="color:#666;margin-bottom:15px;">${card.en}</p><p style="background:#FFF9E6;padding:15px;border-radius:8px;">${card.ex}</p></div>`;
-        cardDefinition.style.display = 'none';
-    } else {
-        renderFlashcard();
-    }
-});
-
-masterBtn.addEventListener('click', () => {
-    if (masteredCards.has(currentCard)) {
-        masteredCards.delete(currentCard);
-    } else {
-        masteredCards.add(currentCard);
-    }
-    masteredCount.textContent = masteredCards.size;
-    masterBtn.textContent = masteredCards.has(currentCard) ? 'Unmark Mastered' : 'Mark as Mastered';
-});
-
-feedbackBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        feedbackThankYou.classList.remove('hidden');
-        setTimeout(() => feedbackThankYou.classList.add('hidden'), 3000);
-    });
-});
-
-// Init
-renderQuestion();
-renderFlashcard();
-console.log('Microeconomics Interactive Lab loaded successfully!');
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </script>
 </body>
 </html>
