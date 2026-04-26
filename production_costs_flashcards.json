@@ -1,0 +1,242 @@
+[
+    {
+        "id": 101,
+        "term_en": "Opportunity Cost",
+        "definition_cn": "机会成本 - 为了获得某种东西而必须放弃的最佳替代选择的价值",
+        "definition_en": "The value of the best alternative forgone when making a decision",
+        "example_en": "If you spend $100 on a concert ticket, the opportunity cost might be a textbook you could have bought instead",
+        "example_cn": "如果你花100美元买了一张音乐会门票，机会成本可能是你本来可以买的一本教科书"
+    },
+    {
+        "id": 102,
+        "term_en": "Explicit Cost",
+        "definition_cn": "显性成本 - 企业为生产要素支付的直接货币支出",
+        "definition_en": "Direct monetary payments for inputs in production",
+        "example_en": "Wages paid to workers, rent paid to landlord, costs of raw materials",
+        "example_cn": "支付给工人的工资、支付给房东的租金、原材料成本"
+    },
+    {
+        "id": 103,
+        "term_en": "Implicit Cost",
+        "definition_cn": "隐性成本 - 企业使用自有资源的机会成本，不涉及实际现金支付",
+        "definition_en": "Opportunity costs of using resources owned by the firm, no cash payment involved",
+        "example_en": "Forgone salary from not working elsewhere, foregone interest on owner's capital, foregone rent from using own property",
+        "example_cn": "不在其他地方工作放弃的薪水、放弃的资本利息、使用自有房产放弃的租金"
+    },
+    {
+        "id": 104,
+        "term_en": "Accounting Profit",
+        "definition_cn": "会计利润 - 总收入减去显性成本（企业账目上记录的利润）",
+        "definition_en": "Total revenue minus explicit (accounting) costs only",
+        "example_en": "Revenue $500,000 - Explicit costs $300,000 = Accounting profit $200,000",
+        "example_cn": "收入500,000美元 - 显性成本300,000美元 = 会计利润200,000美元"
+    },
+    {
+        "id": 105,
+        "term_en": "Economic Profit",
+        "definition_cn": "经济利润 - 总收入减去所有成本（显性成本加隐性成本）",
+        "definition_en": "Total revenue minus ALL costs (both explicit and implicit, including opportunity costs)",
+        "example_en": "Revenue $500,000 - Explicit costs $300,000 - Implicit costs $250,000 = Economic profit -$50,000",
+        "example_cn": "收入500,000美元 - 显性成本300,000美元 - 隐性成本250,000美元 = 经济利润-50,000美元"
+    },
+    {
+        "id": 106,
+        "term_en": "Normal Profit",
+        "definition_cn": "正常利润 - 经济利润为零时的利润水平，恰好等于隐性成本总和",
+        "definition_en": "The profit earned when economic profit equals zero; the minimum return needed to keep entrepreneurs in the industry",
+        "example_en": "When a firm's revenue covers all explicit costs plus exactly the opportunity cost of owner's time and capital, it earns normal profit",
+        "example_cn": "当企业收入覆盖所有显性成本加上恰好等于业主时间和资本的机会成本时，它获得正常利润"
+    },
+    {
+        "id": 107,
+        "term_en": "Production Function",
+        "definition_cn": "生产函数 - 表示投入与产出之间技术关系的函数，显示用不同要素组合能生产多少产出",
+        "definition_en": "The technological relationship showing how much output can be produced with different combinations of inputs",
+        "example_en": "Q = f(L, K) shows output (Q) as a function of labor (L) and capital (K)",
+        "example_cn": "Q = f(L, K)表示产出(Q)是劳动(L)和资本(K)的函数"
+    },
+    {
+        "id": 108,
+        "term_en": "Total Product (TP)",
+        "definition_cn": "总产量 - 在给定一组投入下生产的总产出量",
+        "definition_en": "The total quantity of output produced with given inputs",
+        "example_en": "With 5 workers, the factory produces 100 units per day: TP = 100 units",
+        "example_cn": "用5名工人，工厂每天生产100单位产品：TP = 100单位"
+    },
+    {
+        "id": 109,
+        "term_en": "Average Product (AP)",
+        "definition_cn": "平均产量 - 总产量除以投入数量（通常是劳动）",
+        "definition_en": "Total product divided by the number of units of input (typically labor)",
+        "example_en": "TP = 100 units, 5 workers: AP = 100/5 = 20 units per worker",
+        "example_cn": "TP = 100单位，5名工人：AP = 100/5 = 每名工人20单位"
+    },
+    {
+        "id": 110,
+        "term_en": "Marginal Product (MP)",
+        "definition_cn": "边际产量 - 增加一单位投入所增加的总产量",
+        "definition_en": "The additional output produced by adding one more unit of an input, holding other inputs constant",
+        "example_en": "Adding the 6th worker increases output from 100 to 115 units: MP of 6th worker = 15 units",
+        "example_cn": "增加第6名工人使产出从100增加到115单位：第6名工人的MP = 15单位"
+    },
+    {
+        "id": 111,
+        "term_en": "Law of Diminishing Marginal Returns",
+        "definition_cn": "边际收益递减规律 - 在固定投入上连续增加可变投入，最终边际产量会下降",
+        "definition_en": "Adding more of a variable input to fixed inputs will eventually cause the marginal product of the variable input to decline",
+        "example_en": "Adding more workers to a fixed-size kitchen eventually slows down service as workers get in each other's way",
+        "example_cn": "在固定大小的厨房里增加更多工人，最终工人会互相妨碍，服务变慢"
+    },
+    {
+        "id": 112,
+        "term_en": "Short Run",
+        "definition_cn": "短期 - 至少有一种投入（通常是资本）是固定的时间段",
+        "definition_en": "A time period in which at least one input (typically capital) is fixed and cannot be changed",
+        "example_en": "A restaurant cannot quickly expand its kitchen size, seating area, or equipment in the short run",
+        "example_cn": "餐厅在短期内无法快速扩大厨房规模、座位区或设备"
+    },
+    {
+        "id": 113,
+        "term_en": "Long Run",
+        "definition_cn": "长期 - 所有投入都可以改变的时间段，企业可以调整工厂规模",
+        "definition_en": "A time period long enough for all inputs to be variable; firms can adjust factory size",
+        "example_en": "Over several years, a restaurant can relocate to a larger space, install more equipment, or even open new locations",
+        "example_cn": "在几年内，餐厅可以搬到更大的空间，安装更多设备，甚至开设新店"
+    },
+    {
+        "id": 114,
+        "term_en": "Total Fixed Cost (TFC)",
+        "definition_cn": "总固定成本 - 不随产出变化而变化的成本（如租金、设备折旧）",
+        "definition_en": "Costs that do not vary with output in the short run (e.g., rent, equipment depreciation)",
+        "example_en": "Factory rent of $5,000/month is the same whether you produce 100 or 1,000 units",
+        "example_cn": "每月5,000美元的工厂租金无论生产100还是1,000单位都是相同的"
+    },
+    {
+        "id": 115,
+        "term_en": "Total Variable Cost (TVC)",
+        "definition_cn": "总可变成本 - 随产出变化而变化的成本（如原材料、人工）",
+        "definition_en": "Costs that vary directly with output (e.g., raw materials, hourly labor)",
+        "example_en": "Making 100 pizzas costs $500 in dough and toppings; making 200 pizzas costs $1,000",
+        "example_cn": "制作100个披萨面团和配料成本500美元；制作200个披萨成本1,000美元"
+    },
+    {
+        "id": 116,
+        "term_en": "Total Cost (TC)",
+        "definition_cn": "总成本 - 总固定成本加总可变成本（TC = TFC + TVC）",
+        "definition_en": "The sum of total fixed costs and total variable costs: TC = TFC + TVC",
+        "example_en": "TC = $5,000 (rent) + $3,000 (ingredients) = $8,000",
+        "example_cn": "TC = 5,000美元（租金）+ 3,000美元（配料）= 8,000美元"
+    },
+    {
+        "id": 117,
+        "term_en": "Marginal Cost (MC)",
+        "definition_cn": "边际成本 - 增加一单位产出所增加的总成本（MC = ΔTC/ΔQ）",
+        "definition_en": "The change in total cost from producing one more unit of output",
+        "example_en": "Producing the 101st unit increases TC from $5,000 to $5,050: MC = $50",
+        "example_cn": "生产第101单位使TC从5,000美元增加到5,050美元：MC = 50美元"
+    },
+    {
+        "id": 118,
+        "term_en": "Average Fixed Cost (AFC)",
+        "definition_cn": "平均固定成本 - 总固定成本除以产出量（AFC = TFC/Q），随产出增加而持续下降",
+        "definition_en": "Fixed cost per unit of output; declines continuously as output increases (AFC = TFC/Q)",
+        "example_en": "TFC = $1,000. At Q=100, AFC=$10. At Q=200, AFC=$5. AFC keeps falling but approaches zero.",
+        "example_cn": "TFC = 1,000美元。Q=100时，AFC=10美元。Q=200时，AFC=5美元。AFC持续下降但接近零。"
+    },
+    {
+        "id": 119,
+        "term_en": "Average Variable Cost (AVC)",
+        "definition_cn": "平均可变成本 - 总可变成本除以产出量（AVC = TVC/Q）",
+        "definition_en": "Variable cost per unit of output (AVC = TVC/Q)",
+        "example_en": "TVC = $2,000, Q = 500: AVC = $4 per unit",
+        "example_cn": "TVC = 2,000美元，Q = 500：AVC = 每单位4美元"
+    },
+    {
+        "id": 120,
+        "term_en": "Average Total Cost (ATC)",
+        "definition_cn": "平均总成本 - 总成本除以产出量，也等于AFC + AVC（ATC = TC/Q）",
+        "definition_en": "Total cost per unit of output; equals AFC + AVC (ATC = TC/Q)",
+        "example_en": "TC = $10,000, Q = 200: ATC = $50 = AFC($5) + AVC($45)",
+        "example_cn": "TC = 10,000美元，Q = 200：ATC = 50美元 = AFC(5美元) + AVC(45美元)"
+    },
+    {
+        "id": 121,
+        "term_en": "U-Shaped Average Total Cost Curve",
+        "definition_cn": "U形平均总成本曲线 - 短期内ATC曲线呈U形，因为AFC下降而AVC先降后升",
+        "definition_en": "ATC is U-shaped in the short run: initially falling due to spreading fixed costs, then rising due to diminishing marginal returns",
+        "example_en": "Small production runs have high ATC (spreading fixed costs); medium runs minimize ATC; large runs have rising ATC (variable costs grow faster)",
+        "example_cn": "小规模生产ATC高（分摊固定成本）；中等规模ATC最低；大规模ATC上升（可变成本增长更快）"
+    },
+    {
+        "id": 122,
+        "term_en": "Marginal Cost and Marginal Product Relationship",
+        "definition_cn": "边际成本与边际产量的反向关系 - 当MP上升时MC下降，当MP下降时MC上升",
+        "definition_en": "MC and MP move in opposite directions: when MP rises (increasing returns), MC falls; when MP falls (diminishing returns), MC rises",
+        "example_en": "Early workers add a lot of output (high MP, low MC). Later workers add less output (low MP, high MC).",
+        "example_cn": "早期工人增加大量产出（高MP，低MC）。后期工人增加较少产出（低MP，高MC）。"
+    },
+    {
+        "id": 123,
+        "term_en": "Short-Run Cost Curves Relationships",
+        "definition_cn": "短期成本曲线关系 - MC曲线在AVC和ATC最低点分别穿过它们",
+        "definition_en": "MC intersects AVC and ATC at their minimum points: when MC < ATC, ATC falls; when MC > ATC, ATC rises",
+        "example_en": "If MC ($30) < ATC ($40), adding another unit lowers average cost. If MC ($50) > ATC ($40), it raises average cost.",
+        "example_cn": "如果MC(30美元) < ATC(40美元)，增加一单位降低平均成本。如果MC(50美元) > ATC(40美元)，它提高平均成本。"
+    },
+    {
+        "id": 124,
+        "term_en": "Long-Run Average Cost (LAC)",
+        "definition_cn": "长期平均成本 - 企业选择最优工厂规模时对应的平均成本曲线，呈U形",
+        "definition_en": "The average cost curve when the firm can choose the optimal factory size; U-shaped due to economies and diseconomies of scale",
+        "example_en": "LAC shows the minimum ATC achievable when a firm adjusts all inputs freely over time",
+        "example_cn": "LAC显示当企业随时间自由调整所有投入时可达到的最低ATC"
+    },
+    {
+        "id": 125,
+        "term_en": "Economies of Scale",
+        "definition_cn": "规模经济 - 随着产出增加，长期平均成本下降",
+        "definition_en": "When increasing output leads to lower long-run average costs; output grows faster than inputs",
+        "example_en": "A large factory can use specialized machinery and division of labor that a small shop cannot, reducing per-unit costs",
+        "example_cn": "大型工厂可以使用小型商店无法使用的专业机械和分工，降低单位成本"
+    },
+    {
+        "id": 126,
+        "term_en": "Diseconomies of Scale",
+        "definition_cn": "规模不经济 - 随着产出增加，长期平均成本上升",
+        "definition_en": "When increasing output leads to higher long-run average costs due to coordination problems in large organizations",
+        "example_en": "A giant corporation may face communication delays, bureaucratic inefficiency, and worker alienation that raise per-unit costs",
+        "example_cn": "大型企业可能面临沟通延迟、官僚主义效率低下和工人疏离，提高单位成本"
+    },
+    {
+        "id": 127,
+        "term_en": "Constant Returns to Scale",
+        "definition_cn": "规模收益不变 - 投入增加一定比例时，产出也增加相同比例",
+        "definition_en": "When output increases by the same proportion as inputs (e.g., doubling inputs doubles output)",
+        "example_en": "A printing press that prints 100 pages/minute with 5 workers will print 200 pages/minute with 10 workers: constant returns",
+        "example_cn": "一台印刷机用5名工人每分钟印100页，用10名工人每分钟印200页：规模收益不变"
+    },
+    {
+        "id": 128,
+        "term_en": "Factory Size and Long-Run ATC",
+        "definition_cn": "工厂规模与长期ATC - 长期ATC曲线是各短期ATC曲线（代表不同规模工厂）的包络线",
+        "definition_en": "The long-run ATC curve is the envelope of short-run ATC curves for different factory sizes; the firm chooses the size minimizing ATC for desired output",
+        "example_en": "If a small factory has lower ATC at low output and a large factory has lower ATC at high output, LAC wraps around both",
+        "example_cn": "如果小型工厂在低产出时ATC更低，大型工厂在高产出时ATC更低，LAC围绕两者"
+    },
+    {
+        "id": 129,
+        "term_en": "Minimum Efficient Scale",
+        "definition_cn": "最小有效规模 - LAC曲线最低点对应的产出规模，此时规模经济结束",
+        "definition_en": "The output level where long-run average cost is minimized; the point where economies of scale end and constant returns begin",
+        "example_en": "A car manufacturer reaching MES at 500,000 cars/year can undersell competitors but producing more would face diseconomies",
+        "example_cn": "汽车制造商在年产50万辆时达到MES可以低价竞争，但生产更多将面临规模不经济"
+    },
+    {
+        "id": 130,
+        "term_en": "Sunk Cost",
+        "definition_cn": "沉没成本 - 已经发生且无法收回的成本，理性决策应忽略它",
+        "definition_en": "A cost that has already been incurred and cannot be recovered; rational decision-making should ignore sunk costs",
+        "example_en": "You paid $50 for a non-refundable movie ticket but the movie looks terrible. The $50 is sunk—your decision should be based on whether watching now is worth your time, not the money spent.",
+        "example_cn": "你花了50美元买了一张不可退款的电影票，但电影看起来很糟糕。50美元是沉没成本——你的决定应该基于现在观看是否值得你的时间，而不是花掉的钱。"
+    }
+]

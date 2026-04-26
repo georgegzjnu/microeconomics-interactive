@@ -35,6 +35,7 @@ const translations = {
         category_market_failure: "Market Failure",
         category_imperfect_competition: "Imperfect Competition",
         category_information: "Information Economics",
+        category_production_costs: "Production Costs",
         category_market_efficiency: "Market Efficiency",
         correct: "Correct",
         incorrect: "Incorrect",
@@ -85,6 +86,7 @@ const translations = {
         category_market_failure: "市场失灵",
         category_imperfect_competition: "不完全竞争市场",
         category_information: "信息经济学",
+        category_production_costs: "生产成本",
         correct: "正确",
         incorrect: "错误",
         your_answer: "你的答案",
@@ -1949,7 +1951,7 @@ let masteredCards = new Set(); // stores ids of mastered cards
 // ================ Quiz Category Functions ================
 function getCurrentQuizData() {
     if (quizCategory === 'all') {
-        return quizData.concat(elasticityQuizData).concat(marketFailureQuizData).concat(imperfectCompetitionQuizData).concat(factorMarketsQuizData).concat(marketEfficiencyQuizData).concat(informationEconomicsQuizData);
+        return quizData.concat(elasticityQuizData).concat(marketFailureQuizData).concat(imperfectCompetitionQuizData).concat(factorMarketsQuizData).concat(marketEfficiencyQuizData).concat(informationEconomicsQuizData).concat(productionCostsQuizData);
     } else if (quizCategory === 'supply') {
         return quizData;
     } else if (quizCategory === 'elasticity') {
@@ -1962,6 +1964,8 @@ function getCurrentQuizData() {
         return imperfectCompetitionQuizData;
     } else if (quizCategory === 'factor_markets') {
         return factorMarketsQuizData;
+    } else if (quizCategory === 'production_costs') {
+        return productionCostsQuizData;
     } else if (quizCategory === 'market_efficiency') {
         return marketEfficiencyQuizData;
     }
@@ -1986,7 +1990,7 @@ function setQuizCategory(category) {
 // ================ Flashcards Category Functions ================
 function getCurrentFlashcardsData() {
     if (flashcardsCategory === 'all') {
-        return flashcardsData.concat(elasticityFlashcardsData).concat(marketFailureFlashcardsData).concat(imperfectCompetitionFlashcardsData).concat(factorMarketsFlashcardsData).concat(behavioralEconomicsFlashcardsData);
+        return flashcardsData.concat(elasticityFlashcardsData).concat(marketFailureFlashcardsData).concat(imperfectCompetitionFlashcardsData).concat(factorMarketsFlashcardsData).concat(behavioralEconomicsFlashcardsData).concat(productionCostsFlashcardsData);
     } else if (flashcardsCategory === 'supply') {
         return flashcardsData;
     } else if (flashcardsCategory === 'elasticity') {
@@ -1997,6 +2001,8 @@ function getCurrentFlashcardsData() {
         return imperfectCompetitionFlashcardsData;
     } else if (flashcardsCategory === 'factor_markets') {
         return factorMarketsFlashcardsData;
+    } else if (flashcardsCategory === 'production_costs') {
+        return productionCostsFlashcardsData;
     } else if (flashcardsCategory === 'behavioral_economics') {
         return behavioralEconomicsFlashcardsData;
     }
@@ -2454,21 +2460,27 @@ let marketEfficiencyQuizData = [];
 let marketEfficiencyFlashcardsData = [];
 let informationEconomicsQuizData = [];
 let behavioralEconomicsFlashcardsData = [];
+let productionCostsQuizData = [];
+let productionCostsFlashcardsData = [];
 
 // ================ Initialization ================
 async function init() {
     // Load external JSON data for Week 6
     try {
-        const [quizResponse, flashcardsResponse, ieQuizResponse, beFlashcardsResponse] = await Promise.all([
+        const [quizResponse, flashcardsResponse, ieQuizResponse, beFlashcardsResponse, pcQuizResponse, pcFlashcardsResponse] = await Promise.all([
             fetch('week6_market_efficiency_quiz.json'),
             fetch('week6_market_efficiency_flashcards.json'),
             fetch('information_economics_quiz.json'),
-            fetch('behavioral_economics_flashcards.json')
+            fetch('behavioral_economics_flashcards.json'),
+            fetch('production_costs_quiz.json'),
+            fetch('production_costs_flashcards.json')
         ]);
         marketEfficiencyQuizData = await quizResponse.json();
         marketEfficiencyFlashcardsData = await flashcardsResponse.json();
         informationEconomicsQuizData = await ieQuizResponse.json();
         behavioralEconomicsFlashcardsData = await beFlashcardsResponse.json();
+        productionCostsQuizData = await pcQuizResponse.json();
+        productionCostsFlashcardsData = await pcFlashcardsResponse.json();
         console.log('Week 6 & Week 7 data loaded successfully');
     } catch (error) {
         console.error('Error loading data:', error);
